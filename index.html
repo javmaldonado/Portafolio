@@ -1,0 +1,777 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"> 
+    <meta name="viewport" content="width=device-width, initial-scale=1"> 
+    <title>Portafolio de trabajo</title>
+    <meta name="description" content="Hover Effect Ideas: Inspiration for subtle hover effects" />
+    <meta name="keywords" content="hover effect, inspiration, grid, thumbnail, transition, subtle, web design" />
+    <meta name="author" content="Codrops" />
+    <link rel="shortcut icon" href="../favicon.ico">
+    <link href='http://fonts.googleapis.com/css?family=Raleway:400,800,300' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" type="text/css" href="css/normalize.css" />
+    <link rel="stylesheet" type="text/css" href="css/demo.css" />
+    <link rel="stylesheet" type="text/css" href="css/set1.css" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+          .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            padding: 20px;
+        }
+        .effect-lily {
+            position: relative;
+            overflow: hidden;
+            width: 100%;
+            height: 900px;
+        }
+        .effect-lily img {
+            width: 100%;
+            display: block;
+        }
+        
+        /* Estilos para la sección Quién soy - Colores neutros */
+        .about-section {
+            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+            position: relative;
+            overflow: hidden;
+            width: 100vw;
+            margin-left: calc(-50vw + 50%);
+        }
+        
+        .about-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.02);
+            z-index: 1;
+        }
+        
+        .about-content {
+            position: relative;
+            z-index: 2;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .about-content .grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: start;
+            min-height: 600px;
+        }
+
+        @media (max-width: 768px) {
+            .about-content .grid {
+                grid-template-columns: 1fr;
+                gap: 3rem;
+                text-align: center;
+            }
+        }
+        
+        .profile-image {
+            border-radius: 12px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+            transition: all 0.3s ease;
+            border: 3px solid #ffffff;
+        }
+        
+        .profile-image:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.2);
+        }
+        
+        .text-accent {
+            color: #2d3748;
+            font-weight: 700;
+        }
+        
+        .decorative-dot {
+            animation: float 3s ease-in-out infinite;
+        }
+        
+        .decorative-dot:nth-child(2) {
+            animation-delay: 1.5s;
+        }
+        
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
+        }
+        
+        /* Ajuste perfecto al ancho para todas las secciones */
+        .container {
+            width: 100%;
+            max-width: none;
+            padding: 0;
+        }
+        
+        .content {
+            width: 100vw;
+            margin-left: calc(-50vw + 50%);
+            padding: 40px 20px;
+            background: #ffffff;
+        }
+        
+        .content .grid {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        /* Header ajustado */
+        .codrops-header {
+            width: 100vw;
+            margin-left: calc(-50vw + 50%);
+            background: #2d3748;
+            color: white;
+            padding: 60px 20px;
+            text-align: center;
+        }
+        
+        /* Footer ajustado */
+        footer {
+            width: 100vw;
+            margin-left: calc(-50vw + 50%);
+        }
+              /* Custom Styles */
+        * {
+            scroll-behavior: smooth;
+        }
+        
+        .hero-bg {
+            background: linear-gradient(135deg, #f3f4f6 0%, #e5e7eb 100%);
+        }
+        
+        .profile-container {
+            position: relative;
+            width: 300px;
+            height: 300px;
+            margin: 0 auto;
+        }
+        
+        .profile-bg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: #0d9488;
+            border-radius: 50%;
+            transform: rotate(12deg) scale(1.1);
+        }
+        
+        .profile-img {
+            position: relative;
+            z-index: 10;
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            object-fit: cover;
+            background: #e5e7eb;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #6b7280;
+            font-size: 48px;
+        }
+        
+        .btn-primary {
+            background: #0d9488;
+            color: white;
+            padding: 12px 24px;
+            border-radius: 8px;
+            text-decoration: none;
+            display: inline-block;
+            transition: all 0.3s;
+            font-weight: 500;
+        }
+        
+        .btn-primary:hover {
+            background: #0f766e;
+            transform: translateY(-2px);
+        }
+        
+        .btn-secondary {
+            border: 2px solid #0d9488;
+            color: #0d9488;
+            padding: 10px 24px;
+            border-radius: 8px;
+            text-decoration: none;
+            display: inline-block;
+            transition: all 0.3s;
+            font-weight: 500;
+        }
+        
+        .btn-secondary:hover {
+            background: #0d9488;
+            color: white;
+        }
+        
+        .project-card {
+            background: white;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s;
+        }
+        
+        .project-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
+        }
+        
+        .skill-bar {
+            width: 100%;
+            height: 8px;
+            background: #e5e7eb;
+            border-radius: 4px;
+            overflow: hidden;
+        }
+        
+        .skill-progress {
+            height: 100%;
+            background: #0d9488;
+            border-radius: 4px;
+            transition: width 2s ease-out;
+            width: 0%;
+        }
+        
+        .fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s ease-out;
+        }
+        
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        .nav-link {
+            color: #374151;
+            text-decoration: none;
+            padding: 8px 16px;
+            border-radius: 6px;
+            transition: all 0.3s;
+        }
+        
+        .nav-link:hover {
+            color: #0d9488;
+            background: rgba(13, 148, 136, 0.1);
+        }
+        
+        @media (max-width: 768px) {
+            .profile-container {
+                width: 250px;
+                height: 250px;
+            }
+            
+            .mobile-menu {
+                display: none;
+                background: white;
+                border-radius: 8px;
+                box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+                padding: 16px;
+                margin-top: 16px;
+            }
+            
+            .mobile-menu.show {
+                display: block;
+            }
+        }
+    </style>
+</head>
+<body class="bg-stone-100">
+    <!-- Navigation -->
+    <nav class="fixed top-0 w-full bg-white/90 backdrop-blur-sm z-50 shadow-sm">
+        <div class="max-w-6xl mx-auto px-4 py-4">
+            <div class="flex justify-between items-center">
+                <div class="text-xl font-bold text-gray-900">Jama</div>
+                <div class="hidden md:flex space-x-4">
+                    <a href="#home" class="nav-link">Inicio</a>
+                    <a href="#projects" class="nav-link">Proyectos</a>
+                    <a href="#skills" class="nav-link">Habilidades</a>
+                    <a href="#contact" class="nav-link">Contacto</a>
+                </div>
+                <button id="mobile-btn" class="md:hidden">
+                    <i class="fas fa-bars text-gray-700"></i>
+                </button>
+            </div>
+            
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero-bg pt-20 pb-16">
+        <section class="about-section py-20">
+            <header class="codrops-header">
+            <h1 class="text-4xl md:text-5xl font-bold">
+                Hola, Bienvenido. 
+            </h1>
+        </header>
+            <div class="about-content">
+                <div class="grid md:grid-cols-2 gap-16 items-center">
+                    <!-- Columna de Texto -->
+                    <div class="text-gray-800 space-y-6">
+                        <h2 class="text-4xl md:text-5xl font-bold mb-8 text-gray-900">
+                            Quién Soy
+                        </h2>
+                        
+                        <div class="space-y-6 text-lg leading-relaxed">
+                            <p class="text-gray-700">
+                                ¡Hola! Soy <strong class="text-accent">Javiera Maldonado</strong>, 
+                                una apasionada diseñadora UX/UI y Product Owner con más de 5 años de experiencia 
+                                creando experiencias digitales excepcionales.
+                            </p>
+                            
+                            <p class="text-gray-600">
+                                Mi enfoque se centra en entender las necesidades reales de los usuarios y 
+                                transformarlas en soluciones digitales intuitivas y efectivas. Combino 
+                                creatividad con metodología para crear productos que realmente impacten.
+                            </p>
+                            
+                            <p class="text-gray-600">
+                                Especializada en investigación de usuarios, prototipado, testing de usabilidad 
+                                y gestión de productos digitales. Me encanta trabajar en equipo y liderar 
+                                proyectos que generen valor tanto para los usuarios como para el negocio.
+                            </p>
+                        </div>
+
+
+                        <!-- CTA Button -->
+                        <div class="mt-10">
+                            <a href="#contacto" class="inline-flex items-center bg-gray-900 text-white px-8 py-4 rounded-lg font-semibold hover:bg-gray-800 transition-all duration-300 shadow-lg hover:shadow-xl">
+                                <span>Hablemos</span>
+                                <svg class="ml-3 w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
+                                </svg>
+                            </a>
+                             <a href="quien-soy.html" class="inline-flex items-center bg-gray-900 text-white px-8 py-4 rounded-lg font-semibold hover:bg-gray-800 transition-all duration-300 shadow-lg hover:shadow-xl">
+                                <span>Descarga CV</span>
+                                <svg class="ml-3 w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
+                                </svg>
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- Columna de Imagen -->
+                    <div class="flex justify-center md:justify-start items-start">
+                        <div class="relative mt-8">
+                            <!-- Decorative elements -->
+                            <div class="decorative-dot absolute -top-6 -left-6 w-20 h-20 bg-gray-300 rounded-full opacity-40"></div>
+                            <div class="decorative-dot absolute -bottom-8 -right-8 w-28 h-28 bg-gray-400 rounded-full opacity-30"></div>
+                            
+                            <!-- Main Image -->
+                            <img src="img/Photoroom_20250627_175845" 
+                                 alt="Javiera Maldonado - UX Designer & Product Owner" 
+                                 class="profile-image w-80 h-96 object-cover relative z-10">
+                            
+                            <!-- Image overlay with info -->
+                            
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+                </div>
+
+              
+            </div>
+        </div>
+    </section>
+
+  <!-- Sección de Proyectos -->
+   <section id="projects" >
+        
+            <div class="grid">
+                <figure class="effect-lily">
+                    <img src="img/12.jpg" alt="img12"/>
+                    <figcaption>
+                        <div>
+                            <h2>01 <span>Diseño Indistrial</span></h2>
+                            <p>Proyectos de DI</p>
+                        </div>
+                        <a href="diseñoindustrial.html">Ver más</a>
+                    </figcaption>     
+                </figure>
+
+                <figure class="effect-lily">
+                    <img src="img/1.jpg" alt="img1"/>
+                    <figcaption>
+                        <div>
+                            <h2>02 <span>Diseño UX</span></h2>
+                            <p>Proyectos de diseño</p>
+                        </div>
+                        <a href="diseno-ux.html">Ver más</a>
+                    </figcaption>     
+                </figure>
+
+                <figure class="effect-lily">
+                    <img src="img/2.jpg" alt="img2"/>
+                    <figcaption>
+                        <div>
+                            <h2>03 <span>Product Owner</span></h2>
+                            <p>Proyectos PO</p>
+                        </div>
+                        <a href="product-owner.html">Ver más</a>
+                    </figcaption>     
+                </figure>
+            </div>
+        </section>
+       
+    </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills" class="py-16 bg-stone-50">
+        <div class="max-w-6xl mx-auto px-4">
+            <div class="grid lg:grid-cols-2 gap-12">
+
+
+                <!-- Skills & Languages -->
+                 
+                <div class="fade-in">
+                    <div class="mb-8">
+                         <h3 class="text-3xl font-bold text-gray-900 mb-6">Gestión de producto y agilidad</h3>
+                        <div class="grid grid-cols-1 gap-3">
+                            <div class="flex items-center gap-3">
+                                <div class="w-2 h-2 bg-teal-600 rounded-full"></div>
+                                <span class="text-gray-700">Design Thinking</span>
+                            </div>
+                            <div class="flex items-center gap-3">
+                                <div class="w-2 h-2 bg-teal-600 rounded-full"></div>
+                                <span class="text-gray-700">Lean Startup</span>
+                            </div>
+                            <div class="flex items-center gap-3">
+                                <div class="w-2 h-2 bg-teal-600 rounded-full"></div>
+                                <span class="text-gray-700">Agile/Scrum</span>
+                            </div>
+                            <div class="flex items-center gap-3">
+                                <div class="w-2 h-2 bg-teal-600 rounded-full"></div>
+                                <span class="text-gray-700">Kanban</span>
+                            </div>
+                            <div class="flex items-center gap-3">
+                                <div class="w-2 h-2 bg-teal-600 rounded-full"></div>
+                                <span class="text-gray-700">Jira</span>
+                            </div>
+                             <div class="flex items-center gap-3">
+                                <div class="w-2 h-2 bg-teal-600 rounded-full"></div>
+                                <span class="text-gray-700">Historias de Usuario</span>
+                            </div>
+                             <div class="flex items-center gap-3">
+                                <div class="w-2 h-2 bg-teal-600 rounded-full"></div>
+                                <span class="text-gray-700">Estimaciones Ágiles</span>
+                            </div>
+                             <div class="flex items-center gap-3">
+                                <div class="w-2 h-2 bg-teal-600 rounded-full"></div>
+                                <span class="text-gray-700">Priorización de Backlog</span>
+                            </div>
+                             <div class="flex items-center gap-3">
+                                <div class="w-2 h-2 bg-teal-600 rounded-full"></div>
+                                <span class="text-gray-700">Roadmaps</span>
+                            </div>
+                             <div class="flex items-center gap-3">
+                                <div class="w-2 h-2 bg-teal-600 rounded-full"></div>
+                                <span class="text-gray-700">Análisis de Métricas</span>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+                      <div class="fade-in">
+                    <div class="mb-8">
+                       
+                         <h3 class="text-3xl font-bold text-gray-900 mb-6">Diseño y Prototipado</h3>
+                        <div class="grid grid-cols-1 gap-3">
+                            <div class="flex items-center gap-3">
+                                <div class="w-2 h-2 bg-teal-600 rounded-full"></div>
+                                <span class="text-gray-700">Figma</span>
+                            </div>
+                            <div class="flex items-center gap-3">
+                                <div class="w-2 h-2 bg-teal-600 rounded-full"></div>
+                                <span class="text-gray-700">Prototipado</span>
+                            </div>
+                            <div class="flex items-center gap-3">
+                                <div class="w-2 h-2 bg-teal-600 rounded-full"></div>
+                                <span class="text-gray-700">Wireframes</span>
+                            </div>
+                            <div class="flex items-center gap-3">
+                                <div class="w-2 h-2 bg-teal-600 rounded-full"></div>
+                                <span class="text-gray-700">Canva</span>
+                            </div>
+                            <div class="flex items-center gap-3">
+                                <div class="w-2 h-2 bg-teal-600 rounded-full"></div>
+                                <span class="text-gray-700">Adobe Illustrator/Photoshop</span>
+                            </div>
+                             <div class="flex items-center gap-3">
+                                <div class="w-2 h-2 bg-teal-600 rounded-full"></div>
+                                <span class="text-gray-700">Optimal Workshop</span>
+                            </div>
+                             <div class="flex items-center gap-3">
+                                <div class="w-2 h-2 bg-teal-600 rounded-full"></div>
+                                <span class="text-gray-700">Estimaciones Ágiles</span>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+                                      <div class="fade-in">
+                    <div class="mb-8">
+                       
+                         <h3 class="text-3xl font-bold text-gray-900 mb-6">Desarrollo Front End</h3>
+                        <div class="grid grid-cols-1 gap-3">
+                            <div class="flex items-center gap-3">
+                                <div class="w-2 h-2 bg-teal-600 rounded-full"></div>
+                                <span class="text-gray-700">CSS</span>
+                            </div>
+                            <div class="flex items-center gap-3">
+                                <div class="w-2 h-2 bg-teal-600 rounded-full"></div>
+                                <span class="text-gray-700">JavaScript</span>
+                            </div>
+                            <div class="flex items-center gap-3">
+                                <div class="w-2 h-2 bg-teal-600 rounded-full"></div>
+                                <span class="text-gray-700">Bootstrap/Tailwind</span>
+                            </div>
+                            <div class="flex items-center gap-3">
+                                <div class="w-2 h-2 bg-teal-600 rounded-full"></div>
+                                <span class="text-gray-700">VSCODE</span>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+                                                      <div class="fade-in">
+                    <div class="mb-8">
+                      
+                         <h3 class="text-3xl font-bold text-gray-900 mb-6">Habilidades blandas</h3>
+                        <div class="grid grid-cols-1 gap-3">
+                            <div class="flex items-center gap-3">
+                                <div class="w-2 h-2 bg-teal-600 rounded-full"></div>
+                                <span class="text-gray-700">Gestión administrativa</span>
+                            </div>
+                            <div class="flex items-center gap-3">
+                                <div class="w-2 h-2 bg-teal-600 rounded-full"></div>
+                                <span class="text-gray-700">Análisis de información</span>
+                            </div>
+                            <div class="flex items-center gap-3">
+                                <div class="w-2 h-2 bg-teal-600 rounded-full"></div>
+                                <span class="text-gray-700">Traduzco ideas en acciones</span>
+                            </div>
+                            <div class="flex items-center gap-3">
+                                <div class="w-2 h-2 bg-teal-600 rounded-full"></div>
+                                <span class="text-gray-700">Atención al detalle</span>
+                            </div>
+                              <div class="flex items-center gap-3">
+                                <div class="w-2 h-2 bg-teal-600 rounded-full"></div>
+                                <span class="text-gray-700">Trabajo en equipo</span>
+                            </div>
+                              <div class="flex items-center gap-3">
+                                <div class="w-2 h-2 bg-teal-600 rounded-full"></div>
+                                <span class="text-gray-700">Comunicación efectiva</span>
+                            </div>
+                              <div class="flex items-center gap-3">
+                                <div class="w-2 h-2 bg-teal-600 rounded-full"></div>
+                                <span class="text-gray-700">Proactiva</span>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Education Section -->
+    <section class="py-16 bg-white">
+        <div class="max-w-6xl mx-auto px-4">
+            <h2 class="text-3xl font-bold text-gray-900 mb-12 text-center fade-in">Certificaciones</h2>
+            <div class="max-w-3xl mx-auto space-y-8">
+                <div class="border-l-4 border-teal-600 pl-6 fade-in">
+                    <h3 class="font-semibold text-xl text-gray-900">
+                        <a href="img/es.pdf" target="_blank" class="hover:underline">
+                        Bootcamp, Fundamentos Product Owner</a></h3>
+                    <p class="text-gray-600 font-medium mb-2">Mayo 2025- Julio 2025 (Online, 138 h)</p>
+                    <p class="text-gray-700 mb-1">Talento Digital para Chile, MindHub</p>
+                </div>
+
+                <div class="border-l-4 border-gray-300 pl-6 fade-in">
+                    <h3 class="font-semibold text-xl text-gray-900"> 
+                <a href="img/DescargarCertificado.pdf" target="_blank" class="hover:underline">
+                    Bootcamp, Desarrollo de Aplicaciones Front-End
+                </a>
+            </h3>
+                    <p class="text-gray-600 font-medium mb-2">2024-2024 (Online, 438 h)</p>
+                    <p class="text-gray-700">Talento Digital para Chile, Desafío Latam</p>
+                </div>
+            <div class="border-l-4 border-gray-300 pl-6 fade-in">
+    <h3 class="font-semibold text-xl text-gray-900">
+        <a href="img/63757f4c78496c000f70b01e.png" target="_blank" class="hover:underline">
+            Bootcamp, Diseño UX/UI
+        </a>
+    </h3>
+
+    <p class="text-gray-600 font-medium mb-2">Marzo 2022 - Septiembre 2022 (Online, 52 h)</p>
+    <p class="text-gray-700">CoderHouse</p>
+</div>
+
+    <h2 class="text-3xl font-bold text-gray-900 mb-12 text-center fade-in">Educación</h2>
+            <div class="max-w-3xl mx-auto space-y-8">
+                <div class="border-l-4 border-teal-600 pl-6 fade-in">
+                    <h3 class="font-semibold text-xl text-gray-900">Universidad Austral de Chile, Puerto Montt</h3>
+                    <p class="text-teal-600 font-medium mb-2">Marzo 2014- Septiembre 2020</p>
+                    <p class="text-gray-700 mb-1">Título Profesional, Ingeniería Comercial mención administración de empresas</p>
+                </div>
+
+                <div class="border-l-4 border-gray-300 pl-6 fade-in">
+                    <h3 class="font-semibold text-xl text-gray-900">Instituto Profesional DUOC UC, Concepción</h3>
+                    <p class="text-gray-600 font-medium mb-2">Marzo 2009- Julio 2013</p>
+                    <p class="text-gray-700">Título Profesional, Diseñador Industrial</p>
+                </div>
+
+        
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+       <!-- Sección de Contacto (Footer) -->
+    <footer id="contact" class="bg-gray-900 text-white py-16 mt-0">
+        <div class="max-w-6xl mx-auto px-6 text-center">
+            <h2 class="text-3xl md:text-4xl font-bold mb-8 text-white">Contacto</h2>
+            <div class="grid md:grid-cols-2 lg:grid-cols-5 gap-6 text-base">
+               <a href="mailto:javiera.maldonado.agurto@gmail.com" 
+   class="flex flex-col items-center space-y-3 p-4 bg-gray-800 rounded-lg hover:bg-gray-700 transition-colors hover:text-gray-300 text-sm text-gray-300 break-all">
+    <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 20 20">
+        <path d="M2.003 5.884L10 9.882l7.997-3.998A2 2 0 0016 4H4a2 2 0 00-1.997 1.884z"></path>
+        <path d="M18 8.118l-8 4-8-4V14a2 2 0 002 2h12a2 2 0 002-2V8.118z"></path>
+    </svg>
+    <span>Correo</span>
+</a>
+
+                
+              <a href="https://www.linkedin.com/in/jamaldonadoagurto/" target="_blank" class="flex flex-col items-center space-y-3 p-4 bg-gray-800 rounded-lg hover:bg-gray-700 transition-colors hover:text-gray-300 text-sm text-gray-300">
+    <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 448 512">
+        <path d="M100.28 448H7.4V148.9h92.88zM53.79 108.1C24.09 108.1 0 83.5 0 53.8a53.79 53.79 0 0 1 107.58 0c0 29.7-24.1 54.3-53.79 54.3zM447.9 448h-92.68V302.4c0-34.7-.7-79.2-48.29-79.2-48.29 0-55.69 37.7-55.69 76.7V448h-92.78V148.9h89.08v40.8h1.3c12.4-23.5 42.69-48.3 87.88-48.3 94 0 111.28 61.9 111.28 142.3V448z"/>
+    </svg>
+    <span>LinkedIn</span>
+</a>
+
+               <a href="https://github.com/tuusuario" target="_blank" rel="noopener noreferrer"
+   class="flex flex-col items-center space-y-3 p-4 bg-gray-800 rounded-lg hover:bg-gray-700 transition-colors hover:text-gray-300 text-sm text-gray-300">
+    <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 20 20">
+        <path fill-rule="evenodd" d="M10 0C4.477 0 0 4.477 0 10c0 4.418 2.865 8.163 6.839 9.489.5.092.682-.217.682-.483 
+        0-.237-.009-.868-.014-1.703-2.782.605-3.369-1.34-3.369-1.34-.454-1.156-1.11-1.464-1.11-1.464-.908-.62.069-.608.069-.608 
+        1.004.07 1.532 1.03 1.532 1.03.89 1.529 2.34 1.089 2.91.832.09-.647.35-1.089.636-1.338-2.22-.253-4.555-1.11-4.555-4.943 
+        0-1.09.39-1.984 1.03-2.682-.104-.253-.448-1.27.098-2.65 
+        0 0 .84-.268 2.75 1.025A9.564 9.564 0 0110 4.878c.85.004 1.70.114 2.5.334 
+        1.909-1.293 2.747-1.025 2.747-1.025.546 1.38.202 2.398.098 2.65.64.698 
+        1.026 1.592 1.026 2.682 0 3.842-2.339 4.687-4.566 4.935.359.307.678.915.678 
+        1.846 0 1.335-.012 2.413-.012 2.742 0 .268.18.58.688.482A10.002 
+        10.002 0 0020 10c0-5.523-4.477-10-10-10z" clip-rule="evenodd"></path>
+    </svg>
+    <span>GitHub</span>
+</a>
+
+            </div>
+            <p class="mt-10 text-sm text-gray-400">&copy; 2025 Javiera Maldonado. Todos los derechos reservados.</p>
+        </div>
+    </footer>
+
+    <!-- Back to Top Button -->
+    <button id="back-to-top" class="fixed bottom-6 right-6 bg-teal-600 text-white p-3 rounded-full shadow-lg hover:bg-teal-700 transition-all duration-300 opacity-0 invisible">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+
+<script>
+        
+        // Simple JavaScript functionality
+        document.addEventListener('DOMContentLoaded', function() {
+            // Mobile menu toggle
+            const mobileBtn = document.getElementById('mobile-btn');
+            const mobileMenu = document.getElementById('mobile-menu');
+            
+            mobileBtn.addEventListener('click', function() {
+                mobileMenu.classList.toggle('show');
+            });
+
+            // Smooth scrolling for navigation links
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    const target = document.querySelector(this.getAttribute('href'));
+                    if (target) {
+                        target.scrollIntoView({
+                            behavior: 'smooth',
+                            block: 'start'
+                        });
+                        mobileMenu.classList.remove('show');
+                    }
+                });
+            });
+
+            // Back to top button
+            const backToTopBtn = document.getElementById('back-to-top');
+            
+            window.addEventListener('scroll', function() {
+                if (window.pageYOffset > 300) {
+                    backToTopBtn.style.opacity = '1';
+                    backToTopBtn.style.visibility = 'visible';
+                } else {
+                    backToTopBtn.style.opacity = '0';
+                    backToTopBtn.style.visibility = 'hidden';
+                }
+            });
+
+            backToTopBtn.addEventListener('click', function() {
+                window.scrollTo({
+                    top: 0,
+                    behavior: 'smooth'
+                });
+            });
+
+            // Fade in animation on scroll
+            const observerOptions = {
+                threshold: 0.1,
+                rootMargin: '0px 0px -50px 0px'
+            };
+
+            const observer = new IntersectionObserver(function(entries) {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                        
+                        // Animate skill progress bars
+                        const progressBars = entry.target.querySelectorAll('.skill-progress');
+                        progressBars.forEach(bar => {
+                            const width = bar.getAttribute('data-width');
+                            setTimeout(() => {
+                                bar.style.width = width + '%';
+                            }, 200);
+                        });
+                    }
+                });
+            }, observerOptions);
+
+            // Observe all fade-in elements
+            document.querySelectorAll('.fade-in').forEach(el => {
+                observer.observe(el);
+            });
+        });
+  
+        // For Demo purposes only (show hover effect on mobile devices)
+        [].slice.call( document.querySelectorAll('a[href="#"') ).forEach( function(el) {
+            el.addEventListener( 'click', function(ev) { ev.preventDefault(); } );
+        } );
+    </script>
+</body>
+</html>

@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1"> 
+    <title>Portafolio de trabajo</title>
+    <link rel="stylesheet" type="text/css" href="css/normalize.css" />
+    <link rel="stylesheet" type="text/css" href="css/demo.css" />
+    <link rel="stylesheet" type="text/css" href="css/set1.css" />
+    <style>
+      html, body {
+        margin: 0;
+        padding: 0;
+        height: 100%;
+        background-color: #000; /* color de fondo si la imagen no cubre todo */
+        display: flex;
+        justify-content: center; /* centrar horizontal */
+        align-items: center;     /* centrar vertical */
+      }
+      img {
+        max-width: 100%;
+        max-height: 100%;
+        object-fit: contain; /* que se vea completa sin recortar */
+      }
+      .btn-volver {
+        position: absolute;
+        top: 20px;
+        left: 20px;
+        padding: 10px 20px;
+        background-color: #333;
+        color: #fff;
+        text-decoration: none;
+        font-weight: bold;
+        border-radius: 5px;
+        transition: background 0.3s;
+        z-index: 10;
+      }
+      .btn-volver:hover {
+        background-color: #555;
+      }
+    </style>
+</head>
+<body>
+
+  <a href="index.html" class="btn-volver">← Volver al inicio</a>
+
+  <img src="https://ghdvibzocsxpudbauxon.supabase.co/storage/v1/object/sign/portafolio.fotos/228438-P28070-739%201.png?token=eyJraWQiOiJzdG9yYWdlLXVybC1zaWduaW5nLWtleV9hODU1M2Q0MS1lMjBiLTQwMGQtOTQ3Mi00MTJhMjFkOGZkNzQiLCJhbGciOiJIUzI1NiJ9.eyJ1cmwiOiJwb3J0YWZvbGlvLmZvdG9zLzIyODQzOC1QMjgwNzAtNzM5IDEucG5nIiwiaWF0IjoxNzU0MzU4OTcxLCJleHAiOjE3ODU4OTQ5NzF9.uRvGlfaXPRgZLaQvj34jNpciJUmdlAqT0-BeLgM_x9k" alt="Imagen centrada"/>
+
+</body>
+</html>

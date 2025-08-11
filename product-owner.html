@@ -16,43 +16,39 @@
 	<!--[if IE]>
 		<script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
 	<![endif]-->
-	<style>
-		.btn-volver {
-			display: inline-block;
-			margin: 20px;
-			padding: 10px 20px;
-			background-color: #333;
-			color: #fff;
-			text-decoration: none;
-			font-weight: bold;
-			border-radius: 5px;
-			transition: background 0.3s;
-		}
 
-		.btn-volver:hover {
-			background-color: #555;
-		}
-
-		.grid {
-			display: flex;
-			flex-wrap: wrap; /* permite que se adapten si no caben */
-			gap: 20px;
-			justify-content: center;
-		}
-
-		.grid figure {
-			flex: 0 0 300px; /* ancho fijo de cada tarjeta */
-			box-sizing: border-box;
-		}
+    <style>.btn-volver {
+  display: inline-block;
+  margin: 20px;
+  padding: 10px 20px;
+  background-color: #333;
+  color: #fff;
+  text-decoration: none;
+  font-weight: bold;
+  border-radius: 5px;
+  transition: background 0.3s;
+}
+    .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            padding: 20px;
+        }
+.btn-volver:hover {
+  background-color: #555;
+}
+	
 	</style>
 </head>
 <body>
-	<a href="index.html" class="btn-volver">← Volver al inicio</a>
-	<div class="container">
-		<!-- Top Navigation -->
-		<header class="codrops-header">
-			<h1>Proyectos Product Owner <span>Colección de trabajos</span></h1>
-		</header>
+	
+          <a href="index.html" class="btn-volver">← Volver al inicio</a>
+			<!-- Top Navigation -->
+			<header class="codrops-header">
+				<h1>Proyectos Product Owner<span>Casos de estudio realizados en Bootcamp</span></h1>
+			</header>
+
+	
 		<div class="content">
 
 			<!-- CONTENEDOR UNIFICADO -->
@@ -69,17 +65,7 @@
 					</figcaption>			
 				</figure>
 
-				<figure class="effect-lily">
-					<img src="https://ghdvibzocsxpudbauxon.supabase.co/storage/v1/object/sign/portafolio.fotos/ecolearn_portada.jpg?token=eyJraWQiOiJzdG9yYWdlLXVybC1zaWduaW5nLWtleV9hODU1M2Q0MS1lMjBiLTQwMGQtOTQ3Mi00MTJhMjFkOGZkNzQiLCJhbGciOiJIUzI1NiJ9.eyJ1cmwiOiJwb3J0YWZvbGlvLmZvdG9zL2Vjb2xlYXJuX3BvcnRhZGEuanBnIiwiaWF0IjoxNzU0MzU1OTUxLCJleHAiOjE3ODU4OTE5NTF9.23_lUlGfJ__gDpyay20mXMWqkIs0Ap1pKflfUWleUME" alt="img12"/>
-					<figcaption>
-						<div>
-							<h2>02 <span>EcoLearn</span></h2>
-							<p>Proyecto Bootcamp</p>
-						</div>
-						<a href="ecolearn.html">Ver más</a>
-					</figcaption>	
-
-				</figure>
+			
 					<figure class="effect-lily">
 					<img src="https://ghdvibzocsxpudbauxon.supabase.co/storage/v1/object/sign/portafolio.fotos/ecolearn_portada.jpg?token=eyJraWQiOiJzdG9yYWdlLXVybC1zaWduaW5nLWtleV9hODU1M2Q0MS1lMjBiLTQwMGQtOTQ3Mi00MTJhMjFkOGZkNzQiLCJhbGciOiJIUzI1NiJ9.eyJ1cmwiOiJwb3J0YWZvbGlvLmZvdG9zL2Vjb2xlYXJuX3BvcnRhZGEuanBnIiwiaWF0IjoxNzU0MzU1OTUxLCJleHAiOjE3ODU4OTE5NTF9.23_lUlGfJ__gDpyay20mXMWqkIs0Ap1pKflfUWleUME" alt="img12"/>
 					<figcaption>

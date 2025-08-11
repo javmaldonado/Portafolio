@@ -15,12 +15,19 @@
     <link rel="stylesheet" type="text/css" href="css/set1.css" />
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
-          .grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 20px;
-            padding: 20px;
-        }
+       .grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 20px;
+  padding: 20px;
+}
+
+@media (max-width: 480px) {
+  .grid {
+    grid-template-columns: 1fr; /* fuerza 1 columna en pantallas pequeñas */
+  }
+}
+
         .effect-lily {
             position: relative;
             overflow: hidden;
@@ -327,34 +334,36 @@
                         <div class="space-y-6 text-lg leading-relaxed">
                             <p class="text-gray-700">
                                 ¡Hola! Soy <strong class="text-accent">Javiera Maldonado</strong>, 
-                                Diseñadora UX/UI y Product Owner con una visión integral que combina diseño, estrategia y tecnología. Mi formación en Diseño Industrial e Ingeniería Comercial, junto con mi experiencia en desarrollo front-end, me permite crear productos digitales que equilibran lo visual, lo funcional y los objetivos de negocio.
+                               Creadora de experiencias digitales que combinan diseño, estrategia y tecnología. Me motiva entender a las personas, detectar sus necesidades y transformarlas en soluciones funcionales, atractivas y alineadas con los objetivos del negocio.
                             </p>
                             
                             <p class="text-gray-600">
-                              Apasionada por diseñar pensando en las personas, me especialicé en UX, investigación de usuarios, prototipado y testing, aplicando metodologías como Design Thinking, Lean Startup y Agile/Scrum. También tengo experiencia en priorización de backlog, construcción de roadmaps y análisis de métricas para maximizar el valor entregado.
+                        Con una visión integral del ciclo de producto, participo desde la investigación y el prototipado hasta la priorización, planificación y análisis de resultados, aplicando metodologías ágiles y un enfoque centrado en el usuario.
                             </p>
                             
                             <p class="text-gray-600">
-                              He trabajado en administración, gestión de procesos y consultoría para pymes, desarrollando habilidades clave como el análisis, la organización y la empatía con los usuarios. Me considero una profesional proactiva, adaptable y colaborativa, con gran capacidad para desenvolverse en entornos ágiles y en constante cambio.
+Mi experiencia en gestión, consultoría y desarrollo digital me ha dado la capacidad de adaptarme a entornos cambiantes, trabajar en equipo y generar impacto real tanto para los usuarios como para las organizaciones.
                             </p>
                         </div>
 
 
                         <!-- CTA Button -->
-                       <div class="mt-10 flex flex-col sm:flex-row items-center justify-center gap-4">
+<div class="mt-10 flex flex-col sm:flex-row items-center justify-center gap-4">
     <a href="#contact" class="inline-flex items-center bg-gray-900 text-white px-8 py-4 rounded-lg font-semibold hover:bg-gray-800 transition-all duration-300 shadow-lg hover:shadow-xl w-full sm:w-auto text-center">
         <span>Hablemos</span>
         <svg class="ml-3 w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
         </svg>
     </a>
-    <a href="quien-soy.html" class="inline-flex items-center bg-gray-900 text-white px-8 py-4 rounded-lg font-semibold hover:bg-gray-800 transition-all duration-300 shadow-lg hover:shadow-xl w-full sm:w-auto text-center">
+    <!-- Se añadieron los atributos target="_blank" y rel="noopener noreferrer" para abrir en una nueva pestaña -->
+    <a href="https://ghdvibzocsxpudbauxon.supabase.co/storage/v1/object/sign/portafolio.fotos/CV%20CVVi.pdf?token=eyJraWQiOiJzdG9yYWdlLXVybC1zaWduaW5nLWtleV9hODU1M2Q0MS1lMjBiLTQwMGQtOTQ3Mi00MTJhMjFkOGZkNzQiLCJhbGciOiJIUzI1NiJ9.eyJ1cmwiOiJwb3J0YWZvbGlvLmZvdG9zL0NWIENWVmkucGRmIiwiaWF0IjoxNzU0NzYxNDIwLCJleHAiOjE3ODYyOTc0MjB9.LAXsreWp94nZ2auYIDQ35Tdtr8sLhpzK-KVhiAC9oN0" class="inline-flex items-center bg-gray-900 text-white px-8 py-4 rounded-lg font-semibold hover:bg-gray-800 transition-all duration-300 shadow-lg hover:shadow-xl w-full sm:w-auto text-center" target="_blank" rel="noopener noreferrer">
         <span>Descarga CV</span>
         <svg class="ml-3 w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
         </svg>
     </a>
 </div>
+
                     </div>
 
                     <!-- Columna de Imagen -->
@@ -392,7 +401,7 @@
                     <img src="https://ghdvibzocsxpudbauxon.supabase.co/storage/v1/object/sign/portafolio.fotos/top-view-employee-working-with-her-laptop%201.png?token=eyJraWQiOiJzdG9yYWdlLXVybC1zaWduaW5nLWtleV9hODU1M2Q0MS1lMjBiLTQwMGQtOTQ3Mi00MTJhMjFkOGZkNzQiLCJhbGciOiJIUzI1NiJ9.eyJ1cmwiOiJwb3J0YWZvbGlvLmZvdG9zL3RvcC12aWV3LWVtcGxveWVlLXdvcmtpbmctd2l0aC1oZXItbGFwdG9wIDEucG5nIiwiaWF0IjoxNzU0MzU4NTMxLCJleHAiOjE3ODU4OTQ1MzF9.oXBhOXMCibXJ5x5XRoNWHymmlpE9kpKQi3OhOCHMxpY" alt="img1"/>
                     <figcaption>
                         <div>
-                            <h2>0 <span>Diseño UX</span></h2>
+                            <h2>01 <span>Diseño UX</span></h2>
                             <p>Proyectos de diseño</p>
                         </div>
                         <a href="diseno-ux.html">Ver más</a>
@@ -414,7 +423,7 @@
                     <figcaption>
                         <div>
                             <h2>03 <span>Diseño Industrial</span></h2>
-                            <p>Proyectos de DI</p>
+                            <p>EN CONSTRUCCIÓN</p>
                         </div>
                         <a href="diseno-industrial.html">Ver más</a>
                     </figcaption>     
@@ -453,7 +462,7 @@
                     </div>
                     <div class="flex items-center gap-3">
                         <div class="w-2 h-2 bg-gray-600 rounded-full"></div>
-                        <span class="text-gray-700">Jira</span>
+                        <span class="text-gray-700">Jira / Trello</span>
                     </div>
                     <div class="flex items-center gap-3">
                         <div class="w-2 h-2 bg-gray-600 rounded-full"></div>
@@ -481,6 +490,10 @@
             <div class="fade-in bg-white p-6 rounded-lg shadow-md">
                 <h3 class="text-2xl font-bold text-gray-900 mb-4">Diseño y Prototipado</h3>
                 <div class="grid grid-cols-1 gap-3">
+                     <div class="flex items-center gap-3">
+                        <div class="w-2 h-2 bg-gray-600 rounded-full"></div>
+                        <span class="text-gray-700">Centrado en el usuario</span>
+                    </div>
                     <div class="flex items-center gap-3">
                         <div class="w-2 h-2 bg-gray-600 rounded-full"></div>
                         <span class="text-gray-700">Figma</span>
@@ -495,7 +508,7 @@
                     </div>
                     <div class="flex items-center gap-3">
                         <div class="w-2 h-2 bg-gray-600 rounded-full"></div>
-                        <span class="text-gray-700">Canva</span>
+                        <span class="text-gray-700">Accesible e inclusivo</span>
                     </div>
                     <div class="flex items-center gap-3">
                         <div class="w-2 h-2 bg-gray-600 rounded-full"></div>
@@ -503,18 +516,19 @@
                     </div>
                     <div class="flex items-center gap-3">
                         <div class="w-2 h-2 bg-gray-600 rounded-full"></div>
-                        <span class="text-gray-700">Optimal Workshop</span>
+                        <span class="text-gray-700">Sistema de diseño</span>
                     </div>
-                    <div class="flex items-center gap-3">
-                        <div class="w-2 h-2 bg-gray-600 rounded-full"></div>
-                        <span class="text-gray-700">Estimaciones Ágiles</span>
-                    </div>
+                   
                 </div>
             </div>
 
             <div class="fade-in bg-white p-6 rounded-lg shadow-md">
                 <h3 class="text-2xl font-bold text-gray-900 mb-4">Desarrollo Front End</h3>
                 <div class="grid grid-cols-1 gap-3">
+                     <div class="flex items-center gap-3">
+                        <div class="w-2 h-2 bg-gray-600 rounded-full"></div>
+                        <span class="text-gray-700">HTML</span>
+                    </div>
                     <div class="flex items-center gap-3">
                         <div class="w-2 h-2 bg-gray-600 rounded-full"></div>
                         <span class="text-gray-700">CSS</span>
@@ -530,6 +544,10 @@
                     <div class="flex items-center gap-3">
                         <div class="w-2 h-2 bg-gray-600 rounded-full"></div>
                         <span class="text-gray-700">VSCODE</span>
+                    </div>
+                     <div class="flex items-center gap-3">
+                        <div class="w-2 h-2 bg-gray-600 rounded-full"></div>
+                        <span class="text-gray-700">GitHub</span>
                     </div>
                 </div>
             </div>
@@ -564,6 +582,14 @@
                     <div class="flex items-center gap-3">
                         <div class="w-2 h-2 bg-gray-600 rounded-full"></div>
                         <span class="text-gray-700">Proactiva</span>
+                    </div>
+                     <div class="flex items-center gap-3">
+                        <div class="w-2 h-2 bg-gray-600 rounded-full"></div>
+                        <span class="text-gray-700">Adaptabilidad al cambio</span>
+                    </div>
+                     <div class="flex items-center gap-3">
+                        <div class="w-2 h-2 bg-gray-600 rounded-full"></div>
+                        <span class="text-gray-700">Pensamiento crítico</span>
                     </div>
                 </div>
             </div>

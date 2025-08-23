@@ -41,7 +41,10 @@
         
         /* Estilos para la sección Quién soy - Colores neutros */
         .about-section {
-            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+               background-image: url("https://ghdvibzocsxpudbauxon.supabase.co/storage/v1/object/sign/portafolio.fotos/Frame%203%20(12).png?token=eyJraWQiOiJzdG9yYWdlLXVybC1zaWduaW5nLWtleV9hODU1M2Q0MS1lMjBiLTQwMGQtOTQ3Mi00MTJhMjFkOGZkNzQiLCJhbGciOiJIUzI1NiJ9.eyJ1cmwiOiJwb3J0YWZvbGlvLmZvdG9zL0ZyYW1lIDMgKDEyKS5wbmciLCJpYXQiOjE3NTU5MTQ3MDIsImV4cCI6MTc4NzQ1MDcwMn0.Q8qEjvTpD7z87IXXWApdis635aqb15Dg2wczAKvy_6U"); /* aquí pones la ruta */
+    background-size: cover;   /* hace que la imagen cubra todo */
+    background-position: center; /* centra la imagen */
+    background-repeat: no-repeat; /* evita que se repita */
             position: relative;
             overflow: hidden;
             width: 100vw;
@@ -124,7 +127,7 @@
             width: 100vw;
             margin-left: calc(-50vw + 50%);
             padding: 40px 20px;
-            background: #ffffff;
+            background: #662121;
         }
         
         .content .grid {
@@ -136,7 +139,7 @@
         .codrops-header {
             width: 100vw;
             margin-left: calc(-50vw + 50%);
-            background: #2d3748;
+    
             color: white;
             padding: 60px 20px;
             text-align: center;
@@ -152,10 +155,7 @@
             scroll-behavior: smooth;
         }
         
-        .hero-bg {
-            background: linear-gradient(135deg, #f3f4f6 0%, #e5e7eb 100%);
-        }
-        
+      
         .profile-container {
             position: relative;
             width: 300px;
@@ -222,24 +222,25 @@
         }
         
         .project-card {
-            background: white;
+            background: rgb(101, 20, 20);
             border-radius: 12px;
             overflow: hidden;
             box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
             transition: all 0.3s;
         }
-        
+      
         .project-card:hover {
             transform: translateY(-4px);
             box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
         }
         
-        .skill-bar {
+        .skills {
             width: 100%;
             height: 8px;
-            background: #e5e7eb;
+            background: #0d3585;
             border-radius: 4px;
             overflow: hidden;
+            background-color: blue;
         }
         
         .skill-progress {
@@ -293,9 +294,22 @@
                 display: block;
             }
         }
+.habilidades {
+	 background: linear-gradient(135deg, #efefef 13%, #ffffff
+             100%);
+}
+∫
+    .proyectos{
+        background-color: #E1CCB1
+        ;
+    }
+    #contact {
+  scroll-margin-top: 100px; /* ajusta según el alto de tu navbar */
+}
+
     </style>
 </head>
-<body class="bg-stone-100">
+<body class="">
     <!-- Navigation -->
     <nav class="fixed top-0 w-full bg-white/90 backdrop-blur-sm z-50 shadow-sm">
         <div class="max-w-6xl mx-auto px-4 py-4">
@@ -316,87 +330,66 @@
     </nav>
 
     <!-- Hero Section -->
-    <section id="home" class="hero-bg pt-20 pb-16">
-        <section class="about-section py-20">
-            <header class="codrops-header">
-            <h1 class="text-4xl md:text-5xl font-bold">
-                Hola, Bienvenido. 
-            </h1>
-        </header>
-            <div class="about-content">
-                <div class="grid md:grid-cols-2 gap-16 items-center">
-                    <!-- Columna de Texto -->
-                    <div class="text-gray-800 space-y-6">
-                        <h2 class="text-4xl md:text-5xl font-bold mb-8 text-gray-900">
-                            Quién Soy
-                        </h2>
-                        
-                        <div class="space-y-6 text-lg leading-relaxed">
-                            <p class="text-gray-700">
-                                ¡Hola! Soy <strong class="text-accent">Javiera Maldonado</strong>, 
-                               Creadora de experiencias digitales que combinan diseño, estrategia y tecnología. Me motiva entender a las personas, detectar sus necesidades y transformarlas en soluciones funcionales, atractivas y alineadas con los objetivos del negocio.
-                            </p>
-                            
-                            <p class="text-gray-600">
-                        Con una visión integral del ciclo de producto, participo desde la investigación y el prototipado hasta la priorización, planificación y análisis de resultados, aplicando metodologías ágiles y un enfoque centrado en el usuario.
-                            </p>
-                            
-                            <p class="text-gray-600">
-Mi experiencia en gestión, consultoría y desarrollo digital me ha dado la capacidad de adaptarme a entornos cambiantes, trabajar en equipo y generar impacto real tanto para los usuarios como para las organizaciones.
-                            </p>
-                        </div>
+    <section id="home" class="hero-bg">
+        <section class="about-section ">
+      
+<div class="grid md:grid-cols-2  items-center mt-8">
+    <!-- Columna de Texto -->
+<div class="text-gray-800 flex flex-col justify-center">
+  <div class="space-y-6 text-lg leading-relaxed text-center md:text-left">
+    
+    <p class="text-gray-700">
+      ¡Hola! Soy <strong class="text-accent text-rose-600">Javiera Maldonado</strong>
+    </p>
 
+    <h1 class="text-4xl md:text-5xl font-bold mb-8 text-sky-900">
+      Diseño para conectar ideas y personas
+    </h1>
 
-                        <!-- CTA Button -->
-<div class="mt-10 flex flex-col sm:flex-row items-center justify-center gap-4">
-    <a href="#contact" class="inline-flex items-center bg-gray-900 text-white px-8 py-4 rounded-lg font-semibold hover:bg-gray-800 transition-all duration-300 shadow-lg hover:shadow-xl w-full sm:w-auto text-center">
-        <span>Hablemos</span>
-        <svg class="ml-3 w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
-        </svg>
-    </a>
-    <!-- Se añadieron los atributos target="_blank" y rel="noopener noreferrer" para abrir en una nueva pestaña -->
-    <a href="https://ghdvibzocsxpudbauxon.supabase.co/storage/v1/object/sign/portafolio.fotos/CV%20CVVi.pdf?token=eyJraWQiOiJzdG9yYWdlLXVybC1zaWduaW5nLWtleV9hODU1M2Q0MS1lMjBiLTQwMGQtOTQ3Mi00MTJhMjFkOGZkNzQiLCJhbGciOiJIUzI1NiJ9.eyJ1cmwiOiJwb3J0YWZvbGlvLmZvdG9zL0NWIENWVmkucGRmIiwiaWF0IjoxNzU0NzYxNDIwLCJleHAiOjE3ODYyOTc0MjB9.LAXsreWp94nZ2auYIDQ35Tdtr8sLhpzK-KVhiAC9oN0" class="inline-flex items-center bg-gray-900 text-white px-8 py-4 rounded-lg font-semibold hover:bg-gray-800 transition-all duration-300 shadow-lg hover:shadow-xl w-full sm:w-auto text-center" target="_blank" rel="noopener noreferrer">
+    <!-- CTA Buttons -->
+    <div class="flex flex-col sm:flex-row justify-center md:justify-start gap-4">
+         <a href="#contact" class="relative z-10 inline-flex items-center bg-slate-900 text-white px-8 py-4 rounded-lg font-semibold hover:bg-gray-800 transition-all duration-300 shadow-lg hover:shadow-xl w-full sm:w-auto text-center">
+                <span>Hablemos</span>
+                <svg class="ml-3 w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
+                </svg>
+            </a>
+      <a href="https://ghdvibzocsxpudbauxon.supabase.co/storage/v1/object/sign/portafolio.fotos/CV-Javiera.Maldonado.pdf?token=eyJraWQiOiJzdG9yYWdlLXVybC1zaWduaW5nLWtleV9hODU1M2Q0MS1lMjBiLTQwMGQtOTQ3Mi00MTJhMjFkOGZkNzQiLCJhbGciOiJIUzI1NiJ9.eyJ1cmwiOiJwb3J0YWZvbGlvLmZvdG9zL0NWLUphdmllcmEuTWFsZG9uYWRvLnBkZiIsImlhdCI6MTc1NTkxNDk4NCwiZXhwIjoxNzg3NDUwOTg0fQ.odr5Sh1G9oPqx0rvw9e5MM2wiA73C72P2vuMUpguHYM" class="relative z-10 inline-flex items-center bg-slate-900 text-white px-8 py-4 rounded-lg font-semibold hover:bg-gray-800 transition-all duration-300 shadow-lg hover:shadow-xl w-full sm:w-auto text-center" target="_blank" rel="noopener noreferrer">
         <span>Descarga CV</span>
         <svg class="ml-3 w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
         </svg>
-    </a>
+      </a>
+    </div>
+
+  </div>
 </div>
 
-                    </div>
 
-                    <!-- Columna de Imagen -->
-                    <div class="flex justify-center md:justify-start items-start">
-                        <div class="relative mt-8">
-                            <!-- Decorative elements -->
-                            <div class="decorative-dot absolute -top-6 -left-6 w-20 h-20 bg-gray-300 rounded-full opacity-40"></div>
-                            <div class="decorative-dot absolute -bottom-8 -right-8 w-28 h-28 bg-gray-400 rounded-full opacity-30"></div>
-                            
-                            <!-- Main Image -->
-<img src="https://ghdvibzocsxpudbauxon.supabase.co/storage/v1/object/sign/portafolio.fotos/Photoroom_20250627_175845.png?token=eyJraWQiOiJzdG9yYWdlLXVybC1zaWduaW5nLWtleV9hODU1M2Q0MS1lMjBiLTQwMGQtOTQ3Mi00MTJhMjFkOGZkNzQiLCJhbGciOiJIUzI1NiJ9.eyJ1cmwiOiJwb3J0YWZvbGlvLmZvdG9zL1Bob3Rvcm9vbV8yMDI1MDYyN18xNzU4NDUucG5nIiwiaWF0IjoxNzU0MzU2NzMyLCJleHAiOjE3ODU4OTI3MzJ9.FmYmnQP-4wPfW9RwF-FjLpmDafd4xAZU9vSuRaAPERs" alt="Mi imagen desde Google Drive">                               
-                                
-                            
-                            <!-- Image overlay with info -->
-                            
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-                </div>
+    <!-- Columna de Imagen -->
+    <div class="flex justify-center md:justify-start">
+        <div class="relative">
+            <!-- Decorative elements -->
+            <div class="decorative-dot absolute -top-6 -left-6 w-20 h-20 bg-gray-300 rounded-full opacity-40"></div>
+            <div class="decorative-dot absolute -bottom-8 -right-8 w-28 h-28 bg-gray-400 rounded-full opacity-30"></div>
+            
+            <!-- Main Image -->
+            <img src="https://ghdvibzocsxpudbauxon.supabase.co/storage/v1/object/sign/portafolio.fotos/Photoroom_20250812_134513.PNG?token=eyJraWQiOiJzdG9yYWdlLXVybC1zaWduaW5nLWtleV9hODU1M2Q0MS1lMjBiLTQwMGQtOTQ3Mi00MTJhMjFkOGZkNzQiLCJhbGciOiJIUzI1NiJ9.eyJ1cmwiOiJwb3J0YWZvbGlvLmZvdG9zL1Bob3Rvcm9vbV8yMDI1MDgxMl8xMzQ1MTMuUE5HIiwiaWF0IjoxNzU1OTE0NTg0LCJleHAiOjE3ODc0NTA1ODR9.poerW4_21Y7m4TlV3SNSwGMMJ_C6cWqMWSf_Q-sqP2s" alt="Mi imagen desde Google Drive">                               
+        </div>
+    </div>
+</div>
+
 
               
-            </div>
-        </div>
+        </section>
+    
     </section>
 
   <!-- Sección de Proyectos -->
-   <section id="projects" >
-        
-            <div class="grid">
-               
-
+   <section id="projects" class="proyectos" >
+    <h2 class="text-4xl md:text-5xl font-extrabold text-slate-900 mt-12 mb-12 text-center fade-in">Proyectos</h2>
+<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 justify-items-center mb-12">
+                
                 <figure class="effect-lily">
                     <img src="https://ghdvibzocsxpudbauxon.supabase.co/storage/v1/object/sign/portafolio.fotos/top-view-employee-working-with-her-laptop%201.png?token=eyJraWQiOiJzdG9yYWdlLXVybC1zaWduaW5nLWtleV9hODU1M2Q0MS1lMjBiLTQwMGQtOTQ3Mi00MTJhMjFkOGZkNzQiLCJhbGciOiJIUzI1NiJ9.eyJ1cmwiOiJwb3J0YWZvbGlvLmZvdG9zL3RvcC12aWV3LWVtcGxveWVlLXdvcmtpbmctd2l0aC1oZXItbGFwdG9wIDEucG5nIiwiaWF0IjoxNzU0MzU4NTMxLCJleHAiOjE3ODU4OTQ1MzF9.oXBhOXMCibXJ5x5XRoNWHymmlpE9kpKQi3OhOCHMxpY" alt="img1"/>
                     <figcaption>
@@ -423,22 +416,18 @@ Mi experiencia en gestión, consultoría y desarrollo digital me ha dado la capa
                     <figcaption>
                         <div>
                             <h2>03 <span>Diseño Industrial</span></h2>
-                            <p>EN CONSTRUCCIÓN</p>
+                            <p> ⚠️ EN CONSTRUCCIÓN</p>
                         </div>
-                        <a href="diseno-industrial.html">Ver más</a>
+
                     </figcaption>     
                 </figure>
             </div>
-        </section>
-       
-    </div>
-        </div>
-    </section>
-
+        </section> 
+   
     <!-- Skills Section -->
-<section id="skills" class="py-16 bg-stone-50">
+<section id="skills" class="habilidades py-16 ">
     <div class="max-w-6xl mx-auto px-4">
-        <h2 class="text-4xl md:text-5xl font-extrabold text-gray-900 mb-12 text-center">Habilidades</h2>
+        <h2 class="text-4xl  md:text-5xl font-extrabold text-slate-900 mb-12 text-center fade-in">Habilidades</h2>
 
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             <div class="fade-in bg-white p-6 rounded-lg shadow-md">
@@ -557,7 +546,8 @@ Mi experiencia en gestión, consultoría y desarrollo digital me ha dado la capa
                 <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3">
                     <div class="flex items-center gap-3">
                         <div class="w-2 h-2 bg-gray-600 rounded-full"></div>
-                        <span class="text-gray-700">Gestión administrativa</span>
+                        <span class="text-gray-700"><a href="https://ghdvibzocsxpudbauxon.supabase.co/storage/v1/object/sign/portafolio.fotos/EF%20SET%20Certificate.pdf?token=eyJraWQiOiJzdG9yYWdlLXVybC1zaWduaW5nLWtleV9hODU1M2Q0MS1lMjBiLTQwMGQtOTQ3Mi00MTJhMjFkOGZkNzQiLCJhbGciOiJIUzI1NiJ9.eyJ1cmwiOiJwb3J0YWZvbGlvLmZvdG9zL0VGIFNFVCBDZXJ0aWZpY2F0ZS5wZGYiLCJpYXQiOjE3NTU2NTE2MTMsImV4cCI6MTc4NzE4NzYxM30.pZdkr07NuXvByj9QzFp5lhB-3-7lYTW2ttybz_L7U3Q" target="_blank" class="hover:underline">
+                        Inglés (C1 Advanced)</a></h3></span>
                     </div>
                     <div class="flex items-center gap-3">
                         <div class="w-2 h-2 bg-gray-600 rounded-full"></div>
@@ -598,9 +588,9 @@ Mi experiencia en gestión, consultoría y desarrollo digital me ha dado la capa
 </section>
 
     <!-- Education Section -->
-    <section class="py-16 bg-white">
+    <section  id="education" class="py-16 bg-white">
         <div class="max-w-6xl mx-auto px-4">
-            <h2 class="text-3xl font-bold text-gray-900 mb-12 text-center fade-in">Certificaciones</h2>
+            <h2 class="text-4xl md:text-5xl font-extrabold  text-slate-900 mb-12 text-center fade-in">Certificaciones</h2>
             <div class="max-w-3xl mx-auto space-y-8">
                 <div class="border-l-4 border-gray-300 pl-6 fade-in">
                     <h3 class="font-semibold text-xl text-gray-900">
@@ -616,7 +606,7 @@ Mi experiencia en gestión, consultoría y desarrollo digital me ha dado la capa
                     Bootcamp, Desarrollo de Aplicaciones Front-End
                 </a>
             </h3>
-                    <p class="text-gray-600 font-medium mb-2">2024-2024 (Online, 438 h)</p>
+                    <p class="text-gray-600 font-medium mb-2">Marzo 2024- Septiembre 2024 (Online, 438 h)</p>
                     <p class="text-gray-700">Talento Digital para Chile, Desafío Latam</p>
                 </div>
             <div class="border-l-4 border-gray-300 pl-6 fade-in">
@@ -651,19 +641,22 @@ Mi experiencia en gestión, consultoría y desarrollo digital me ha dado la capa
 
     <!-- Contact Section -->
        <!-- Sección de Contacto (Footer) -->
-<footer id="contact" class="bg-gray-900 text-white py-16 mt-0">
+<footer id="contact" class="text-white bg-slate-900 py-6 mt-0">
     <div class="max-w-6xl mx-auto px-6 text-center">
         <h2 class="text-3xl md:text-4xl font-bold mb-8 text-white">Contacto</h2>
         <div class="flex flex-wrap justify-center gap-6 text-base">
-           <a href="mailto:javiera.maldonado.agurto@gmail.com" 
-               class="flex flex-col items-center space-y-3 p-4 bg-gray-800 rounded-lg hover:bg-gray-700 transition-colors hover:text-gray-300 text-sm text-gray-300 break-all w-full sm:w-auto">
-                <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 20 20">
-                    <path d="M2.003 5.884L10 9.882l7.997-3.998A2 2 0 0016 4H4a2 2 0 00-1.997 1.884z"></path>
-                    <path d="M18 8.118l-8 4-8-4V14a2 2 0 002 2h12a2 2 0 002-2V8.118z"></path>
+    
+ 
+  <!-- Botón Copiar Correo -->
+  <button onclick="navigator.clipboard.writeText('javiera.maldonado.agurto@gmail.com'); alert('Correo copiado ✅');"
+               class="flex flex-col items-center space-y-3 p-4 bg-gray-800 rounded-lg hover:bg-gray-700 transition-colors hover:text-gray-300 text-sm text-gray-300 w-full sm:w-auto">
+      <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 448 512">
+                    <path d="M100.28 448H7.4V148.9h92.88zM53.79 108.1C24.09 108.1 0 83.5 0 53.8a53.79 53.79 0 0 1 107.58 0c0 29.7-24.1 54.3-53.79 54.3zM447.9 448h-92.68V302.4c0-34.7-.7-79.2-48.29-79.2-48.29 0-55.69 37.7-55.69 76.7V448h-92.78V148.9h89.08v40.8h1.3c12.4-23.5 42.69-48.3 87.88-48.3 94 0 111.28 61.9 111.28 142.3V448z"/>
                 </svg>
-                <span>Correo</span>
-            </a>
-              
+      <span>Correo</span>
+  </button>
+
+
             <a href="https://www.linkedin.com/in/jamaldonadoagurto/" target="_blank" 
                class="flex flex-col items-center space-y-3 p-4 bg-gray-800 rounded-lg hover:bg-gray-700 transition-colors hover:text-gray-300 text-sm text-gray-300 w-full sm:w-auto">
                 <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 448 512">

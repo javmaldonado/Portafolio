@@ -17,12 +17,13 @@
   		<script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
 		<![endif]-->
 </head>
-<body>
-    <style>.btn-volver {
+
+    <style>
+  .btn-volver {
   display: inline-block;
   margin: 20px;
   padding: 10px 20px;
-  background-color: #333;
+  background-color:#024a70;
   color: #fff;
   text-decoration: none;
   font-weight: bold;
@@ -36,16 +37,95 @@
             padding: 20px;
         }
 .btn-volver:hover {
-  background-color: #555;
+ background-color: #b1b6b8;
+  color: #fff;
 }
-	 
+
+.tools {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  justify-content: center; /* centra horizontalmente */
+  margin-top: 20px;
+  text-align: center;
+  padding: 0 10px; /* evita que pegue a los bordes en móvil */
+}
+
+.bubble {
+  padding: 10px 18px;
+  border-radius: 8px;
+  font-size: 14px;
+  font-weight: 500;
+  color: #fff;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.15);
+  transition: transform 0.2s ease, opacity 0.2s ease;
+  flex-shrink: 0; /* evita que se aplasten demasiado */
+}
+
+.bubble:hover {
+  transform: scale(1.08);
+  opacity: 0.9;
+}
+
+/* Colores */
+.investigacion {
+  background-color: #b1b6b8;
+}
+.ideacion {
+  background-color:#146a97;
+}
+.prototipado {
+  background-color: #1e4ca9;
+}
+
+/* --- Responsive --- */
+@media (max-width: 768px) {
+  .bubble {
+    font-size: 13px;
+    padding: 8px 14px;
+  }
+}
+
+@media (max-width: 480px) {
+  .bubble {
+    font-size: 12px;
+    padding: 6px 12px;
+  }
+  .tools {
+    gap: 8px; /* menos espacio entre burbujas */
+  }
+}
+body{
+	 	 background: linear-gradient(135deg, #efefef 13%, #ffffff
+             100%);
+}
 </style>
+<body>
    
-          <a href="index.html" class="btn-volver">← Volver al inicio</a>
+          <a href="index.html" class="btn-volver">⬅</a>
 			<!-- Top Navigation -->
-			<header class="codrops-header">
-				<h1>Proyectos UX</h1>
-			</header>
+	<header class="codrops-header">
+  <h1>Proyectos UX</h1>
+  <p>Desarrollo de proyectos ficticios, utilizando herramientas de investigación y diseño:</p>
+  
+  <div class="tools">
+    <!-- Investigación -->
+    <span class="bubble investigacion">Desk Research</span>
+    <span class="bubble investigacion">Entrevistas</span>
+    <span class="bubble investigacion">Encuestas</span>
+    
+    <!-- Ideación -->
+    <span class="bubble ideacion">User persona</span>
+    <span class="bubble ideacion">Mapa de empatía</span>
+    <span class="bubble ideacion">MVP</span>
+    
+    <!-- Prototipado -->
+    <span class="bubble prototipado">Arquitectura de información</span>
+    <span class="bubble prototipado">Task flows</span>
+    <span class="bubble prototipado">User flow</span>
+    <span class="bubble prototipado">Wireframes</span>
+  </div>
+</header>
 
 
 			<div class="content bg">

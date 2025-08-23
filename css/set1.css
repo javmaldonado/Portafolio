@@ -29,7 +29,7 @@
 	max-width: 480px;
 	max-height: 250px;
 	width: 60%;
-	background: #3085a3;
+	background: #8c9fa7;
 	text-align: center;
 	cursor: pointer;
 }
@@ -120,7 +120,7 @@ figure.effect-lily figcaption > div {
 	left: 0;
 	padding: 2em;
 	width: 100%;
-	height: 50%;
+	height: 60%;
 }
 
 figure.effect-lily h2,

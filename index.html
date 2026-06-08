@@ -1,815 +1,644 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="es" class="scroll-smooth">
 <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge"> 
-    <meta name="viewport" content="width=device-width, initial-scale=1"> 
-    <title>Portafolio de trabajo</title>
-    <meta name="description" content="Hover Effect Ideas: Inspiration for subtle hover effects" />
-    <meta name="keywords" content="hover effect, inspiration, grid, thumbnail, transition, subtle, web design" />
-    <meta name="author" content="Codrops" />
-    <link rel="shortcut icon" href="../favicon.ico">
-    <link href='http://fonts.googleapis.com/css?family=Raleway:400,800,300' rel='stylesheet' type='text/css'>
-    <link rel="stylesheet" type="text/css" href="css/normalize.css" />
-    <link rel="stylesheet" type="text/css" href="css/demo.css" />
-    <link rel="stylesheet" type="text/css" href="css/set1.css" />
-    <script src="https://cdn.tailwindcss.com"></script>
-<script type="module" src="firebase-config.js"></script>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Javiera Maldonado | UX/UI Designer</title>
 
-    <style>
-       .grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-  gap: 20px;
-  padding: 20px;
-}
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script type="module" src="firebase-config.js"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" />
 
-@media (max-width: 480px) {
-  .grid {
-    grid-template-columns: 1fr; /* fuerza 1 columna en pantallas pequeñas */
-  }
-}
-
-        .effect-lily {
-            position: relative;
-            overflow: hidden;
-            width: 100%;
-            height: 900px;
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            ink: "#151515",
+            cream: "#f6f1ea",
+            sand: "#e8ddd0",
+            olive: "#7a8b6f",
+            coral: "#d97962",
+            mustard: "#d2a437",
+            plum: "#6f3d46",
+            softwhite: "#fcfaf7"
+          },
+          boxShadow: {
+            soft: "0 10px 35px rgba(0,0,0,0.08)",
+            card: "0 14px 40px rgba(0,0,0,0.08)"
+          },
+          borderRadius: {
+            xl2: "1.5rem",
+            xl3: "2rem"
+          },
+          fontFamily: {
+            sans: ["Inter", "sans-serif"]
+          }
         }
-        .effect-lily img {
-            width: 100%;
-            display: block;
-        }
-        
-        /* Estilos para la sección Quién soy - Colores neutros */
-        .about-section {
-               background-image: url(firebase-config.js); /* aquí pones la ruta */
-    background-size: cover;   /* hace que la imagen cubra todo */
-    background-position: center; /* centra la imagen */
-    background-repeat: no-repeat; /* evita que se repita */
-            position: relative;
-            overflow: hidden;
-            width: 100vw;
-            margin-left: calc(-50vw + 50%);
-        }
-        @media (max-width: 768px) {
-  .about-section {
-    background-image: none !important; /* elimina el fondo */
-    background-color: #ffffff; /* opcional: color de fondo neutro */
-  }
-}
-        
-        .about-section::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: rgba(0, 0, 0, 0.02);
-            z-index: 1;
-        }
-        
-        .about-content {
-            position: relative;
-            z-index: 2;
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 20px;
-        }
-
-        .about-content .grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 4rem;
-            align-items: start;
-            min-height: 600px;
-        }
-
- @media (max-width: 768px) {
-  .about-content .grid {
-    grid-template-columns: 1fr; /* ya lo tienes */
-    text-align: center; /* centra el texto */
-  }
-
-  .about-content img {
-    max-width: 250px;
-    margin: 0 auto; /* centrar la imagen */
-  }
-}
-        
-        .profile-image {
-            border-radius: 12px;
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
-            transition: all 0.3s ease;
-            border: 3px solid #ffffff;
-        }
-        
-        .profile-image:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.2);
-        }
-        
-        .text-accent {
-            color: #2d3748;
-            font-weight: 700;
-        }
-        
-        .decorative-dot {
-            animation: float 3s ease-in-out infinite;
-        }
-        
-        .decorative-dot:nth-child(2) {
-            animation-delay: 1.5s;
-        }
-        
-        @keyframes float {
-            0%, 100% { transform: translateY(0px); }
-            50% { transform: translateY(-10px); }
-        }
-        
-        /* Ajuste perfecto al ancho para todas las secciones */
-        .container {
-            width: 100%;
-            max-width: none;
-            padding: 0;
-        }
-        
-        .content {
-            width: 100vw;
-            margin-left: calc(-50vw + 50%);
-            padding: 40px 20px;
-            background: #662121;
-        }
-        
-        .content .grid {
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-        
-        /* Header ajustado */
-        .codrops-header {
-            width: 100vw;
-            margin-left: calc(-50vw + 50%);
-    
-            color: white;
-            padding: 60px 20px;
-            text-align: center;
-        }
-        
-        /* Footer ajustado */
-        footer {
-            width: 100vw;
-            margin-left: calc(-50vw + 50%);
-        }
-              /* Custom Styles */
-        * {
-            scroll-behavior: smooth;
-        }
-        
-      
-        .profile-container {
-            position: relative;
-            width: 300px;
-            height: 300px;
-            margin: 0 auto;
-        }
-        
-        .profile-bg {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: #707070;
-            border-radius: 50%;
-            transform: rotate(12deg) scale(1.1);
-        }
-        
-        .profile-img {
-            position: relative;
-            z-index: 10;
-            width: 100%;
-            height: 100%;
-            border-radius: 50%;
-            object-fit: cover;
-            background: #e5e7eb;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: #6b7280;
-            font-size: 48px;
-        }
-        
-        .btn-primary {
-            background: #8c8c8c;
-            color: white;
-            padding: 12px 24px;
-            border-radius: 8px;
-            text-decoration: none;
-            display: inline-block;
-            transition: all 0.3s;
-            font-weight: 500;
-        }
-        
-        .btn-primary:hover {
-            background: #a0a0a0;
-            transform: translateY(-2px);
-        }
-        
-        .btn-secondary {
-            border: 2px solid #808080;
-            color: #646565;
-            padding: 10px 24px;
-            border-radius: 8px;
-            text-decoration: none;
-            display: inline-block;
-            transition: all 0.3s;
-            font-weight: 500;
-        }
-        
-        .btn-secondary:hover {
-            background: #6f7070;
-            color: white;
-        }
-        
-        .project-card {
-            background: rgb(101, 20, 20);
-            border-radius: 12px;
-            overflow: hidden;
-            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
-            transition: all 0.3s;
-        }
-      
-        .project-card:hover {
-            transform: translateY(-4px);
-            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
-        }
-        
-        .skills {
-            width: 100%;
-            height: 8px;
-            background: #0d3585;
-            border-radius: 4px;
-            overflow: hidden;
-            background-color: blue;
-        }
-        
-        .skill-progress {
-            height: 100%;
-            background: #3a3b3b;
-            border-radius: 4px;
-            transition: width 2s ease-out;
-            width: 0%;
-        }
-        
-        .fade-in {
-            opacity: 0;
-            transform: translateY(30px);
-            transition: all 0.8s ease-out;
-        }
-        
-        .fade-in.visible {
-            opacity: 1;
-            transform: translateY(0);
-        }
-        
-        .nav-link {
-            color: #545454;
-            text-decoration: none;
-            padding: 8px 16px;
-            border-radius: 6px;
-            transition: all 0.3s;
-        }
-        
-        .nav-link:hover {
-            color: #363a3a;
-            background: rgba(13, 148, 136, 0.1);
-        }
-        
-        @media (max-width: 768px) {
-            .profile-container {
-                width: 250px;
-                height: 250px;
-            }
-            
-            .mobile-menu {
-                display: none;
-                background: white;
-                border-radius: 8px;
-                box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
-                padding: 16px;
-                margin-top: 16px;
-            }
-            
-            .mobile-menu.show {
-                display: block;
-            }
-        }
-.habilidades {
-	 background: linear-gradient(135deg, #efefef 13%, #ffffff
-             100%);
-}
-∫
-    .proyectos{
-        background-color: #E1CCB1
-        ;
+      }
     }
-    #contact {
-  scroll-margin-top: 100px; /* ajusta según el alto de tu navbar */
+  </script>
+
+  <style>
+    body {
+      font-family: 'Inter', sans-serif;
+      background: #f6f1ea;
+      color: #151515;
+    }
+
+    .nav-link {
+      position: relative;
+      transition: color 0.3s ease;
+    }
+
+    .nav-link::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      bottom: -6px;
+      width: 0;
+      height: 2px;
+      background: #6f3d46;
+      transition: width 0.3s ease;
+    }
+
+    .nav-link:hover::after,
+    .nav-link.active::after {
+      width: 100%;
+    }
+
+    .fade-in {
+      opacity: 0;
+      transform: translateY(24px);
+      transition: all 0.7s ease;
+    }
+
+    .fade-in.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .copy-message {
+      position: fixed;
+      bottom: 20px;
+      left: 50%;
+      transform: translateX(-50%);
+      background-color: #151515;
+      color: white;
+      padding: 12px 18px;
+      border-radius: 9999px;
+      z-index: 1000;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.3s ease;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+    }
+
+    .copy-message.show {
+      opacity: 1;
+    }
+
+    .projects-showcase {
+      display: flex;
+      gap: 0.75rem;
+      min-height: 540px;
+      overflow: hidden;
+    }
+
+    .project-panel {
+      position: relative;
+      flex: 1 1 0;
+      min-width: 0;
+      border-radius: 1.75rem;
+      overflow: hidden;
+      background: #ffffff;
+      box-shadow: 0 14px 40px rgba(0,0,0,0.08);
+      transition: flex 0.55s ease, transform 0.55s ease, box-shadow 0.55s ease;
+      isolation: isolate;
+    }
+
+    .project-panel::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(180deg, rgba(21,21,21,0.08) 0%, rgba(21,21,21,0.68) 100%);
+      z-index: 1;
+    }
+
+    .project-panel:hover {
+      flex: 2.5 1 0;
+      transform: translateX(6px);
+      box-shadow: 0 20px 50px rgba(0,0,0,0.14);
+    }
+
+    .project-panel img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.7s ease;
+    }
+
+    .project-panel:hover img {
+      transform: scale(1.06);
+    }
+
+    .project-content {
+      position: absolute;
+      inset: 0;
+      z-index: 2;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      padding: 1.5rem;
+      color: white;
+    }
+
+    .project-header {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+    }
+
+    .project-index {
+      font-size: clamp(2.5rem, 5vw, 4rem);
+      line-height: 1;
+      font-weight: 800;
+      letter-spacing: -0.06em;
+      opacity: 0.95;
+    }
+
+    .project-topline {
+      font-size: 0.72rem;
+      text-transform: uppercase;
+      letter-spacing: 0.18em;
+      margin-top: 0.35rem;
+      opacity: 0;
+      transform: translateY(8px);
+      transition: opacity 0.25s ease, transform 0.35s ease;
+      pointer-events: none;
+    }
+
+.project-bottom {
+  position: relative;
+  width: 100%;
+  height: 200px;
 }
- .copy-message {
-            position: fixed;
-            bottom: 20px;
-            left: 50%;
-            transform: translateX(-50%);
-            background-color: #4CAF50;
-            color: white;
-            padding: 10px 20px;
-            border-radius: 8px;
-            z-index: 1000;
-            opacity: 0;
-            transition: opacity 0.5s ease-in-out;
-        }
-        .copy-message.show {
-            opacity: 1;
-        }
 
-    </style>
+  .project-summary {
+  position: absolute;
+  left: 0;
+  bottom:200px;
+  width: 280px;
+  text-align: left;
+}
+
+    .project-title,
+    .project-meta {
+      opacity: 0;
+      transform: translateY(10px);
+      transition: opacity 0.28s ease, transform 0.38s ease;
+      pointer-events: none;
+      text-align: left;
+    }
+
+    .project-title {
+      font-size: clamp(1.2rem, 2vw, 2rem);
+      line-height: 1.05;
+      font-weight: 600;
+    }
+
+    .project-meta {
+      font-size: 0.78rem;
+      text-transform: uppercase;
+      letter-spacing: 0.14em;
+      margin-top: 0.65rem;
+      color: rgba(255,255,255,0.72);
+    }
+
+.project-details {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 280px;
+  text-align: left;
+  opacity: 0;
+  transform: translateY(14px);
+  transition: opacity 0.28s ease, transform 0.38s ease;
+  pointer-events: none;
+}
+
+ .project-description {
+  font-size: 0.95rem;
+  line-height: 1.6;
+  color: rgba(255,255,255,0.9);
+  margin-bottom: 1rem;
+  text-align: left;
+}
+
+.project-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.88rem;
+  font-weight: 600;
+  color: white;
+  text-decoration: none;
+  padding: 0.8rem 1rem;
+  border-radius: 9999px;
+  background: rgba(255,255,255,0.14);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255,255,255,0.16);
+  transition: background 0.3s ease, transform 0.3s ease;
+  white-space: nowrap;
+  margin-left: 0;
+}
+
+    .project-link:hover {
+      background: rgba(255,255,255,0.24);
+      transform: translateX(4px);
+    }
+
+    .project-panel:hover .project-topline,
+    .project-panel:hover .project-title,
+    .project-panel:hover .project-meta,
+    .project-panel:hover .project-details,
+    .project-panel:focus-within .project-topline,
+    .project-panel:focus-within .project-title,
+    .project-panel:focus-within .project-meta,
+    .project-panel:focus-within .project-details {
+      opacity: 1;
+      transform: translateY(0);
+      pointer-events: auto;
+    }
+
+    @media (max-width: 1024px) {
+      .projects-showcase {
+        flex-direction: column;
+        min-height: auto;
+      }
+
+      .project-panel,
+      .project-panel:hover {
+        flex: none;
+        min-height: 440px;
+        transform: none;
+      }
+
+      .project-topline,
+      .project-title,
+      .project-meta,
+      .project-details {
+        opacity: 1;
+        transform: none;
+        pointer-events: auto;
+      }
+      .project-summary,
+      .project-details {
+        position: static;
+        width: 100%;
+        flex: none;
+      }
+    }
+  </style>
 </head>
-<body class="">
-    <!-- Navigation -->
-    <nav class="fixed top-0 w-full bg-white/90 backdrop-blur-sm z-50 shadow-sm">
-        <div class="max-w-6xl mx-auto px-4 py-4">
-            <div class="flex justify-between items-center">
-                <div class="text-xl font-bold text-gray-900">Portafolio</div>
-                <div class="hidden md:flex space-x-4">
-                    <a href="#home" class="nav-link">Inicio</a>
-                     <a href="sobremi.html" class="nav-link">Sobre mi</a>
-                    <a href="#projects" class="nav-link">Proyectos</a>
-                    <a href="#skills" class="nav-link">Habilidades</a>
-                    <a href="#contact" class="nav-link">Contacto</a>
-                </div>
-                <button id="mobile-btn" class="md:hidden">
-                    <i class="fas fa-bars text-gray-700"></i>
-                </button>
-            </div>
-            
-        </div>
-    </nav>
 
-    <!-- Hero Section -->
-    <section id="home" class="hero-bg">
-        <section class="about-section ">
-      
-<div class="grid md:grid-cols-2  items-center mt-8">
-    <!-- Columna de Texto -->
-<div class="text-gray-800 flex flex-col justify-center">
-  <div class="space-y-6 text-lg leading-relaxed text-center md:text-left">
-    
-    <p class="text-gray-700">
-      ¡Hola! Soy <strong class="text-accent text-rose-600">Javiera Maldonado</strong>
-    </p>
+<body class="antialiased">
 
-    <h1 class="text-4xl md:text-5xl font-bold mb-8 text-sky-900">
-    Conectando ideas brillantes con personas reales
-    </h1>
-<p>Me apasiona participar en iniciativas que transforman realidades, impulsando el cambio social y promoviendo la sostenibilidad como pilares para construir un futuro más justo, consciente y colaborativo.</p>
-    <!-- CTA Buttons -->
-    <div class="flex flex-col sm:flex-row justify-center md:justify-start gap-4">
-         <a href="#contact" class="relative z-10 inline-flex items-center justify-center bg-slate-900 text-white px-8 py-4 rounded-lg font-semibold hover:bg-gray-800 transition-all duration-300 shadow-lg hover:shadow-xl w-full sm:w-40 text-center">
-                <span>Hablemos</span>
-                <!--  <svg class="ml-3 w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
-                </svg>-->
-            </a>
-      <a href="https://ghdvibzocsxpudbauxon.supabase.co/storage/v1/object/sign/portafolio.fotos/CV-Javiera.Maldonado.pdf?token=eyJraWQiOiJzdG9yYWdlLXVybC1zaWduaW5nLWtleV9hODU1M2Q0MS1lMjBiLTQwMGQtOTQ3Mi00MTJhMjFkOGZkNzQiLCJhbGciOiJIUzI1NiJ9.eyJ1cmwiOiJwb3J0YWZvbGlvLmZvdG9zL0NWLUphdmllcmEuTWFsZG9uYWRvLnBkZiIsImlhdCI6MTc1NTkxNDk4NCwiZXhwIjoxNzg3NDUwOTg0fQ.odr5Sh1G9oPqx0rvw9e5MM2wiA73C72P2vuMUpguHYM" class="relative z-10 inline-flex items-center justify-center bg-slate-900 text-white px-8 py-4 rounded-lg font-semibold hover:bg-gray-800 transition-all duration-300 shadow-lg hover:shadow-xl w-full sm:w-40 text-center" target="_blank" rel="noopener noreferrer">
-        <span>Ver CV</span>
-        <!--  <svg class="ml-3 w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
-        </svg> -->
+  <!-- NAV -->
+  <nav class="fixed top-0 w-full z-50 bg-cream/85 backdrop-blur-md border-b border-black/5">
+    <div class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
+      <a href="#home" class="text-xl md:text-2xl font-semibold tracking-tight text-ink">
+        Javiera Maldonado
       </a>
-               <a href="sobremi.html" class="relative z-10 inline-flex items-center justify-center bg-slate-900 text-white px-8 py-4 rounded-lg font-semibold hover:bg-gray-800 transition-all duration-300 shadow-lg hover:shadow-xl w-full sm:w-40 text-center">
-                <span>Sobre mi</span>
-                <!--  <svg class="ml-3 w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
-                </svg>-->
-            </a>
+
+      <div class="hidden md:flex items-center gap-8">
+        <a href="#home" class="nav-link text-sm font-medium text-ink/80 hover:text-ink">Inicio</a>
+        <a href="#proyectos" class="nav-link text-sm font-medium text-ink/80 hover:text-ink">Proyectos</a>
+        <a href="#sobre-mi" class="nav-link text-sm font-medium text-ink/80 hover:text-ink">Sobre mí</a>
+        <a href="#contact" class="nav-link text-sm font-medium text-ink/80 hover:text-ink">Contacto</a>
+      </div>
+
+      <button id="mobile-btn" class="md:hidden text-ink focus:outline-none">
+        <i class="fas fa-bars text-xl"></i>
+      </button>
     </div>
 
-  </div>
-</div>
+    <div id="mobile-menu" class="hidden md:hidden bg-softwhite border-t border-black/5 px-6 py-5 space-y-4">
+      <a href="#home" class="block font-medium text-ink/80">Inicio</a>
+      <a href="#proyectos" class="block font-medium text-ink/80">Proyectos</a>
+      <a href="#sobre-mi" class="block font-medium text-ink/80">Sobre mí</a>
+      <a href="#contact" class="block font-medium text-ink/80">Contacto</a>
+    </div>
+  </nav>
 
+  <!-- HERO -->
+  <section id="home" class="min-h-screen flex items-center pt-24 md:pt-28">
+    <div class="max-w-6xl mx-auto px-8 py-12 grid md:grid-cols-2 gap-14 items-center">
+      
+      <div class="fade-in">
+        <p class="text-sm uppercase tracking-[0.2em] text-olive mb-4">
+          UX/UI Designer · Research · Product Thinking
+        </p>
 
-    <!-- Columna de Imagen -->
-    <div class=" hidden md:block flex justify-center md:justify-start">
+        <h1 class="text-4xl md:text-6xl font-semibold leading-tight tracking-tight text-ink mb-6">
+          Diseño experiencias digitales
+          <span class="text-plum">claras, intuitivas y con intención.</span>
+        </h1>
+
+        <p class="text-lg md:text-xl text-ink/65 leading-relaxed max-w-xl mb-8">
+          Soy Javiera Maldonado, UX/UI Designer enfocada en crear productos digitales que conectan necesidades reales de usuarios con objetivos de negocio y decisiones de diseño bien fundamentadas.
+        </p>
+
+        <div class="flex flex-wrap gap-4">
+          <a href="#proyectos" class="px-7 py-3.5 rounded-full bg-ink text-white text-sm font-medium hover:opacity-90 transition">
+            Ver proyectos
+          </a>
+          <a href="#contact" class="px-7 py-3.5 rounded-full border border-black/10 bg-white text-ink text-sm font-medium hover:bg-sand transition">
+            Contacto
+          </a>
+        </div>
+      </div>
+
+      <div class="fade-in hidden md:block" style="transition-delay: 200ms;">
         <div class="relative">
-            <!-- Decorative elements -->
-            <div class="decorative-dot absolute -top-6 -left-6 w-20 h-20 bg-gray-300 rounded-full opacity-40"></div>
-            <div class="decorative-dot absolute -bottom-8 -right-8 w-28 h-28 bg-gray-400 rounded-full opacity-30"></div>
-            
-            <!-- Main Image -->
-<img id="proyecto-3" data-storage="foto.png" src="" alt="Cargando...">
+          <div class="absolute -inset-6 blur-2xl opacity-70"></div>
+          <div class="relative">
+            <div class="flex items-center justify-center overflow-hidden">
+              <img
+                id="hero-image"
+                data-storage="Miimagen.PNG"
+                src=""
+                alt="Javiera Maldonado"
+                class="h-100 object-contain"
+              />
+            </div>
+          </div>
+        </div>
+      </div>
+
     </div>
-</div>
+  </section>
 
-             
-        </section>
-    
-    </section>
- 
-   
-  <!-- Sección de Proyectos -->
-   <section id="projects" class="proyectos" >
-    <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-12 text-center fade-in">Proyectos</h2>
-<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-2 gap-8 justify-items-center mb-12">
-                
-                <figure class="effect-lily">
-                    <img src="https://ghdvibzocsxpudbauxon.supabase.co/storage/v1/object/sign/portafolio.fotos/top-view-employee-working-with-her-laptop%201.png?token=eyJraWQiOiJzdG9yYWdlLXVybC1zaWduaW5nLWtleV9hODU1M2Q0MS1lMjBiLTQwMGQtOTQ3Mi00MTJhMjFkOGZkNzQiLCJhbGciOiJIUzI1NiJ9.eyJ1cmwiOiJwb3J0YWZvbGlvLmZvdG9zL3RvcC12aWV3LWVtcGxveWVlLXdvcmtpbmctd2l0aC1oZXItbGFwdG9wIDEucG5nIiwiaWF0IjoxNzU0MzU4NTMxLCJleHAiOjE3ODU4OTQ1MzF9.oXBhOXMCibXJ5x5XRoNWHymmlpE9kpKQi3OhOCHMxpY" alt="img1"/>
-                    <figcaption>
-                        <div>
-                            <h2>01 <span>Diseño UX</span></h2>
-                            <p>Proyectos de diseño</p>
-                        </div>
-                        <a href="diseno-ux.html">Ver más</a>
-                    </figcaption>     
-                </figure>
-
-                <figure class="effect-lily">
-                    <img src="https://ghdvibzocsxpudbauxon.supabase.co/storage/v1/object/sign/portafolio.fotos/adult-woman-planning-scrum-method%201.png?token=eyJraWQiOiJzdG9yYWdlLXVybC1zaWduaW5nLWtleV9hODU1M2Q0MS1lMjBiLTQwMGQtOTQ3Mi00MTJhMjFkOGZkNzQiLCJhbGciOiJIUzI1NiJ9.eyJ1cmwiOiJwb3J0YWZvbGlvLmZvdG9zL2FkdWx0LXdvbWFuLXBsYW5uaW5nLXNjcnVtLW1ldGhvZCAxLnBuZyIsImlhdCI6MTc1NDM1ODU5NCwiZXhwIjoxNzg1ODk0NTk0fQ.DO1f5spoXMshL21hq4aDAGDn9rN1nGxqTTBiCN5fiDM" alt="img2"/>
-                    <figcaption>
-                        <div>
-                            <h2>02 <span>Product Owner</span></h2>
-                            <p>Proyectos PO</p>
-                        </div>
-                        <a href="product-owner.html">Ver más</a>
-                    </figcaption>     
-                </figure>
-<!--                 
-                 <figure class="effect-lily">
-                    <img src="https://ghdvibzocsxpudbauxon.supabase.co/storage/v1/object/sign/portafolio.fotos/top-view-young-good-looking-architect-student-girl-casual-striped-shirt-black-jeans-standing-near-table-holding-ruler-pen-hands-making-drawings-watching-movie-digital-table-gett%201.png?token=eyJraWQiOiJzdG9yYWdlLXVybC1zaWduaW5nLWtleV9hODU1M2Q0MS1lMjBiLTQwMGQtOTQ3Mi00MTJhMjFkOGZkNzQiLCJhbGciOiJIUzI1NiJ9.eyJ1cmwiOiJwb3J0YWZvbGlvLmZvdG9zL3RvcC12aWV3LXlvdW5nLWdvb2QtbG9va2luZy1hcmNoaXRlY3Qtc3R1ZGVudC1naXJsLWNhc3VhbC1zdHJpcGVkLXNoaXJ0LWJsYWNrLWplYW5zLXN0YW5kaW5nLW5lYXItdGFibGUtaG9sZGluZy1ydWxlci1wZW4taGFuZHMtbWFraW5nLWRyYXdpbmdzLXdhdGNoaW5nLW1vdmllLWRpZ2l0YWwtdGFibGUtZ2V0dCAxLnBuZyIsImlhdCI6MTc1NDM1ODU2MSwiZXhwIjoxNzg1ODk0NTYxfQ.ZO8ugLOEhQj2FNjMwp1lvt1CEoXjcSvBPpvklUgccjc" alt="img12"/>
-                    <figcaption>
-                        <div>
-                            <h2>03 <span>Diseño Industrial</span></h2>
-                            <p> ⚠️ EN CONSTRUCCIÓN</p>
-                        </div>
-
-                    </figcaption>     
-                </figure> -->
-            </div>
-        </section>  
-   
-    <!-- Skills Section -->
-<section id="skills" class="habilidades py-16 ">
-    <div class="max-w-6xl mx-auto px-4">
-        <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-12 text-center fade-in">Habilidades</h2>
-
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            <div class="fade-in bg-white p-6 rounded-lg shadow-md">
-                <h3 class="text-2xl font-bold text-gray-900 mb-4">Gestión de producto</h3>
-                <div class="grid grid-cols-1 gap-3">
-                    <div class="flex items-center gap-3">
-                        <div class="w-2 h-2 bg-gray-600 rounded-full"></div>
-                        <span class="text-gray-700">Design Thinking</span>
-                    </div>
-                    <div class="flex items-center gap-3">
-                        <div class="w-2 h-2 bg-gray-600 rounded-full"></div>
-                        <span class="text-gray-700">Lean Startup</span>
-                    </div>
-                    <div class="flex items-center gap-3">
-                        <div class="w-2 h-2 bg-gray-600 rounded-full"></div>
-                        <span class="text-gray-700">Agile/Scrum</span>
-                    </div>
-                    <div class="flex items-center gap-3">
-                        <div class="w-2 h-2 bg-gray-600 rounded-full"></div>
-                        <span class="text-gray-700">Kanban</span>
-                    </div>
-                    <div class="flex items-center gap-3">
-                        <div class="w-2 h-2 bg-gray-600 rounded-full"></div>
-                        <span class="text-gray-700">Jira / Trello</span>
-                    </div>
-                    <div class="flex items-center gap-3">
-                        <div class="w-2 h-2 bg-gray-600 rounded-full"></div>
-                        <span class="text-gray-700">Historias de Usuario</span>
-                    </div>
-                    <div class="flex items-center gap-3">
-                        <div class="w-2 h-2 bg-gray-600 rounded-full"></div>
-                        <span class="text-gray-700">Estimaciones Ágiles</span>
-                    </div>
-                    <div class="flex items-center gap-3">
-                        <div class="w-2 h-2 bg-gray-600 rounded-full"></div>
-                        <span class="text-gray-700">Priorización de Backlog</span>
-                    </div>
-                    <div class="flex items-center gap-3">
-                        <div class="w-2 h-2 bg-gray-600 rounded-full"></div>
-                        <span class="text-gray-700">Roadmaps</span>
-                    </div>
-                    <div class="flex items-center gap-3">
-                        <div class="w-2 h-2 bg-gray-600 rounded-full"></div>
-                        <span class="text-gray-700">Análisis de Métricas</span>
-                    </div>
-                </div>
-            </div>
-
-            <div class="fade-in bg-white p-6 rounded-lg shadow-md">
-                <h3 class="text-2xl font-bold text-gray-900 mb-4">Diseño y Prototipado</h3>
-                <div class="grid grid-cols-1 gap-3">
-                     <div class="flex items-center gap-3">
-                        <div class="w-2 h-2 bg-gray-600 rounded-full"></div>
-                        <span class="text-gray-700">Centrado en el usuario</span>
-                    </div>
-                    <div class="flex items-center gap-3">
-                        <div class="w-2 h-2 bg-gray-600 rounded-full"></div>
-                        <span class="text-gray-700">Figma</span>
-                    </div>
-                    <div class="flex items-center gap-3">
-                        <div class="w-2 h-2 bg-gray-600 rounded-full"></div>
-                        <span class="text-gray-700">Prototipado</span>
-                    </div>
-                    <div class="flex items-center gap-3">
-                        <div class="w-2 h-2 bg-gray-600 rounded-full"></div>
-                        <span class="text-gray-700">Wireframes</span>
-                    </div>
-                    <div class="flex items-center gap-3">
-                        <div class="w-2 h-2 bg-gray-600 rounded-full"></div>
-                        <span class="text-gray-700">Accesible e inclusivo</span>
-                    </div>
-                    <div class="flex items-center gap-3">
-                        <div class="w-2 h-2 bg-gray-600 rounded-full"></div>
-                        <span class="text-gray-700">Adobe Illustrator</span>
-                    </div>
-                    <div class="flex items-center gap-3">
-                        <div class="w-2 h-2 bg-gray-600 rounded-full"></div>
-                        <span class="text-gray-700">Sistema de diseño</span>
-                    </div>
-                   
-                </div>
-            </div>
-
-            <div class="fade-in bg-white p-6 rounded-lg shadow-md">
-                <h3 class="text-2xl font-bold text-gray-900 mb-4">Desarrollo Front End</h3>
-                <div class="grid grid-cols-1 gap-3">
-                     <div class="flex items-center gap-3">
-                        <div class="w-2 h-2 bg-gray-600 rounded-full"></div>
-                        <span class="text-gray-700">HTML</span>
-                    </div>
-                    <div class="flex items-center gap-3">
-                        <div class="w-2 h-2 bg-gray-600 rounded-full"></div>
-                        <span class="text-gray-700">CSS</span>
-                    </div>
-                    <div class="flex items-center gap-3">
-                        <div class="w-2 h-2 bg-gray-600 rounded-full"></div>
-                        <span class="text-gray-700">JavaScript</span>
-                    </div>
-                    <div class="flex items-center gap-3">
-                        <div class="w-2 h-2 bg-gray-600 rounded-full"></div>
-                        <span class="text-gray-700">Bootstrap/Tailwind</span>
-                    </div>
-                    <div class="flex items-center gap-3">
-                        <div class="w-2 h-2 bg-gray-600 rounded-full"></div>
-                        <span class="text-gray-700">VSCODE</span>
-                    </div>
-                     <div class="flex items-center gap-3">
-                        <div class="w-2 h-2 bg-gray-600 rounded-full"></div>
-                        <span class="text-gray-700">GitHub</span>
-                    </div>
-                </div>
-            </div>
-
-            <div class="fade-in bg-white p-6 rounded-lg shadow-md lg:col-span-3 md:col-span-2">
-                <h3 class="text-2xl font-bold text-gray-900 mb-4">Habilidades blandas</h3>
-                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3">
-                    <div class="flex items-center gap-3">
-                        <div class="w-2 h-2 bg-gray-600 rounded-full"></div>
-                        <span class="text-gray-700"><a href="https://ghdvibzocsxpudbauxon.supabase.co/storage/v1/object/sign/portafolio.fotos/EF%20SET%20Certificate.pdf?token=eyJraWQiOiJzdG9yYWdlLXVybC1zaWduaW5nLWtleV9hODU1M2Q0MS1lMjBiLTQwMGQtOTQ3Mi00MTJhMjFkOGZkNzQiLCJhbGciOiJIUzI1NiJ9.eyJ1cmwiOiJwb3J0YWZvbGlvLmZvdG9zL0VGIFNFVCBDZXJ0aWZpY2F0ZS5wZGYiLCJpYXQiOjE3NTU2NTE2MTMsImV4cCI6MTc4NzE4NzYxM30.pZdkr07NuXvByj9QzFp5lhB-3-7lYTW2ttybz_L7U3Q" target="_blank" class="hover:underline">
-                        Inglés (C1 Advanced)</a></h3></span>
-                    </div>
-                    <div class="flex items-center gap-3">
-                        <div class="w-2 h-2 bg-gray-600 rounded-full"></div>
-                        <span class="text-gray-700">Análisis de información</span>
-                    </div>
-                    <div class="flex items-center gap-3">
-                        <div class="w-2 h-2 bg-gray-600 rounded-full"></div>
-                        <span class="text-gray-700">Traduzco ideas en acciones</span>
-                    </div>
-                    <div class="flex items-center gap-3">
-                        <div class="w-2 h-2 bg-gray-600 rounded-full"></div>
-                        <span class="text-gray-700">Atención al detalle</span>
-                    </div>
-                    <div class="flex items-center gap-3">
-                        <div class="w-2 h-2 bg-gray-600 rounded-full"></div>
-                        <span class="text-gray-700">Trabajo en equipo</span>
-                    </div>
-                    <div class="flex items-center gap-3">
-                        <div class="w-2 h-2 bg-gray-600 rounded-full"></div>
-                        <span class="text-gray-700">Comunicación efectiva</span>
-                    </div>
-                    <div class="flex items-center gap-3">
-                        <div class="w-2 h-2 bg-gray-600 rounded-full"></div>
-                        <span class="text-gray-700">Proactiva</span>
-                    </div>
-                     <div class="flex items-center gap-3">
-                        <div class="w-2 h-2 bg-gray-600 rounded-full"></div>
-                        <span class="text-gray-700">Adaptabilidad al cambio</span>
-                    </div>
-                     <div class="flex items-center gap-3">
-                        <div class="w-2 h-2 bg-gray-600 rounded-full"></div>
-                        <span class="text-gray-700">Pensamiento crítico</span>
-                    </div>
-                </div>
-            </div>
-        </div>
+  <!-- PROYECTOS -->
+  <section id="proyectos" class="max-w-6xl mx-auto px-8 py-20 md:py-24">
+    <div class="mb-12 fade-in">
+      <p class="text-sm uppercase tracking-[0.2em] text-olive mb-3">Proyectos</p>
+      <h2 class="text-3xl md:text-4xl font-semibold tracking-tight text-ink">
+        Selección de casos de estudio
+      </h2>
+      <p class="mt-4 max-w-2xl text-ink/65 leading-relaxed">
+        Una muestra de proyectos donde he trabajado investigación, estrategia, arquitectura de información, experiencia de usuario y diseño visual.
+      </p>
     </div>
-</section>
 
-    <!-- Education Section -->
-    <section  id="education" class="py-16 bg-white">
-        <div class="max-w-6xl mx-auto px-4">
-            <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-12 text-center fade-in">Certificaciones</h2>
-            <div class="max-w-3xl mx-auto space-y-8">
-                <div class="border-l-4 border-gray-300 pl-6 fade-in">
-                    <h3 class="font-semibold text-xl text-gray-900">
-                        <a href="https://ghdvibzocsxpudbauxon.supabase.co/storage/v1/object/sign/portafolio.fotos/es.pdf?token=eyJraWQiOiJzdG9yYWdlLXVybC1zaWduaW5nLWtleV9hODU1M2Q0MS1lMjBiLTQwMGQtOTQ3Mi00MTJhMjFkOGZkNzQiLCJhbGciOiJIUzI1NiJ9.eyJ1cmwiOiJwb3J0YWZvbGlvLmZvdG9zL2VzLnBkZiIsImlhdCI6MTc1NDM1NjIzNiwiZXhwIjoxNzg1ODkyMjM2fQ.dh8lzAm-RflvwzJQpjqfecuE5_YaedkXEhV0NCTrTlU" target="_blank" class="hover:underline">
-                        Bootcamp, Fundamentos Product Owner</a></h3>
-                    <p class="text-gray-600 font-medium mb-2">Mayo 2025- Julio 2025 (Online, 138 h)</p>
-                    <p class="text-gray-700 mb-1">Talento Digital para Chile, MindHub</p>
-                </div>
+    <div class="projects-showcase fade-in">
 
-                <div class="border-l-4 border-gray-300 pl-6 fade-in">
-                    <h3 class="font-semibold text-xl text-gray-900"> 
-                <a href="https://ghdvibzocsxpudbauxon.supabase.co/storage/v1/object/sign/portafolio.fotos/DescargarCertificado.pdf?token=eyJraWQiOiJzdG9yYWdlLXVybC1zaWduaW5nLWtleV9hODU1M2Q0MS1lMjBiLTQwMGQtOTQ3Mi00MTJhMjFkOGZkNzQiLCJhbGciOiJIUzI1NiJ9.eyJ1cmwiOiJwb3J0YWZvbGlvLmZvdG9zL0Rlc2NhcmdhckNlcnRpZmljYWRvLnBkZiIsImlhdCI6MTc1NDM1NjIwOSwiZXhwIjoxNzg1ODkyMjA5fQ.Ui8uA7aM3Kr7dMF1_YzuxEpJV-xJn1dWVPPSIeCou_8" target="_blank" class="hover:underline">
-                    Bootcamp, Desarrollo de Aplicaciones Front-End
-                </a>
-            </h3>
-                    <p class="text-gray-600 font-medium mb-2">Marzo 2024- Septiembre 2024 (Online, 438 h)</p>
-                    <p class="text-gray-700">Talento Digital para Chile, Desafío Latam</p>
-                </div>
-            <div class="border-l-4 border-gray-300 pl-6 fade-in">
-    <h3 class="font-semibold text-xl text-gray-900">
-        <a href="https://ghdvibzocsxpudbauxon.supabase.co/storage/v1/object/sign/portafolio.fotos/certificadoux.png?token=eyJraWQiOiJzdG9yYWdlLXVybC1zaWduaW5nLWtleV9hODU1M2Q0MS1lMjBiLTQwMGQtOTQ3Mi00MTJhMjFkOGZkNzQiLCJhbGciOiJIUzI1NiJ9.eyJ1cmwiOiJwb3J0YWZvbGlvLmZvdG9zL2NlcnRpZmljYWRvdXgucG5nIiwiaWF0IjoxNzU0MzU2MTczLCJleHAiOjE3ODU4OTIxNzN9.gA3AyVl0xoc0qY2h8mPMIGU8qGJofuuy0tD4AP5Ja8g" target="_blank" class="hover:underline">
-            Bootcamp, Diseño UX/UI
-        </a>
-    </h3>
+      <article class="project-panel">
+        <img id="project-studylink" data-storage="portadastudylink.png" src="" alt="StudyLink" onerror="this.src='https://via.placeholder.com/900x1200?text=StudyLink'">
+        <div class="project-content">
+          <div class="project-header">
+            <div class="project-index">01</div>
+            <p class="project-topline">UX/UI Case Study</p>
+          </div>
 
-    <p class="text-gray-600 font-medium mb-2">Marzo 2022 - Septiembre 2022 (Online, 52 h)</p>
-    <p class="text-gray-700">CoderHouse</p>
-</div>
-
-    <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-12 text-center fade-in">Educación</h2>
-            <div class="max-w-3xl mx-auto space-y-8">
-                <div class="border-l-4 border-gray-300 pl-6 fade-in">
-                    <h3 class="font-semibold text-xl text-gray-900">Universidad Austral de Chile, Puerto Montt</h3>
-                    <p class="text-gray-600 font-medium mb-2">Marzo 2014- Septiembre 2020</p>
-                    <p class="text-gray-700 mb-1">Título Profesional, Ingeniería Comercial mención administración de empresas</p>
-                </div>
-
-                <div class="border-l-4 border-gray-300 pl-6 fade-in">
-                    <h3 class="font-semibold text-xl text-gray-900">Instituto Profesional DUOC UC, Concepción</h3>
-                    <p class="text-gray-600 font-medium mb-2">Marzo 2009- Julio 2013</p>
-                    <p class="text-gray-700">Título Profesional, Diseñador Industrial</p>
-                </div>
-
-        
+          <div class="project-bottom">
+            <div class="project-details">           
+               <div class="project-summary">
+              <h3 class="project-title">StudyLink</h3>
+              <p class="project-meta">UX Research·UX/UI Design·Prototipado</p>
             </div>
-        </div>
-    </section>
-
-    <!-- Contact Section -->
- <footer id="contact" class="text-white bg-slate-900 py-6 mt-0">
-        <div class="max-w-6xl mx-auto px-6 text-center">
-            <h2 class="text-3xl md:text-4xl font-bold mb-8 text-white">Contacto</h2>
-            <div class="flex flex-wrap justify-center gap-6 text-base">
-                <!-- Botón Copiar Correo -->
-                <button id="copy-email-btn"
-                    class="flex flex-col items-center space-y-3 p-4 bg-gray-800 rounded-lg hover:bg-gray-700 transition-colors hover:text-gray-300 text-sm text-gray-300 w-full sm:w-auto">
-                    <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 448 512">
-                        <path d="M100.28 448H7.4V148.9h92.88zM53.79 108.1C24.09 108.1 0 83.5 0 53.8a53.79 53.79 0 0 1 107.58 0c0 29.7-24.1 54.3-53.79 54.3zM447.9 448h-92.68V302.4c0-34.7-.7-79.2-48.29-79.2-48.29 0-55.69 37.7-55.69 76.7V448h-92.78V148.9h89.08v40.8h1.3c12.4-23.5 42.69-48.3 87.88-48.3 94 0 111.28 61.9 111.28 142.3V448z" />
-                    </svg>
-                    <span>Correo</span>
-                </button>
-                <a href="https://www.linkedin.com/in/jamaldonadoagurto/" target="_blank"
-                    class="flex flex-col items-center space-y-3 p-4 bg-gray-800 rounded-lg hover:bg-gray-700 transition-colors hover:text-gray-300 text-sm text-gray-300 w-full sm:w-auto">
-                    <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 448 512">
-                        <path d="M100.28 448H7.4V148.9h92.88zM53.79 108.1C24.09 108.1 0 83.5 0 53.8a53.79 53.79 0 0 1 107.58 0c0 29.7-24.1 54.3-53.79 54.3zM447.9 448h-92.68V302.4c0-34.7-.7-79.2-48.29-79.2-48.29 0-55.69 37.7-55.69 76.7V448h-92.78V148.9h89.08v40.8h1.3c12.4-23.5 42.69-48.3 87.88-48.3 94 0 111.28 61.9 111.28 142.3V448z" />
-                    </svg>
-                    <span>LinkedIn</span>
-                </a>
-                <a href="https://github.com/javmaldonado" target="_blank" rel="noopener noreferrer"
-                    class="flex flex-col items-center space-y-3 p-4 bg-gray-800 rounded-lg hover:bg-gray-700 transition-colors hover:text-gray-300 text-sm text-gray-300 w-full sm:w-auto">
-                    <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 20 20">
-                        <path fill-rule="evenodd" d="M10 0C4.477 0 0 4.477 0 10c0 4.418 2.865 8.163 6.839 9.489.5.092.682-.217.682-.483 0-.237-.009-.868-.014-1.703-2.782.605-3.369-1.34-3.369-1.34-.454-1.156-1.11-1.464-1.11-1.464-.908-.62.069-.608.069-.608 1.004.07 1.532 1.03 1.532 1.03.89 1.529 2.34 1.089 2.91.832.09-.647.35-1.089.636-1.338-2.22-.253-4.555-1.11-4.555-4.943 0" clip-rule="evenodd"></path>
-                    </svg>
-                    <span>GitHub</span>
-                </a>
+              <p class="project-description">
+                Encuentra compañeros de estudio compatibles y fomenta el aprendizaje colaborativo con una experiencia clara y enfocada en la conexión.
+              </p>
+              <a href="studylink.html" class="project-link">
+                Ver caso <span>→</span>
+              </a>
             </div>
+          </div>
         </div>
-    </footer>
-    <!-- Mensaje de copia de correo -->
-    <div id="copy-message" class="copy-message">Correo copiado ✅</div>
+      </article>
 
-    <!-- Back to Top Button -->
-    <button id="back-to-top" class="fixed bottom-6 right-6 bg-gray-600 text-white p-3 rounded-full shadow-lg hover:bg-teal-700 transition-all duration-300 opacity-0 invisible">
-        <i class="fas fa-arrow-up"></i>
-    </button>
+      <article class="project-panel">
+        <img id="project-ecotrack" data-storage="ecotrack-portada.jpg" src="" alt="EcoTrack" onerror="this.src='https://via.placeholder.com/900x1200?text=EcoTrack'">
+        <div class="project-content">
+          <div class="project-header">
+            <div class="project-index">02</div>
+            <p class="project-topline">UX/UI Case Study</p>
+          </div>
 
-<script>
-        
-        // Simple JavaScript functionality
-        document.addEventListener('DOMContentLoaded', function() {
-            // Mobile menu toggle
-            const mobileBtn = document.getElementById('mobile-btn');
-            const mobileMenu = document.getElementById('mobile-menu');
-            
-            mobileBtn.addEventListener('click', function() {
-                mobileMenu.classList.toggle('show');
-            });
+          <div class="project-bottom">
+            <div class="project-details">  
+            <div class="project-summary">
+              <h3 class="project-title">EcoTrack</h3>
+              <p class="project-meta">UX Research · UX/UI Design · Prototipado</p>
+            </div>
+              <p class="project-description">
+                App para construir hábitos sostenibles mediante gamificación, recompensas e impacto ambiental visible en la vida diaria.
+              </p>
+              <a href="ecotrack.html" class="project-link">
+                Ver caso <span>→</span>
+              </a>
+            </div>
+          </div>
+        </div>
+      </article>
 
-            // Smooth scrolling for navigation links
-            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-                anchor.addEventListener('click', function (e) {
-                    e.preventDefault();
-                    const target = document.querySelector(this.getAttribute('href'));
-                    if (target) {
-                        target.scrollIntoView({
-                            behavior: 'smooth',
-                            block: 'start'
-                        });
-                        mobileMenu.classList.remove('show');
-                    }
-                });
-            });
+      <article class="project-panel">
+        <img id="project-repunto" data-storage="boobles.jpg" src="" alt="RePunto" onerror="this.src='https://via.placeholder.com/900x1200?text=RePunto'">
+        <div class="project-content">
+          <div class="project-header">
+            <div class="project-index">03</div>
+            <p class="project-topline">UX/UI Case Study</p>
+          </div>
 
-            // Back to top button
-            const backToTopBtn = document.getElementById('back-to-top');
-            
-            window.addEventListener('scroll', function() {
-                if (window.pageYOffset > 300) {
-                    backToTopBtn.style.opacity = '1';
-                    backToTopBtn.style.visibility = 'visible';
-                } else {
-                    backToTopBtn.style.opacity = '0';
-                    backToTopBtn.style.visibility = 'hidden';
-                }
-            });
+          <div class="project-bottom">
+            <div class="project-summary">
+              <h3 class="project-title">RePunto</h3>
+              <p class="project-meta">UX Research · UX/UI Design</p>
+            </div>
 
-            backToTopBtn.addEventListener('click', function() {
-                window.scrollTo({
-                    top: 0,
-                    behavior: 'smooth'
-                });
-            });
+            <div class="project-details">
+              <p class="project-description">
+                Plataforma pensada para encontrar puntos de reciclaje cercanos de forma simple, accesible y orientada a la acción.
+              </p>
+              <a href="repunto.html" class="project-link">
+                Ver caso <span>→</span>
+              </a>
+            </div>
+          </div>
+        </div>
+      </article>
 
-            // Fade in animation on scroll
-            const observerOptions = {
-                threshold: 0.1,
-                rootMargin: '0px 0px -50px 0px'
-            };
+    </div>
+  </section>
 
-            const observer = new IntersectionObserver(function(entries) {
-                entries.forEach(entry => {
-                    if (entry.isIntersecting) {
-                        entry.target.classList.add('visible');
-                        
-                        // Animate skill progress bars
-                        const progressBars = entry.target.querySelectorAll('.skill-progress');
-                        progressBars.forEach(bar => {
-                            const width = bar.getAttribute('data-width');
-                            setTimeout(() => {
-                                bar.style.width = width + '%';
-                            }, 200);
-                        });
-                    }
-                });
-            }, observerOptions);
+  <!-- SOBRE MI -->
+  <section id="sobre-mi" class="py-20 md:py-24 bg-ink text-white">
+    <div class="max-w-6xl mx-auto px-6 grid md:grid-cols-2 gap-14 items-start">
+      
+      <div class="fade-in">
+        <p class="text-sm uppercase tracking-[0.2em] text-mustard mb-3">Sobre mí</p>
+        <h2 class="text-3xl md:text-4xl font-semibold tracking-tight mb-8">
+          Diseño con mirada estratégica, humana y funcional.
+        </h2>
 
-            // Observe all fade-in elements
-            document.querySelectorAll('.fade-in').forEach(el => {
-                observer.observe(el);
-            });
+        <div class="space-y-6 text-white/75 text-lg leading-relaxed">
+          <p>
+            Soy UX/UI Designer con formación en diseño, negocio y desarrollo front-end, lo que me permite abordar productos digitales de manera integral: desde la experiencia del usuario hasta su viabilidad técnica y su impacto en el negocio.
+          </p>
+          <p>
+            Mi enfoque está en la investigación centrada en las personas. Antes de diseñar, busco entender en profundidad los problemas reales de los usuarios para transformar insights en soluciones claras, funcionales y con sentido.
+          </p>
+          <p>
+            He trabajado en proyectos académicos donde participo en todo el proceso de diseño, desde la definición del problema hasta la creación y validación de soluciones.
+          </p>
+        </div>
+      </div>
+
+      <div class="grid grid-cols-2 gap-4 fade-in">
+        <div class="bg-white/5 border border-white/10 rounded-[1.5rem] p-6 text-center">
+          <h4 class="text-2xl font-semibold text-mustard mb-2">UX + Negocio</h4>
+          <p class="text-sm text-white/55">Enfoque estratégico</p>
+        </div>
+
+        <div class="bg-white/5 border border-white/10 rounded-[1.5rem] p-6 text-center">
+          <h4 class="text-2xl font-semibold text-mustard mb-2">End-to-End</h4>
+          <p class="text-sm text-white/55">Proceso completo de diseño</p>
+        </div>
+
+        <div class="col-span-2 bg-white/5 border border-white/10 rounded-[1.5rem] p-6">
+          <p class="text-sm text-white/50 mb-4 font-semibold uppercase tracking-[0.2em]">
+            Habilidades Core
+          </p>
+          <div class="flex flex-wrap gap-2">
+            <span class="px-3 py-1 bg-white/10 rounded-full text-xs">User Research</span>
+            <span class="px-3 py-1 bg-white/10 rounded-full text-xs">Wireframing</span>
+            <span class="px-3 py-1 bg-white/10 rounded-full text-xs">Prototyping</span>
+            <span class="px-3 py-1 bg-white/10 rounded-full text-xs">Figma</span>
+            <span class="px-3 py-1 bg-white/10 rounded-full text-xs">HTML/CSS</span>
+            <span class="px-3 py-1 bg-white/10 rounded-full text-xs">Design Systems</span>
+            <span class="px-3 py-1 bg-white/10 rounded-full text-xs">Flows/Journeys</span>
+            <span class="px-3 py-1 bg-white/10 rounded-full text-xs">Diseño responsive</span>
+          </div>
+        </div>
+
+        <div class="col-span-2 bg-white/5 border border-white/10 rounded-[1.5rem] p-6">
+          <p class="text-sm text-white/50 mb-4 font-semibold uppercase tracking-[0.2em]">
+            Habilidades Blandas
+          </p>
+          <div class="flex flex-wrap gap-2">
+            <span class="px-3 py-1 bg-white/10 rounded-full text-xs">Pensamiento analítico</span>
+            <span class="px-3 py-1 bg-white/10 rounded-full text-xs">Comunicación efectiva</span>
+            <span class="px-3 py-1 bg-white/10 rounded-full text-xs">Atención al detalle</span>
+            <span class="px-3 py-1 bg-white/10 rounded-full text-xs">Resolución de problemas</span>
+            <span class="px-3 py-1 bg-white/10 rounded-full text-xs">Trabajo en equipo</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACTO -->
+  <section id="contact" class="py-20 md:py-24">
+    <div class="max-w-5xl mx-auto px-6">
+      <div class="rounded-[2rem] bg-white border border-black/5 shadow-card p-8 md:p-12 text-center fade-in">
+        <p class="text-sm uppercase tracking-[0.2em] text-olive mb-3">Contacto</p>
+        <h2 class="text-4xl md:text-5xl font-semibold tracking-tight text-ink mb-4">
+          Hablemos
+        </h2>
+        <p class="text-lg text-ink/60 mb-10 max-w-2xl mx-auto">
+          ¿Tienes un proyecto en mente, una oportunidad laboral o quieres conocer más sobre mi trabajo?
+        </p>
+
+        <div class="inline-flex flex-col md:flex-row items-center gap-5">
+          <button id="copy-email-btn" class="group relative px-7 py-4 bg-ink text-white rounded-2xl font-medium hover:opacity-90 transition-all flex items-center gap-3 shadow-soft">
+            <i class="far fa-envelope text-lg"></i>
+            <span>javiera.maldonado.agurto@gmail.com</span>
+            <span class="absolute -top-11 left-1/2 -translate-x-1/2 bg-ink text-white text-xs py-1.5 px-3 rounded-full opacity-0 group-hover:opacity-100 transition whitespace-nowrap">
+              Click para copiar
+            </span>
+          </button>
+
+          <a href="https://www.linkedin.com/in/jamaldonadoagurto/" target="_blank" class="px-7 py-4 rounded-2xl border border-black/10 bg-cream text-ink font-medium hover:bg-sand transition inline-flex items-center gap-3">
+            <i class="fab fa-linkedin text-lg"></i>
+            LinkedIn
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="py-10 border-t border-black/5 text-center text-ink/50 text-sm">
+    <p>&copy; 2024 Javiera Maldonado. Hecho con ❤️ y código.</p>
+  </footer>
+
+  <!-- TOAST -->
+  <div id="copy-message" class="copy-message">
+    <i class="fas fa-check-circle mr-2"></i> Correo copiado
+  </div>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      const mobileBtn = document.getElementById("mobile-btn");
+      const mobileMenu = document.getElementById("mobile-menu");
+
+      if (mobileBtn) {
+        mobileBtn.addEventListener("click", () => {
+          mobileMenu.classList.toggle("hidden");
         });
-  
-        // For Demo purposes only (show hover effect on mobile devices)
-        [].slice.call( document.querySelectorAll('a[href="#"') ).forEach( function(el) {
-            el.addEventListener( 'click', function(ev) { ev.preventDefault(); } );
-        } );
-                    const copyEmailBtn = document.getElementById('copy-email-btn');
-            const copyMessage = document.getElementById('copy-message');
+      }
 
-            if (copyEmailBtn && copyMessage) {
-                copyEmailBtn.addEventListener('click', () => {
-                    const email = 'javiera.maldonado.agurto@gmail.com';
-                    // Usar navigator.clipboard.writeText para una mejor experiencia de usuario
-                    navigator.clipboard.writeText(email).then(() => {
-                        console.log('Correo copiado al portapapeles');
-                        copyMessage.classList.add('show');
-                        setTimeout(() => {
-                            copyMessage.classList.remove('show');
-                        }, 2000); // El mensaje desaparece después de 2 segundos
-                    }).catch(err => {
-                        console.error('No se pudo copiar el texto: ', err);
-                    });
-                });
-            }
-    </script>
+      document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener("click", function (e) {
+          e.preventDefault();
+          const target = document.querySelector(this.getAttribute("href"));
+          if (target) {
+            window.scrollTo({
+              top: target.offsetTop - 80,
+              behavior: "smooth"
+            });
+            mobileMenu.classList.add("hidden");
+          }
+        });
+      });
+
+      const observerOptions = { threshold: 0.12 };
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("visible");
+          }
+        });
+      }, observerOptions);
+
+      document.querySelectorAll(".fade-in").forEach(el => observer.observe(el));
+
+      const copyBtn = document.getElementById("copy-email-btn");
+      const message = document.getElementById("copy-message");
+
+      if (copyBtn) {
+        copyBtn.addEventListener("click", async () => {
+          const email = "javiera.maldonado.agurto@gmail.com";
+          try {
+            await navigator.clipboard.writeText(email);
+            message.classList.add("show");
+            setTimeout(() => message.classList.remove("show"), 2000);
+          } catch (err) {
+            const textArea = document.createElement("textarea");
+            textArea.value = email;
+            document.body.appendChild(textArea);
+            textArea.select();
+            document.execCommand("copy");
+            document.body.removeChild(textArea);
+            message.classList.add("show");
+            setTimeout(() => message.classList.remove("show"), 2000);
+          }
+        });
+      }
+    });
+  </script>
 </body>
 </html>

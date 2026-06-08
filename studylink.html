@@ -1,71 +1,463 @@
 <!DOCTYPE html>
-<html>
+<html lang="es" class="scroll-smooth">
 <head>
-		<meta charset="UTF-8" />
-		<meta http-equiv="X-UA-Compatible" content="IE=edge"> 
-		<meta name="viewport" content="width=device-width, initial-scale=1"> 
-		<title>Portafolio de trabajo</title>
-		<meta name="description" content="Hover Effect Ideas: Inspiration for subtle hover effects" />
-		<meta name="keywords" content="hover effect, inspiration, grid, thumbnail, transition, subtle, web design" />
-		<meta name="author" content="Codrops" />
-		<link rel="shortcut icon" href="../favicon.ico">
-		<link href='http://fonts.googleapis.com/css?family=Raleway:400,800,300' rel='stylesheet' type='text/css'>
-		<link rel="stylesheet" type="text/css" href="css/normalize.css" />
-		<link rel="stylesheet" type="text/css" href="css/demo.css" />
-		<link rel="stylesheet" type="text/css" href="css/set1.css" />
-		    <script src="https://cdn.tailwindcss.com"></script>
-            <script type="module" src="firebase-config.js"></script>
-		<!--[if IE]>
-  		<script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
-		<![endif]-->
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>StudyLink | Caso de estudio</title>
+
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script type="module" src="firebase-config.js"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            ink: "#151515",
+            cream: "#f6f1ea",
+            sand: "#e8ddd0",
+            olive: "#7a8b6f",
+            coral: "#d97962",
+            mustard: "#d2a437",
+            plum: "#6f3d46",
+            softwhite: "#fcfaf7",
+            study: "#667eea",
+            studySoft: "#e7ecff"
+          },
+          boxShadow: {
+            soft: "0 10px 35px rgba(0,0,0,0.08)",
+            card: "0 14px 40px rgba(0,0,0,0.08)"
+          },
+          fontFamily: {
+            sans: ["Inter", "sans-serif"]
+          }
+        }
+      }
+    }
+  </script>
+
+  <style>
+    body {
+      font-family: 'Inter', sans-serif;
+      background: #f6f1ea;
+      color: #151515;
+    }
+
+    .nav-link {
+      position: relative;
+      transition: color .3s ease;
+    }
+
+    .nav-link::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      bottom: -6px;
+      width: 0;
+      height: 2px;
+      background: #6f3d46;
+      transition: width .3s ease;
+    }
+
+    .nav-link:hover::after {
+      width: 100%;
+    }
+
+    .fade-in {
+      opacity: 0;
+      transform: translateY(24px);
+      transition: all .7s ease;
+    }
+
+    .fade-in.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  </style>
 </head>
-<body>
-	<style>
-    .btn-volver {
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            padding: 0.75rem 1.5rem;
-            margin: 1.25rem;
-            background-color: #024a70;
-            color: #fff;
-            text-decoration: none;
-            font-weight: 700;
-            border-radius: 9999px;
-            transition: background 0.3s, transform 0.2s;
-        }
 
-        .btn-volver:hover {
-            background-color: #146a97;
-            transform: translateY(-2px);
-        }
-img {
-  max-width: 100%;
-  height: auto;
-  display: block;
-  margin: 0 auto;
-}
+<body class="antialiased">
 
-.container{
-	 background: linear-gradient(135deg, #efefef 13%, #ffffff
-             100%);
-}
+  <!-- NAVBAR: misma lógica del home -->
+  <nav class="fixed top-0 w-full z-50 bg-cream/85 backdrop-blur-md border-b border-black/5">
+    <div class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
+      <a href="index.html" class="text-xl md:text-2xl font-semibold tracking-tight text-ink">
+        Javiera Maldonado
+      </a>
 
-	</style>
-	<div class="container">			
-			    <a href="diseno-ux.html" class="btn-volver">
-        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2" viewBox="0 0 20 20" fill="currentColor">
-            <path fill-rule="evenodd" d="M9.707 16.707a1 1 0 01-1.414 0l-6-6a1 1 0 010-1.414l6-6a1 1 0 011.414 1.414L5.414 9H17a1 1 0 110 2H5.414l4.293 4.293a1 1 0 010 1.414z" clip-rule="evenodd" />
-        </svg>
-        Volver
-    </a>
-			<!-- Top Navigation -->
-			<header class="codrops-header">
-				<h1>StudyLink <span>Encuentra tu compañero ideal</span></h1>
-			</header>
-			<div class="content">
-	
-<img id="proyecto-3" data-storage="studylink.png" src="" alt="Cargando...">
- 
+      <div class="hidden md:flex items-center gap-8">
+        <a href="index.html#proyectos" class="nav-link text-sm font-medium text-ink/80 hover:text-ink">Proyectos</a>
+        <a href="#resumen" class="nav-link text-sm font-medium text-ink/80 hover:text-ink">Resumen</a>
+        <a href="#proceso" class="nav-link text-sm font-medium text-ink/80 hover:text-ink">Proceso</a>
+        <a href="#resultado" class="nav-link text-sm font-medium text-ink/80 hover:text-ink">Resultado</a>
+      </div>
+
+    </div>
+  </nav>
+
+  <!-- HERO: misma estructura del home -->
+  <section class="pt-28 md:pt-32 pb-16 md:pb-20">
+    <div class="max-w-5xl mx-auto px-8 grid md:grid-cols-2 gap-12 items-center">
+      <div class="fade-in">
+        <p class="text-sm uppercase tracking-[0.2em] text-olive mb-4">
+          UX/UI Case Study
+        </p>
+
+        <h1 class="text-4xl md:text-6xl font-semibold leading-tight tracking-tight text-slate-900 mb-6">
+          StudyLink
+        </h1>
+
+        <p class="text-lg md:text-xl text-ink/65 mb-8 leading-relaxed max-w-xl">
+          Plataforma para encontrar compañeros de estudio compatibles y fomentar hábitos de aprendizaje colaborativo.
+        </p>
+
+        <div class="flex flex-wrap gap-3 mb-8 text-white">
+          <span class="px-4 py-2 bg-blue-800 border border-black/5 rounded-full text-sm">UX Research</span>
+          <span class="px-4 py-2 bg-blue-800 border border-black/5 rounded-full text-sm">UX/UI Design</span>
+          <span class="px-4 py-2 bg-blue-800 border border-black/5 rounded-full text-sm">Prototipado</span>
+        </div>
+
+
+      </div>
+
+      <div class="fade-in" style="transition-delay: 150ms;">
+        <div class="relative">
+          <div class="absolute -inset-6 rounded-[2rem] bg-gradient-to-br from-studySoft via-white to-cream blur-2xl opacity-80"></div>
+          <div class="relative bg-white border border-black/5 rounded-[2rem] shadow-card p-5">
+            <div class="aspect-[4/3] rounded-[1.5rem] bg-gradient-to-br from-[#d8e1f0] via-white to-[#c6d3eb] overflow-hidden flex items-center justify-center">
+              <img
+                id="studylink-cover"
+                data-storage="portadastudylink.png"
+                src=""
+                alt="StudyLink portada"
+                class="w-full h-full object-cover"
+                onerror="this.src='https://via.placeholder.com/1200x800?text=StudyLink'"
+              >
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <main class="max-w-5xl mx-auto px-8 pb-24 space-y-20">
+
+    <!-- RESUMEN -->
+    <section id="resumen" class="fade-in">
+      <div class="mb-10">
+        <p class="text-sm uppercase tracking-[0.2em] text-slate-700 mb-3">Resumen</p>
+        <h2 class="text-3xl md:text-4xl font-semibold tracking-tight text-slate-900">
+          Una visión general del proyecto
+        </h2>
+      </div>
+
+      <div class="grid md:grid-cols-2 xl:grid-cols-4 gap-5">
+        <div class="bg-white rounded-[1.75rem] p-6 border border-black/5 shadow-soft">
+          <p class="text-xs uppercase tracking-[0.18em] text-slate-700 mb-3">Problema</p>
+          <p class="text-ink/75 leading-relaxed">Dificultad para encontrar compañeros de estudio compatibles y coordinar sesiones efectivas.</p>
+        </div>
+
+        <div class="bg-white rounded-[1.75rem] p-6 border border-black/5 shadow-soft">
+          <p class="text-xs uppercase tracking-[0.18em] text-slate-700 mb-3">Objetivo</p>
+          <p class="text-ink/75 leading-relaxed">Facilitar conexiones entre estudiantes para mejorar motivación, constancia y aprendizaje colaborativo.</p>
+        </div>
+
+        <div class="bg-white rounded-[1.75rem] p-6 border border-black/5 shadow-soft">
+          <p class="text-xs uppercase tracking-[0.18em] text-slate-700 mb-3">Métodos</p>
+          <p class="text-ink/75 leading-relaxed">30 encuestas online, 6 entrevistas, user personas, user flow, wireframes y prototipo.</p>
+        </div>
+
+        <div class="bg-white rounded-[1.75rem] p-6 border border-black/5 shadow-soft">
+          <p class="text-xs uppercase tracking-[0.18em] text-slate-700 mb-3">Rol</p>
+          <p class="text-ink/75 leading-relaxed">UX Research, UX/UI Design, estructura del flujo y definición del MVP.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- CONTEXTO + PROBLEMA -->
+    <section class="grid lg:grid-cols-2 gap-6 fade-in">
+      <div class="bg-white rounded-[2rem] p-8 md:p-10 border border-black/5 shadow-soft">
+        <p class="text-sm uppercase tracking-[0.2em] text-olive mb-3">Contexto</p>
+        <h2 class="text-3xl text-slate-900 font-semibold tracking-tight mb-5">
+          ¿Por qué estudiar acompañado sigue siendo tan difícil?
+        </h2>
+        <p class="text-ink/65 leading-relaxed">
+          Durante la investigación detecté que muchos estudiantes prefieren estudiar en pareja o en grupo, pero enfrentan barreras como horarios incompatibles, falta de confianza y desconexión de intereses. Esto genera desmotivación, aislamiento y menor constancia académica.
+        </p>
+      </div>
+
+      <div class="bg-slate-900 text-white rounded-[2rem] p-8 md:p-10 shadow-card">
+        <p class="text-sm uppercase tracking-[0.2em] text-mustard mb-3">Problema</p>
+        <h2 class="text-3xl font-semibold tracking-tight mb-6">
+          Los estudiantes quieren estudiar con otros, pero no encuentran personas afines.
+        </h2>
+        <div class="space-y-4 text-white/75">
+          <p>• Falta de motivación, estructura y acompañamiento.</p>
+          <p>• Estudiar solos aumenta la procrastinación.</p>
+          <p>• La coordinación horaria y la confianza son barreras clave.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- INVESTIGACIÓN -->
+    <section class="fade-in">
+      <div class="mb-10">
+        <p class="text-sm uppercase tracking-[0.2em] text-olive mb-3">Investigación</p>
+        <h2 class="text-3xl md:text-4xl font-semibold tracking-tight text-slate-900 mb-4">
+          Hallazgos clave
+        </h2>
+        <p class="max-w-3xl text-lg text-ink/65 leading-relaxed">
+          A partir de encuestas y entrevistas identifiqué patrones de comportamiento, barreras y motivaciones relacionadas con el estudio colaborativo.
+        </p>
+      </div>
+
+      <div class="grid md:grid-cols-2 xl:grid-cols-3 gap-6">
+        <div class="bg-white rounded-[1.75rem] p-6 border border-black/5 shadow-soft">
+          <div class="w-12 h-12 rounded-2xl bg-studySoft text-study flex items-center justify-center mb-4">
+            <i class="fa-solid fa-hourglass-end"></i>
+          </div>
+          <p class="text-ink/75">Los usuarios abandonan sesiones por falta de compromiso externo.</p>
+        </div>
+
+        <div class="bg-white rounded-[1.75rem] p-6 border border-black/5 shadow-soft">
+          <div class="w-12 h-12 rounded-2xl bg-studySoft text-study flex items-center justify-center mb-4">
+            <i class="fa-solid fa-arrows-to-dot"></i>
+          </div>
+          <p class="text-ink/75">Existe dificultad para encontrar personas con objetivos similares.</p>
+        </div>
+
+        <div class="bg-white rounded-[1.75rem] p-6 border border-black/5 shadow-soft">
+          <div class="w-12 h-12 rounded-2xl bg-studySoft text-study flex items-center justify-center mb-4">
+            <i class="fa-solid fa-calendar-days"></i>
+          </div>
+          <p class="text-ink/75">La coordinación de horarios es una de las principales barreras.</p>
+        </div>
+
+        <div class="bg-white rounded-[1.75rem] p-6 border border-black/5 shadow-soft">
+          <div class="w-12 h-12 rounded-2xl bg-studySoft text-study flex items-center justify-center mb-4">
+            <i class="fa-solid fa-users"></i>
+          </div>
+          <p class="text-ink/75">El 70% ha intentado estudiar con otros, pero no fue constante.</p>
+        </div>
+
+        <div class="bg-white rounded-[1.75rem] p-6 border border-black/5 shadow-soft">
+          <div class="w-12 h-12 rounded-2xl bg-studySoft text-study flex items-center justify-center mb-4">
+            <i class="fa-solid fa-shield-heart"></i>
+          </div>
+          <p class="text-ink/75">Las barreras más comunes son incompatibilidad horaria y falta de confianza.</p>
+        </div>
+
+        <div class="bg-white rounded-[1.75rem] p-6 border border-black/5 shadow-soft">
+          <div class="w-12 h-12 rounded-2xl bg-studySoft text-study flex items-center justify-center mb-4">
+            <i class="fa-solid fa-book-open-reader"></i>
+          </div>
+          <p class="text-ink/75">Prefieren buscar compañeros por curso, tema y objetivos específicos.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- OPORTUNIDAD / SOLUCIÓN -->
+    <section class="grid lg:grid-cols-2 gap-6 fade-in">
+      <div class=" p-8 md:p-10 ">
+        <p class="text-sm uppercase tracking-[0.2em] text-olive mb-3">Oportunidad</p>
+        <h2 class="text-3xl font-semibold tracking-tight text-slate-900 mb-4">
+          Diseñar una solución que facilite la conexión entre estudiantes compatibles.
+        </h2>
+        <p class="text-ink/65 leading-relaxed">
+          La propuesta debía reducir fricción, fomentar confianza y facilitar la organización de sesiones de estudio compartidas.
+        </p>
+      </div>
+
+      <div class="bg-white rounded-[2rem] p-8 md:p-10 border border-black/5 shadow-soft">
+        <p class="text-sm uppercase tracking-[0.2em] text-olive mb-3">Solución</p>
+        <h2 class="text-3xl font-semibold tracking-tight text-slate-900 mb-4">
+          StudyLink permite encontrar compañeros según compatibilidad real.
+        </h2>
+
+        <div class="grid grid-cols-2 gap-3 mt-6">
+          <div class="bg-cream rounded-xl px-4 py-3 text-sm">Objetivos académicos</div>
+          <div class="bg-cream rounded-xl px-4 py-3 text-sm">Disponibilidad horaria</div>
+          <div class="bg-cream rounded-xl px-4 py-3 text-sm">Nivel de compromiso</div>
+          <div class="bg-cream rounded-xl px-4 py-3 text-sm">Preferencias de estudio</div>
+        </div>
+
+        <p class="text-ink/65 mt-6">
+          La plataforma promueve responsabilidad compartida y mejora la constancia en el aprendizaje.
+        </p>
+      </div>
+    </section>
+
+    <!-- PROCESO -->
+    <section id="proceso" class="fade-in">
+      <div class="mb-10">
+        <p class="text-sm uppercase tracking-[0.2em] text-olive mb-3">Proceso UX</p>
+        <h2 class="text-3xl md:text-4xl font-semibold tracking-tight text-slate-900">
+          De la investigación a la propuesta
+        </h2>
+      </div>
+
+      <div class="space-y-6">
+        <div class="bg-white rounded-[2rem] p-8 md:p-10 border border-black/5 shadow-soft">
+          <h3 class="text-2xl font-semibold mb-3">User Personas</h3>
+          <p class="text-ink/65 mb-6">
+            Se definieron perfiles representativos para entender motivaciones, frustraciones y comportamientos.
+          </p>
+          <div class="rounded-[1.5rem] h-72 bg-softwhite flex items-center justify-center text-ink/40">
+            <img id="studylink-mvp" data-storage="userstudylink.png" src="" alt="user" class="w-full h-100 object-cover" onerror="this.src='https://via.placeholder.com/1200x600?text=MVP'">
+          </div>
+        </div>
+
+        <div class="bg-white rounded-[2rem] p-8 md:p-10 border border-black/5 shadow-soft">
+          <h3 class="text-2xl font-semibold mb-3">Ideación y MVP</h3>
+          <p class="text-ink/65 mb-6">
+            Se priorizaron funcionalidades esenciales para validar la propuesta sin sobrecargar la experiencia.
+          </p>
+          <div class="rounded-[1.5rem] overflow-hidden bg-softwhite border items-center justify-center border-black/5">
+            <img id="studylink-mvp" data-storage="mvpstudylink.png" src="" alt="MVP" class="w-100 h-100 object-cover" onerror="this.src='https://via.placeholder.com/1200x600?text=MVP'">
+          </div>
+        </div>
+
+        <div class="bg-white rounded-[2rem] p-8 md:p-10 border border-black/5 shadow-soft">
+          <h3 class="text-2xl font-semibold mb-3">User Flow</h3>
+          <p class="text-ink/65 mb-6">
+            El flujo principal se diseñó como:
+            <strong>Registro → Objetivos → Matching → Coordinación</strong>
+          </p>
+          <div class="rounded-[1.5rem] overflow-hidden bg-softwhite border items-center justify-center border-black/5">
+            <img id="studylink-flow" data-storage="flowstudylink.png" src="" alt="User Flow" class="w-100 h-100 object-cover" onerror="this.src='https://via.placeholder.com/1200x600?text=User+Flow'">
+          </div>
+        </div>
+
+        <div class="grid md:grid-cols-2 gap-6">
+          <div class="bg-white rounded-[2rem] p-8 md:p-10 border border-black/5 shadow-soft">
+            <h3 class="text-2xl font-semibold mb-3">Wireframes</h3>
+            <p class="text-ink/65 mb-6">
+              Se exploraron estructuras de baja fidelidad para validar navegación y contenido.
+            </p>
+            <div class=" overflow-hidden 
+             items-center justify-center">
+            <img id="studylink-flow" data-storage="wireframesstudylink.png" src="" alt="User Flow" class="w-100 h-100 object-cover" onerror="this.src='https://via.placeholder.com/1200x600?text=User+Flow'">
+            </div>
+          </div>
+
+          <div class="bg-white rounded-[2rem] p-8 md:p-10 border border-black/5 shadow-soft">
+            <h3 class="text-2xl font-semibold mb-3">Prototipo</h3>
+            <p class="text-ink/65 mb-6">
+              El prototipo final priorizó claridad, facilidad de uso y reducción de fricción.
+            </p>
+            <div class="overflow-hidden 
+             items-center justify-center">
+            <img id="" data-storage="prototipostudylink.png" src="" alt="User Flow" class="w-100 h-100 object-cover" onerror="this.src='https://via.placeholder.com/1200x600?text=User+Flow'">
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- DECISIONES -->
+    <section class="fade-in">
+      <div class="mb-10">
+        <p class="text-sm uppercase tracking-[0.2em] text-olive mb-3">Decisiones de diseño</p>
+        <h2 class="text-3xl md:text-4xl font-semibold tracking-tight text-slate-900">
+          Principios que guiaron la solución
+        </h2>
+      </div>
+
+      <div class="grid md:grid-cols-3 gap-6">
+        <div class="bg-white rounded-[1.75rem] p-6 border border-black/5 shadow-soft">
+          <div class="h-1.5 w-12 bg-blue-900 rounded-full mb-4"></div>
+          <h4 class="text-xl font-semibold mb-2">Flujo simple</h4>
+          <p class="text-ink/65">Reducir fricción en el onboarding y facilitar el primer contacto.</p>
+        </div>
+
+        <div class="bg-white rounded-[1.75rem] p-6 border border-black/5 shadow-soft">
+          <div class="h-1.5 w-12 bg-blue-900 rounded-full mb-4"></div>
+          <h4 class="text-xl font-semibold mb-2">Matching claro</h4>
+          <p class="text-ink/65">Hacer visible la compatibilidad entre usuarios de forma rápida.</p>
+        </div>
+
+        <div class="bg-white rounded-[1.75rem] p-6 border border-black/5 shadow-soft">
+          <div class="h-1.5 w-12 bg-blue-900 rounded-full mb-4"></div>
+          <h4 class="text-xl font-semibold mb-2">Interfaz limpia</h4>
+          <p class="text-ink/65">Evitar sobrecarga cognitiva y apoyar la toma de decisiones.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- RESULTADO -->
+    <section id="resultado" class="grid lg:grid-cols-2 gap-6 fade-in">
+      <div class="p-8 md:p-10">
+        <p class="text-sm uppercase tracking-[0.2em] text-olive mb-3">Aprendizajes</p>
+        <h2 class="text-3xl font-semibold tracking-tight mb-6">Qué me dejó este proyecto</h2>
+        <ul class="space-y-3 text-ink/70">
+          <li>• La motivación es un factor crítico en productos educativos.</li>
+          <li>• La simplicidad mejora adopción y comprensión.</li>
+          <li>• Validar temprano evita complejidad innecesaria.</li>
+          <li>• Las necesidades reales deben traducirse en funciones simples y útiles.</li>
+          <li>• Empatizar y priorizar mejora la calidad de la solución.</li>
+        </ul>
+      </div>
+
+      <div class="bg-slate-900 text-white rounded-[2rem] p-8 md:p-10 shadow-card">
+        <p class="text-sm uppercase tracking-[0.2em] text-mustard mb-3">Desafíos y mejoras</p>
+        <h2 class="text-3xl font-semibold tracking-tight mb-6">Qué seguiría iterando</h2>
+
+        <div class="space-y-6">
+          <div>
+            <h4 class="font-semibold text-mustard mb-2">Principales desafíos</h4>
+            <ul class="space-y-2 text-white/75">
+              <li>• Definir un MVP útil sin sobrecargar la experiencia.</li>
+              <li>• Diseñar confianza entre personas desconocidas.</li>
+              <li>• Adaptarse a perfiles diversos de estudio.</li>
+            </ul>
+          </div>
+
+          <div class="border-t border-white/10 pt-6">
+            <h4 class="font-semibold text-mustard mb-2">Mejoras futuras</h4>
+            <ul class="space-y-2 text-white/75">
+              <li>• Más tests de usabilidad en etapas tempranas.</li>
+              <li>• Herramientas de motivación o recordatorios.</li>
+              <li>• Sistema de reputación entre usuarios.</li>
+              <li>• Seguimiento de sesiones y continuidad.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="fade-in">
+      <div class="rounded-[2rem] bg-white border border-black/5 shadow-card p-8 md:p-12 text-center">
+        <h2 class="text-3xl md:text-4xl font-semibold tracking-tight text-slate-900 mb-4">
+          Ver prototipo de StudyLink
+        </h2>
+        <a href="https://www.figma.com/proto/OKnOmmPmhTqXJEiZKPsbpo/Portafolio?node-id=13-2761&p=f&t=XdYLz8VDt33me8nd-1&scaling=scale-down&content-scaling=fixed&page-id=4%3A8&starting-point-node-id=13%3A2761" class="inline-flex items-center gap-3 rounded-full bg-slate-900 text-white px-8 py-4 font-medium hover:opacity-90 transition">
+          Ver prototipo
+          <i class="fa-solid fa-arrow-up-right-from-square"></i>
+        </a>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="py-10 border-t border-black/5 text-center text-ink/50 text-sm">
+    <p>StudyLink · UX/UI Case Study</p>
+  </footer>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("visible");
+          }
+        });
+      }, { threshold: 0.12 });
+
+      document.querySelectorAll(".fade-in").forEach(el => observer.observe(el));
+    });
+  </script>
 </body>
 </html>

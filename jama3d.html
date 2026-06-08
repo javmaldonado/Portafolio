@@ -1,0 +1,464 @@
+<!DOCTYPE html>
+<html lang="es" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Jama 3D Objects | Caso de estudio</title>
+
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script type="module" src="firebase-config.js"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            ink: "#151515",
+            cream: "#f6f1ea",
+            sand: "#e8ddd0",
+            olive: "#7a8b6f",
+            coral: "#d97962",
+            mustard: "#d2a437",
+            plum: "#6f3d46",
+            softwhite: "#fcfaf7",
+            jama: "#c86f4a",
+            jamaSoft: "#f3dfd4",
+            jamaDark: "#3a312d"
+          },
+          boxShadow: {
+            soft: "0 10px 35px rgba(0,0,0,0.08)",
+            card: "0 14px 40px rgba(0,0,0,0.08)"
+          },
+          fontFamily: {
+            sans: ["Inter", "sans-serif"]
+          }
+        }
+      }
+    }
+  </script>
+
+  <style>
+    body {
+      font-family: 'Inter', sans-serif;
+      background: #f6f1ea;
+      color: #151515;
+    }
+
+    .nav-link {
+      position: relative;
+      transition: color .3s ease;
+    }
+
+    .nav-link::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      bottom: -6px;
+      width: 0;
+      height: 2px;
+      background: #6f3d46;
+      transition: width .3s ease;
+    }
+
+    .nav-link:hover::after {
+      width: 100%;
+    }
+
+    .fade-in {
+      opacity: 0;
+      transform: translateY(24px);
+      transition: all .7s ease;
+    }
+
+    .fade-in.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  </style>
+</head>
+
+<body class="antialiased">
+
+  <!-- NAV -->
+  <nav class="fixed top-0 w-full z-50 bg-cream/85 backdrop-blur-md border-b border-black/5">
+    <div class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
+      <a href="index.html" class="text-xl md:text-2xl font-semibold tracking-tight text-ink">
+        Javiera Maldonado
+      </a>
+
+      <div class="hidden md:flex items-center gap-8">
+        <a href="index.html#proyectos" class="nav-link text-sm font-medium text-ink/80 hover:text-ink">Proyectos</a>
+        <a href="#resumen" class="nav-link text-sm font-medium text-ink/80 hover:text-ink">Resumen</a>
+        <a href="#proceso" class="nav-link text-sm font-medium text-ink/80 hover:text-ink">Proceso</a>
+        <a href="#resultado" class="nav-link text-sm font-medium text-ink/80 hover:text-ink">Resultado</a>
+      </div>
+
+      <a href="#" class="hidden md:inline-flex rounded-full bg-ink text-white px-5 py-2 text-sm hover:opacity-90 transition">
+        Ver proyecto
+      </a>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <section class="pt-28 md:pt-32 pb-16 md:pb-20">
+    <div class="max-w-7xl mx-auto px-6 grid md:grid-cols-2 gap-12 items-center">
+      <div class="fade-in">
+        <p class="text-sm uppercase tracking-[0.2em] text-olive mb-4">
+          Branding / Product / Visual Direction
+        </p>
+
+        <h1 class="text-4xl md:text-6xl font-semibold leading-tight tracking-tight text-ink mb-6">
+          Jama 3D Objects
+        </h1>
+
+        <p class="text-lg md:text-xl text-ink/65 mb-8 leading-relaxed max-w-xl">
+          Desarrollo conceptual y visual para una marca de objetos impresos en 3D con una identidad contemporánea, lúdica y expresiva.
+        </p>
+
+        <div class="flex flex-wrap gap-3 mb-8">
+          <span class="px-4 py-2 bg-white border border-black/5 rounded-full text-sm">Branding</span>
+          <span class="px-4 py-2 bg-white border border-black/5 rounded-full text-sm">Identidad visual</span>
+          <span class="px-4 py-2 bg-white border border-black/5 rounded-full text-sm">Instagram</span>
+        </div>
+
+        <div class="flex flex-wrap gap-4">
+          <a href="#resumen" class="px-7 py-3.5 rounded-full bg-ink text-white text-sm font-medium hover:opacity-90 transition">
+            Ver caso
+          </a>
+          <a href="#" class="px-7 py-3.5 rounded-full border border-black/10 bg-white text-ink text-sm font-medium hover:bg-sand transition">
+            Ver branding
+          </a>
+        </div>
+      </div>
+
+      <div class="fade-in" style="transition-delay: 150ms;">
+        <div class="relative">
+          <div class="absolute -inset-6 rounded-[2rem] bg-gradient-to-br from-jamaSoft via-white to-cream blur-2xl opacity-80"></div>
+          <div class="relative bg-white border border-black/5 rounded-[2rem] shadow-card p-5">
+            <div class="aspect-[4/3] rounded-[1.5rem] bg-gradient-to-br from-[#f3dfd4] via-[#f8f2ec] to-[#e8ddd0] overflow-hidden flex items-center justify-center">
+              <img
+                id="jama-cover"
+                data-storage="jama-portada.jpg"
+                src=""
+                alt="Jama 3D portada"
+                class="w-full h-full object-cover"
+                onerror="this.src='https://via.placeholder.com/1200x800?text=Jama+3D+Objects'"
+              >
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <main class="max-w-7xl mx-auto px-6 pb-24 space-y-20">
+
+    <!-- RESUMEN -->
+    <section id="resumen" class="fade-in">
+      <div class="mb-10">
+        <p class="text-sm uppercase tracking-[0.2em] text-olive mb-3">Resumen</p>
+        <h2 class="text-3xl md:text-4xl font-semibold tracking-tight text-ink">
+          Una visión general del proyecto
+        </h2>
+      </div>
+
+      <div class="grid md:grid-cols-2 xl:grid-cols-4 gap-5">
+        <div class="bg-white rounded-[1.75rem] p-6 border border-black/5 shadow-soft">
+          <p class="text-xs uppercase tracking-[0.18em] text-ink/45 mb-3">Desafío</p>
+          <p class="text-ink/75 leading-relaxed">Crear una marca con personalidad propia para objetos impresos en 3D, evitando una estética genérica o demasiado técnica.</p>
+        </div>
+
+        <div class="bg-white rounded-[1.75rem] p-6 border border-black/5 shadow-soft">
+          <p class="text-xs uppercase tracking-[0.18em] text-ink/45 mb-3">Objetivo</p>
+          <p class="text-ink/75 leading-relaxed">Construir una identidad visual memorable, flexible y coherente con productos para el hogar y objetos decorativos.</p>
+        </div>
+
+        <div class="bg-white rounded-[1.75rem] p-6 border border-black/5 shadow-soft">
+          <p class="text-xs uppercase tracking-[0.18em] text-ink/45 mb-3">Entregables</p>
+          <p class="text-ink/75 leading-relaxed">Naming, logotipo, sistema visual, paleta de color, aplicaciones en redes y línea gráfica.</p>
+        </div>
+
+        <div class="bg-white rounded-[1.75rem] p-6 border border-black/5 shadow-soft">
+          <p class="text-xs uppercase tracking-[0.18em] text-ink/45 mb-3">Enfoque</p>
+          <p class="text-ink/75 leading-relaxed">Branding estratégico con una mezcla de sistema visual sólido y comunicación más creativa y lúdica.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- CONTEXTO + DESAFÍO -->
+    <section class="grid lg:grid-cols-2 gap-6 fade-in">
+      <div class="bg-white rounded-[2rem] p-8 md:p-10 border border-black/5 shadow-soft">
+        <p class="text-sm uppercase tracking-[0.2em] text-olive mb-3">Contexto</p>
+        <h2 class="text-3xl font-semibold tracking-tight mb-5">
+          Los objetos 3D pueden ser funcionales, pero también emocionales y memorables.
+        </h2>
+        <p class="text-ink/65 leading-relaxed">
+          En un mercado donde muchas propuestas de impresión 3D se sienten técnicas o impersonales, Jama surge como una oportunidad para construir una marca con más calidez, carácter visual y conexión con el hogar.
+        </p>
+      </div>
+
+      <div class="bg-ink text-white rounded-[2rem] p-8 md:p-10 shadow-card">
+        <p class="text-sm uppercase tracking-[0.2em] text-mustard mb-3">Desafío</p>
+        <h2 class="text-3xl font-semibold tracking-tight mb-6">
+          Diseñar una identidad que equilibre diseño, cercanía y diferenciación.
+        </h2>
+        <div class="space-y-4 text-white/75">
+          <p>• Evitar una estética demasiado fría o tecnológica.</p>
+          <p>• Construir una marca adaptable a packaging, redes y producto.</p>
+          <p>• Generar una identidad reconocible y con personalidad propia.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- INSIGHTS -->
+    <section class="fade-in">
+      <div class="mb-10">
+        <p class="text-sm uppercase tracking-[0.2em] text-olive mb-3">Insights</p>
+        <h2 class="text-3xl md:text-4xl font-semibold tracking-tight text-ink mb-4">
+          Hallazgos que guiaron la marca
+        </h2>
+        <p class="max-w-3xl text-lg text-ink/65 leading-relaxed">
+          La dirección visual se definió a partir de una idea clave: Jama no debía sentirse solo como impresión 3D, sino como una marca de objetos con intención estética.
+        </p>
+      </div>
+
+      <div class="grid md:grid-cols-2 xl:grid-cols-3 gap-6">
+        <div class="bg-white rounded-[1.75rem] p-6 border border-black/5 shadow-soft">
+          <div class="w-12 h-12 rounded-2xl bg-jamaSoft text-jama flex items-center justify-center mb-4">
+            <i class="fa-solid fa-shapes"></i>
+          </div>
+          <p class="text-ink/75">Las formas orgánicas y geométricas conectan naturalmente con el lenguaje de los objetos 3D.</p>
+        </div>
+
+        <div class="bg-white rounded-[1.75rem] p-6 border border-black/5 shadow-soft">
+          <div class="w-12 h-12 rounded-2xl bg-jamaSoft text-jama flex items-center justify-center mb-4">
+            <i class="fa-solid fa-palette"></i>
+          </div>
+          <p class="text-ink/75">El color puede transformar una marca técnica en una más cercana, creativa y memorable.</p>
+        </div>
+
+        <div class="bg-white rounded-[1.75rem] p-6 border border-black/5 shadow-soft">
+          <div class="w-12 h-12 rounded-2xl bg-jamaSoft text-jama flex items-center justify-center mb-4">
+            <i class="fa-solid fa-house"></i>
+          </div>
+          <p class="text-ink/75">La marca debía sentirse vinculada al hogar, no solo al objeto como producto aislado.</p>
+        </div>
+
+        <div class="bg-white rounded-[1.75rem] p-6 border border-black/5 shadow-soft">
+          <div class="w-12 h-12 rounded-2xl bg-jamaSoft text-jama flex items-center justify-center mb-4">
+            <i class="fa-solid fa-cube"></i>
+          </div>
+          <p class="text-ink/75">La tridimensionalidad podía expresarse de forma visual sin caer en clichés futuristas.</p>
+        </div>
+
+        <div class="bg-white rounded-[1.75rem] p-6 border border-black/5 shadow-soft">
+          <div class="w-12 h-12 rounded-2xl bg-jamaSoft text-jama flex items-center justify-center mb-4">
+            <i class="fa-solid fa-star"></i>
+          </div>
+          <p class="text-ink/75">Una identidad flexible permite tener una versión seria de marca y otra más expresiva en comunicación.</p>
+        </div>
+
+        <div class="bg-white rounded-[1.75rem] p-6 border border-black/5 shadow-soft">
+          <div class="w-12 h-12 rounded-2xl bg-jamaSoft text-jama flex items-center justify-center mb-4">
+            <i class="fa-solid fa-eye"></i>
+          </div>
+          <p class="text-ink/75">El sistema visual debía funcionar bien en Instagram, packaging y aplicaciones futuras.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- CONCEPTO + SOLUCIÓN -->
+    <section class="grid lg:grid-cols-2 gap-6 fade-in">
+      <div class="bg-white rounded-[2rem] p-8 md:p-10 border border-black/5 shadow-soft">
+        <p class="text-sm uppercase tracking-[0.2em] text-olive mb-3">Concepto</p>
+        <h2 class="text-3xl font-semibold tracking-tight mb-4">
+          Objetos con forma, color y personalidad.
+        </h2>
+        <p class="text-ink/65 leading-relaxed">
+          Jama se construyó desde una dualidad: una base sólida y limpia para la marca, y una capa más lúdica y colorida para la comunicación y el contenido visual.
+        </p>
+      </div>
+
+      <div class="bg-white rounded-[2rem] p-8 md:p-10 border border-black/5 shadow-soft">
+        <p class="text-sm uppercase tracking-[0.2em] text-olive mb-3">Solución visual</p>
+        <h2 class="text-3xl font-semibold tracking-tight mb-4">
+          Un sistema de marca flexible, contemporáneo y expresivo.
+        </h2>
+
+        <div class="grid grid-cols-2 gap-3 mt-6">
+          <div class="bg-cream rounded-xl px-4 py-3 text-sm">Logo principal</div>
+          <div class="bg-cream rounded-xl px-4 py-3 text-sm">Logo expresivo</div>
+          <div class="bg-cream rounded-xl px-4 py-3 text-sm">Paleta dual</div>
+          <div class="bg-cream rounded-xl px-4 py-3 text-sm">Sistema gráfico</div>
+        </div>
+
+        <p class="text-ink/65 mt-6">
+          Esto permitió que Jama funcionara tanto como marca base para producto como en una comunicación más viva para redes y piezas visuales.
+        </p>
+      </div>
+    </section>
+
+    <!-- PROCESO -->
+    <section id="proceso" class="fade-in">
+      <div class="mb-10">
+        <p class="text-sm uppercase tracking-[0.2em] text-olive mb-3">Proceso</p>
+        <h2 class="text-3xl md:text-4xl font-semibold tracking-tight text-ink">
+          De la exploración a la identidad final
+        </h2>
+      </div>
+
+      <div class="space-y-6">
+        <div class="bg-white rounded-[2rem] p-8 md:p-10 border border-black/5 shadow-soft">
+          <h3 class="text-2xl font-semibold mb-3">Exploración de nombre y tono</h3>
+          <p class="text-ink/65 mb-6">
+            Se evaluaron distintas rutas de naming y percepciones de marca hasta definir una opción corta, recordable y adaptable.
+          </p>
+          <div class="rounded-[1.5rem] h-72 bg-softwhite border-2 border-dashed border-black/10 flex items-center justify-center text-ink/40">
+            Inserta aquí exploración de naming / moodboard
+          </div>
+        </div>
+
+        <div class="bg-white rounded-[2rem] p-8 md:p-10 border border-black/5 shadow-soft">
+          <h3 class="text-2xl font-semibold mb-3">Exploración de logo</h3>
+          <p class="text-ink/65 mb-6">
+            Se probaron direcciones tipográficas, geométricas, retro y minimalistas hasta encontrar una voz visual más propia.
+          </p>
+          <div class="rounded-[1.5rem] h-72 bg-softwhite border-2 border-dashed border-black/10 flex items-center justify-center text-ink/40">
+            Inserta aquí exploraciones de logo
+          </div>
+        </div>
+
+        <div class="grid md:grid-cols-2 gap-6">
+          <div class="bg-white rounded-[2rem] p-8 md:p-10 border border-black/5 shadow-soft">
+            <h3 class="text-2xl font-semibold mb-3">Sistema de color</h3>
+            <p class="text-ink/65 mb-6">
+              Se definió una paleta base sobria y una capa más expresiva para campañas, piezas visuales y contenido de marca.
+            </p>
+            <div class="rounded-[1.5rem] h-64 bg-softwhite border-2 border-dashed border-black/10 flex items-center justify-center text-ink/40">
+              Inserta aquí paleta / muestras visuales
+            </div>
+          </div>
+
+          <div class="bg-white rounded-[2rem] p-8 md:p-10 border border-black/5 shadow-soft">
+            <h3 class="text-2xl font-semibold mb-3">Aplicaciones</h3>
+            <p class="text-ink/65 mb-6">
+              La identidad se proyectó en packaging, redes sociales y composiciones visuales para validar consistencia.
+            </p>
+            <div class="rounded-[1.5rem] h-64 bg-softwhite border-2 border-dashed border-black/10 flex items-center justify-center text-ink/40">
+              Inserta aquí mockups
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- DECISIONES -->
+    <section class="fade-in">
+      <div class="mb-10">
+        <p class="text-sm uppercase tracking-[0.2em] text-olive mb-3">Decisiones de diseño</p>
+        <h2 class="text-3xl md:text-4xl font-semibold tracking-tight text-ink">
+          Principios que guiaron la identidad
+        </h2>
+      </div>
+
+      <div class="grid md:grid-cols-3 gap-6">
+        <div class="bg-white rounded-[1.75rem] p-6 border border-black/5 shadow-soft">
+          <div class="h-1.5 w-12 bg-plum rounded-full mb-4"></div>
+          <h4 class="text-xl font-semibold mb-2">Equilibrio visual</h4>
+          <p class="text-ink/65">La marca debía sentirse creativa, pero con suficiente estructura para proyectarse profesional.</p>
+        </div>
+
+        <div class="bg-white rounded-[1.75rem] p-6 border border-black/5 shadow-soft">
+          <div class="h-1.5 w-12 bg-plum rounded-full mb-4"></div>
+          <h4 class="text-xl font-semibold mb-2">Flexibilidad</h4>
+          <p class="text-ink/65">El sistema debía vivir tanto en una versión sobria como en una más expresiva para comunicación.</p>
+        </div>
+
+        <div class="bg-white rounded-[1.75rem] p-6 border border-black/5 shadow-soft">
+          <div class="h-1.5 w-12 bg-plum rounded-full mb-4"></div>
+          <h4 class="text-xl font-semibold mb-2">Memorabilidad</h4>
+          <p class="text-ink/65">El branding debía destacar dentro de un mercado donde muchas propuestas visuales son genéricas.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- RESULTADO -->
+    <section id="resultado" class="grid lg:grid-cols-2 gap-6 fade-in">
+      <div class="bg-white rounded-[2rem] p-8 md:p-10 border border-black/5 shadow-soft">
+        <p class="text-sm uppercase tracking-[0.2em] text-olive mb-3">Resultado</p>
+        <h2 class="text-3xl font-semibold tracking-tight mb-6">Qué logró el proyecto</h2>
+        <ul class="space-y-3 text-ink/70">
+          <li>• Una marca con mayor personalidad y diferenciación visual.</li>
+          <li>• Un sistema adaptable a redes, packaging y crecimiento futuro.</li>
+          <li>• Una identidad que conecta mejor con hogar, diseño y objetos decorativos.</li>
+          <li>• Una base sólida para comunicar producto y marca de forma coherente.</li>
+        </ul>
+      </div>
+
+      <div class="bg-ink text-white rounded-[2rem] p-8 md:p-10 shadow-card">
+        <p class="text-sm uppercase tracking-[0.2em] text-mustard mb-3">Aprendizajes y mejoras</p>
+        <h2 class="text-3xl font-semibold tracking-tight mb-6">Qué seguiría iterando</h2>
+
+        <div class="space-y-6">
+          <div>
+            <h4 class="font-semibold text-mustard mb-2">Principales aprendizajes</h4>
+            <ul class="space-y-2 text-white/75">
+              <li>• El branding puede cambiar por completo la percepción de valor de un objeto.</li>
+              <li>• El color y la tipografía son claves para definir tono de marca.</li>
+              <li>• Una identidad flexible tiene más proyección a largo plazo.</li>
+            </ul>
+          </div>
+
+          <div class="border-t border-white/10 pt-6">
+            <h4 class="font-semibold text-mustard mb-2">Mejoras futuras</h4>
+            <ul class="space-y-2 text-white/75">
+              <li>• Profundizar en sistema de packaging real.</li>
+              <li>• Extender la identidad a catálogo o ecommerce.</li>
+              <li>• Diseñar lineamientos más completos para redes sociales.</li>
+              <li>• Validar qué versión de marca conecta mejor con usuarios reales.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="fade-in">
+      <div class="rounded-[2rem] bg-white border border-black/5 shadow-card p-8 md:p-12 text-center">
+        <p class="text-sm uppercase tracking-[0.2em] text-olive mb-3">Siguiente paso</p>
+        <h2 class="text-3xl md:text-4xl font-semibold tracking-tight text-ink mb-4">
+          Ver aplicaciones de Jama 3D
+        </h2>
+        <p class="max-w-2xl mx-auto text-ink/60 mb-8">
+          Aquí puedes enlazar mockups, packaging, feed de Instagram o piezas de identidad visual desarrolladas para la marca.
+        </p>
+        <a href="#" class="inline-flex items-center gap-3 rounded-full bg-ink text-white px-8 py-4 font-medium hover:opacity-90 transition">
+          Ver proyecto
+          <i class="fa-solid fa-arrow-up-right-from-square"></i>
+        </a>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="py-10 border-t border-black/5 text-center text-ink/50 text-sm">
+    <p>Jama 3D Objects · Branding Case Study</p>
+  </footer>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("visible");
+          }
+        });
+      }, { threshold: 0.12 });
+
+      document.querySelectorAll(".fade-in").forEach(el => observer.observe(el));
+    });
+  </script>
+</body>
+</html>

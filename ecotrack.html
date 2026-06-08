@@ -1,69 +1,452 @@
 <!DOCTYPE html>
-<html>
+<html lang="es" class="scroll-smooth">
 <head>
-		<meta charset="UTF-8" />
-		<meta http-equiv="X-UA-Compatible" content="IE=edge"> 
-		<meta name="viewport" content="width=device-width, initial-scale=1"> 
-		<title>Portafolio de trabajo</title>
-		<meta name="description" content="Hover Effect Ideas: Inspiration for subtle hover effects" />
-		<meta name="keywords" content="hover effect, inspiration, grid, thumbnail, transition, subtle, web design" />
-		<meta name="author" content="Codrops" />
-		<link rel="shortcut icon" href="../favicon.ico">
-		<link href='http://fonts.googleapis.com/css?family=Raleway:400,800,300' rel='stylesheet' type='text/css'>
-		<link rel="stylesheet" type="text/css" href="css/normalize.css" />
-		<link rel="stylesheet" type="text/css" href="css/demo.css" />
-		<link rel="stylesheet" type="text/css" href="css/set1.css" />
-		  <script src="https://cdn.tailwindcss.com"></script>
-                           <script type="module" src="firebase-config.js"></script>
-		<!--[if IE]>
-  		<script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
-		<![endif]-->
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>EcoTrack | Caso de estudio UX</title>
+
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script type="module" src="firebase-config.js"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            ink: "#151515",
+            cream: "#f6f1ea",
+            sand: "#e8ddd0",
+            olive: "#7a8b6f",
+            coral: "#d97962",
+            mustard: "#d2a437",
+            plum: "#6f3d46",
+            softwhite: "#fcfaf7",
+            eco: "#4f8a5b",
+            ecoSoft: "#e3efe4"
+          },
+          boxShadow: {
+            soft: "0 10px 35px rgba(0,0,0,0.08)",
+            card: "0 14px 40px rgba(0,0,0,0.08)"
+          },
+          fontFamily: {
+            sans: ["Inter", "sans-serif"]
+          }
+        }
+      }
+    }
+  </script>
+
+  <style>
+    body {
+      font-family: 'Inter', sans-serif;
+      background: #f6f1ea;
+      color: #151515;
+    }
+
+    .nav-link {
+      position: relative;
+      transition: color .3s ease;
+    }
+
+    .nav-link::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      bottom: -6px;
+      width: 0;
+      height: 2px;
+      background: #6f3d46;
+      transition: width .3s ease;
+    }
+
+    .nav-link:hover::after {
+      width: 100%;
+    }
+
+    .fade-in {
+      opacity: 0;
+      transform: translateY(24px);
+      transition: all .7s ease;
+    }
+
+    .fade-in.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  </style>
 </head>
-<body>
-	<style>
-    .btn-volver {
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            padding: 0.75rem 1.5rem;
-            margin: 1.25rem;
-            background-color: #024a70;
-            color: #fff;
-            text-decoration: none;
-            font-weight: 700;
-            border-radius: 9999px;
-            transition: background 0.3s, transform 0.2s;
-        }
 
-        .btn-volver:hover {
-            background-color: #146a97;
-            transform: translateY(-2px);
-        }
-img {
-  max-width: 100%;
-  height: auto;
-  display: block;
-  margin: 0 auto;
-}
-.container{
-	 background: linear-gradient(135deg, #efefef 13%, #ffffff
-             100%);
-}
+<body class="antialiased">
 
-	</style>
-	<div class="container">
-    <a href="product-owner.html" class="btn-volver">
-        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2" viewBox="0 0 20 20" fill="currentColor">
-            <path fill-rule="evenodd" d="M9.707 16.707a1 1 0 01-1.414 0l-6-6a1 1 0 010-1.414l6-6a1 1 0 011.414 1.414L5.414 9H17a1 1 0 110 2H5.414l4.293 4.293a1 1 0 010 1.414z" clip-rule="evenodd" />
-        </svg>
-        Volver
-    </a>
-			<!-- Top Navigation -->
-			<header class="codrops-header">
-				<h1>Ecotrack<span>Caso estudio</span></h1>
-			</header>
-			<div class="content">
-				
-<img id="proyecto-2" data-storage="ecotrack.png" src="" alt="Cargando..."></body>
+  <!-- NAV -->
+  <nav class="fixed top-0 w-full z-50 bg-cream/85 backdrop-blur-md border-b border-black/5">
+    <div class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
+      <a href="index.html" class="text-xl md:text-2xl font-semibold tracking-tight text-ink">
+        Javiera Maldonado
+      </a>
+
+      <div class="hidden md:flex items-center gap-8">
+        <a href="index.html#proyectos" class="nav-link text-sm font-medium text-ink/80 hover:text-ink">Proyectos</a>
+        <a href="#resumen" class="nav-link text-sm font-medium text-ink/80 hover:text-ink">Resumen</a>
+        <a href="#proceso" class="nav-link text-sm font-medium text-ink/80 hover:text-ink">Proceso</a>
+        <a href="#resultado" class="nav-link text-sm font-medium text-ink/80 hover:text-ink">Resultado</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <section class="pt-28 md:pt-32 pb-16 md:pb-20">
+    <div class="max-w-5xl mx-auto px-8 grid md:grid-cols-2 gap-12 items-center">
+      <div class="fade-in">
+        <p class="text-sm uppercase tracking-[0.2em] text-olive mb-4">
+          UX/UI Case Study
+        </p>
+
+        <h1 class="text-4xl md:text-6xl font-semibold leading-tight tracking-tight text-ink mb-6">
+          EcoTrack
+        </h1>
+
+        <p class="text-lg md:text-xl text-ink/65 mb-8 leading-relaxed max-w-xl">
+          App para fomentar hábitos sostenibles mediante gamificación, recompensas e impacto ambiental visible.
+        </p>
+
+        <div class="flex flex-wrap gap-3 mb-8">
+          <span class="px-4 py-2 bg-white border border-black/5 rounded-full text-sm">UX Research</span>
+          <span class="px-4 py-2 bg-white border border-black/5 rounded-full text-sm">UX/UI Design</span>
+          <span class="px-4 py-2 bg-white border border-black/5 rounded-full text-sm">Prototipado</span>
+        </div>
+      </div>
+
+      <div class="fade-in" style="transition-delay: 150ms;">
+        <div class="relative">
+          <div class="absolute -inset-6 rounded-[2rem] bg-gradient-to-br from-ecoSoft via-white to-cream blur-2xl opacity-80"></div>
+          <div class="relative bg-white border border-black/5 rounded-[2rem] shadow-card p-5">
+            <div class="aspect-[4/3] rounded-[1.5rem] bg-gradient-to-br from-[#dce8db] via-white to-[#c7dccb] overflow-hidden flex items-center justify-center">
+              <img
+                id="ecotrack-cover"
+                data-storage="ecotrack-portada.jpg"
+                src=""
+                alt="EcoTrack portada"
+                class="w-full h-full object-cover"
+                onerror="this.src='https://via.placeholder.com/1200x800?text=EcoTrack'"
+              >
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <main class="max-w-5xl mx-auto px-8 pb-24 space-y-20">
+
+    <!-- RESUMEN -->
+    <section id="resumen" class="fade-in">
+      <div class="mb-10">
+        <p class="text-sm uppercase tracking-[0.2em] text-olive mb-3">Resumen</p>
+        <h2 class="text-3xl md:text-4xl font-semibold tracking-tight text-ink">
+          Una visión general del proyecto
+        </h2>
+      </div>
+
+      <div class="grid md:grid-cols-2 xl:grid-cols-4 gap-5">
+        <div class="bg-white rounded-[1.75rem] p-6 border border-black/5 shadow-soft">
+          <p class="text-xs uppercase tracking-[0.18em] text-ink/45 mb-3">Problema</p>
+          <p class="text-ink/75 leading-relaxed">Muchas personas quieren adoptar hábitos sostenibles, pero les cuesta mantenerlos en el tiempo.</p>
+        </div>
+
+        <div class="bg-white rounded-[1.75rem] p-6 border border-black/5 shadow-soft">
+          <p class="text-xs uppercase tracking-[0.18em] text-ink/45 mb-3">Objetivo</p>
+          <p class="text-ink/75 leading-relaxed">Diseñar una experiencia que motive, acompañe y visibilice el impacto positivo de pequeñas acciones sostenibles.</p>
+        </div>
+
+        <div class="bg-white rounded-[1.75rem] p-6 border border-black/5 shadow-soft">
+          <p class="text-xs uppercase tracking-[0.18em] text-ink/45 mb-3">Métodos</p>
+          <p class="text-ink/75 leading-relaxed">Investigación, definición de usuario, user flow, wireframes, prototipo y principios de gamificación.</p>
+        </div>
+
+        <div class="bg-white rounded-[1.75rem] p-6 border border-black/5 shadow-soft">
+          <p class="text-xs uppercase tracking-[0.18em] text-ink/45 mb-3">Rol</p>
+          <p class="text-ink/75 leading-relaxed">UX Research, UX/UI Design, diseño de experiencia y definición de interacciones clave.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- CONTEXTO + PROBLEMA -->
+    <section class="grid lg:grid-cols-2 gap-6 fade-in">
+      <div class="bg-white rounded-[2rem] p-8 md:p-10 border border-black/5 shadow-soft">
+        <p class="text-sm uppercase tracking-[0.2em] text-olive mb-3">Contexto</p>
+        <h2 class="text-3xl font-semibold tracking-tight mb-5">
+          Tener intención no siempre se traduce en hábito.
+        </h2>
+        <p class="text-ink/65 leading-relaxed">
+          Muchas personas están interesadas en llevar una vida más sostenible, pero en la práctica les cuesta mantener constancia, visualizar su progreso y sentir que sus acciones generan un impacto real.
+        </p>
+      </div>
+
+      <div class="bg-green-900 text-white rounded-[2rem] p-8 md:p-10 shadow-card">
+        <p class="text-sm uppercase tracking-[0.2em] text-mustard mb-3">Problema</p>
+        <h2 class="text-3xl font-semibold tracking-tight mb-6">
+          Los usuarios quieren ser más sostenibles, pero necesitan motivación, estructura y feedback visible.
+        </h2>
+        <div class="space-y-4 text-white/75">
+          <p>• La sostenibilidad suele sentirse abstracta y difícil de medir.</p>
+          <p>• Mantener hábitos nuevos requiere motivación constante.</p>
+          <p>• Sin recompensas o seguimiento, la constancia disminuye.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- INVESTIGACIÓN -->
+    <section class="fade-in">
+      <div class="mb-10">
+        <p class="text-sm uppercase tracking-[0.2em] text-olive mb-3">Investigación</p>
+        <h2 class="text-3xl md:text-4xl font-semibold tracking-tight text-ink mb-4">
+          Hallazgos clave
+        </h2>
+        <p class="max-w-3xl text-lg text-ink/65 leading-relaxed">
+          La investigación permitió identificar qué factores ayudan o dificultan la adopción sostenida de hábitos ecológicos.
+        </p>
+      </div>
+
+      <div class="grid md:grid-cols-2 xl:grid-cols-3 gap-6">
+        <div class="bg-white rounded-[1.75rem] p-6 border border-black/5 shadow-soft">
+          <div class="w-12 h-12 rounded-2xl bg-ecoSoft text-eco flex items-center justify-center mb-4">
+            <i class="fa-solid fa-seedling"></i>
+          </div>
+          <p class="text-ink/75">Los usuarios valoran acciones simples que puedan integrar a su rutina diaria.</p>
+        </div>
+
+        <div class="bg-white rounded-[1.75rem] p-6 border border-black/5 shadow-soft">
+          <div class="w-12 h-12 rounded-2xl bg-ecoSoft text-eco flex items-center justify-center mb-4">
+            <i class="fa-solid fa-chart-line"></i>
+          </div>
+          <p class="text-ink/75">Visualizar progreso aumenta la motivación y percepción de logro.</p>
+        </div>
+
+        <div class="bg-white rounded-[1.75rem] p-6 border border-black/5 shadow-soft">
+          <div class="w-12 h-12 rounded-2xl bg-ecoSoft text-eco flex items-center justify-center mb-4">
+            <i class="fa-solid fa-trophy"></i>
+          </div>
+          <p class="text-ink/75">Las recompensas simbólicas ayudan a reforzar la constancia.</p>
+        </div>
+
+        <div class="bg-white rounded-[1.75rem] p-6 border border-black/5 shadow-soft">
+          <div class="w-12 h-12 rounded-2xl bg-ecoSoft text-eco flex items-center justify-center mb-4">
+            <i class="fa-solid fa-mobile-screen"></i>
+          </div>
+          <p class="text-ink/75">La experiencia debe sentirse liviana, inmediata y fácil de consultar.</p>
+        </div>
+
+        <div class="bg-white rounded-[1.75rem] p-6 border border-black/5 shadow-soft">
+          <div class="w-12 h-12 rounded-2xl bg-ecoSoft text-eco flex items-center justify-center mb-4">
+            <i class="fa-solid fa-users"></i>
+          </div>
+          <p class="text-ink/75">Los usuarios se sienten más comprometidos cuando perciben pertenencia a una causa colectiva.</p>
+        </div>
+
+        <div class="bg-white rounded-[1.75rem] p-6 border border-black/5 shadow-soft">
+          <div class="w-12 h-12 rounded-2xl bg-ecoSoft text-eco flex items-center justify-center mb-4">
+            <i class="fa-solid fa-bolt"></i>
+          </div>
+          <p class="text-ink/75">La fricción en el registro o seguimiento reduce rápidamente el interés.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- OPORTUNIDAD / SOLUCIÓN -->
+    <section class="grid lg:grid-cols-2 gap-6 fade-in">
+      <div class="bg-white rounded-[2rem] p-8 md:p-10 border border-black/5 shadow-soft">
+        <p class="text-sm uppercase tracking-[0.2em] text-olive mb-3">Oportunidad</p>
+        <h2 class="text-3xl font-semibold tracking-tight mb-4">
+          Transformar hábitos sostenibles en una experiencia visible, motivadora y continua.
+        </h2>
+        <p class="text-ink/65 leading-relaxed">
+          La oportunidad estaba en diseñar una app que no solo registre acciones, sino que genere compromiso a través de feedback, metas y recompensas.
+        </p>
+      </div>
+
+      <div class="bg-white rounded-[2rem] p-8 md:p-10 border border-black/5 shadow-soft">
+        <p class="text-sm uppercase tracking-[0.2em] text-olive mb-3">Solución</p>
+        <h2 class="text-3xl font-semibold tracking-tight mb-4">
+          EcoTrack convierte acciones sostenibles en progreso visible e incentivo continuo.
+        </h2>
+
+        <div class="grid grid-cols-2 gap-3 mt-6">
+          <div class="bg-ecoSoft text-eco rounded-xl px-4 py-3 text-sm">Seguimiento de hábitos</div>
+          <div class="bg-ecoSoft text-eco rounded-xl px-4 py-3 text-sm">Gamificación</div>
+          <div class="bg-ecoSoft text-eco rounded-xl px-4 py-3 text-sm">Recompensas</div>
+          <div class="bg-ecoSoft text-eco rounded-xl px-4 py-3 text-sm">Impacto visible</div>
+        </div>
+
+        <p class="text-ink/65 mt-6">
+          La propuesta ayuda a sostener la motivación y a reforzar el valor de pequeñas acciones cotidianas.
+        </p>
+      </div>
+    </section>
+
+    <!-- PROCESO -->
+    <section id="proceso" class="fade-in">
+      <div class="mb-10">
+        <p class="text-sm uppercase tracking-[0.2em] text-olive mb-3">Proceso UX</p>
+        <h2 class="text-3xl md:text-4xl font-semibold tracking-tight text-ink">
+          De la investigación a la experiencia final
+        </h2>
+      </div>
+
+      <div class="space-y-6">
+        <div class="bg-white rounded-[2rem] p-8 md:p-10 border border-black/5 shadow-soft">
+          <h3 class="text-2xl font-semibold mb-3">User Persona</h3>
+          <p class="text-ink/65 mb-6">
+            Se definieron perfiles que reflejan motivaciones, barreras y expectativas frente a hábitos sostenibles.
+          </p>
+          <div class="flex items-center justify-center text-ink/40">
+            <img id="studylink-flow" data-storage="userecotrack.png" src="" alt="User Flow" class="w-100 h-100 object-cover" onerror="this.src='https://via.placeholder.com/1200x600?text=User+Flow'">
+
+          </div>
+        </div>
+
+        <div class="bg-white rounded-[2rem] p-8 md:p-10 border border-black/5 shadow-soft">
+          <h3 class="text-2xl font-semibold mb-3">User Flow</h3>
+          <p class="text-ink/65 mb-6">
+            El flujo principal se definió como:
+            <strong>Onboarding → selección de hábitos → seguimiento → recompensas / progreso</strong>
+          </p>
+          <div class="rounded-[1.5rem] overflow-hidden bg-softwhite border border-black/5">
+            <img id="ecotrack-flow" data-storage="Stages Grid.png" src="" alt="User Flow EcoTrack" class="w-full h-full object-cover" onerror="this.src='https://via.placeholder.com/1200x600?text=User+Flow+EcoTrack'">
+          </div>
+        </div>
+
+        <div class="grid md:grid-cols-2 gap-6">
+          <div class="bg-white rounded-[2rem] p-8 md:p-10 border border-black/5 shadow-soft">
+            <h3 class="text-2xl font-semibold mb-3">Wireframes</h3>
+            <p class="text-ink/65 mb-6">
+              Se exploraron estructuras para dashboard, registro de hábitos y visualización de progreso.
+            </p>
+            <div class=" h-50 bg-softwhite  flex items-center justify-center text-ink/40">
+                        <img id="ecotrack-flow" data-storage="mockupecotrack.png" src="" alt="User Flow EcoTrack" class="w-full h-full object-cover" onerror="this.src='https://via.placeholder.com/1200x600?text=User+Flow+EcoTrack'">
+
+            </div>
+          </div>
+
+          <div class="bg-white rounded-[2rem] p-8 md:p-10 border border-black/5 shadow-soft">
+            <h3 class="text-2xl font-semibold mb-3">Prototipo</h3>
+            <p class="text-ink/65 mb-6">
+              El prototipo priorizó claridad, motivación visual y una experiencia simple de registrar y revisar hábitos.
+            </p>
+            <div class=" h-50 bg-softwhite  flex items-center justify-center text-ink/40">
+                        <img id="ecotrack-flow" data-storage="ecotrackproto.png" src="" alt="User Flow EcoTrack" class="w-full h-full object-cover" onerror="this.src='https://via.placeholder.com/1200x600?text=User+Flow+EcoTrack'">
+
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- DECISIONES -->
+    <section class="fade-in">
+      <div class="mb-10">
+        <p class="text-sm uppercase tracking-[0.2em] text-olive mb-3">Decisiones de diseño</p>
+        <h2 class="text-3xl md:text-4xl font-semibold tracking-tight text-ink">
+          Principios que guiaron la experiencia
+        </h2>
+      </div>
+
+      <div class="grid md:grid-cols-3 gap-6">
+        <div class="bg-white rounded-[1.75rem] p-6 border border-black/5 shadow-soft">
+          <div class="h-1.5 w-12 bg-green-900 rounded-full mb-4"></div>
+          <h4 class="text-xl font-semibold mb-2">Motivación visible</h4>
+          <p class="text-ink/65">El progreso debía ser fácil de entender y gratificante visualmente.</p>
+        </div>
+
+        <div class="bg-white rounded-[1.75rem] p-6 border border-black/5 shadow-soft">
+          <div class="h-1.5 w-12 bg-green-900 rounded-full mb-4"></div>
+          <h4 class="text-xl font-semibold mb-2">Fricción mínima</h4>
+          <p class="text-ink/65">Registrar hábitos debía sentirse rápido y natural dentro de la rutina diaria.</p>
+        </div>
+
+        <div class="bg-white rounded-[1.75rem] p-6 border border-black/5 shadow-soft">
+          <div class="h-1.5 w-12 bg-green-900 rounded-full mb-4"></div>
+          <h4 class="text-xl font-semibold mb-2">Sistema de recompensa</h4>
+          <p class="text-ink/65">La gamificación se usó como refuerzo del comportamiento, no como distracción.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- RESULTADO -->
+    <section id="resultado" class="grid lg:grid-cols-2 gap-6 fade-in">
+      <div class="bg-white rounded-[2rem] p-8 md:p-10 border border-black/5 shadow-soft">
+        <p class="text-sm uppercase tracking-[0.2em] text-olive mb-3">Aprendizajes</p>
+        <h2 class="text-3xl font-semibold tracking-tight mb-6">Qué me dejó este proyecto</h2>
+        <ul class="space-y-3 text-ink/70">
+          <li>• Los hábitos sostenibles necesitan refuerzo y continuidad para mantenerse.</li>
+          <li>• Ver el impacto motiva más que solo registrar acciones.</li>
+          <li>• La gamificación funciona mejor cuando apoya objetivos claros.</li>
+          <li>• La experiencia debe equilibrar motivación, simplicidad y utilidad.</li>
+        </ul>
+      </div>
+
+      <div class="bg-green-900 text-white rounded-[2rem] p-8 md:p-10 shadow-card">
+        <p class="text-sm uppercase tracking-[0.2em] text-mustard mb-3">Desafíos y mejoras</p>
+        <h2 class="text-3xl font-semibold tracking-tight mb-6">Qué seguiría iterando</h2>
+
+        <div class="space-y-6">
+          <div>
+            <h4 class="font-semibold text-mustard mb-2">Principales desafíos</h4>
+            <ul class="space-y-2 text-white/75">
+              <li>• Diseñar una experiencia motivadora sin sobrecargar la interfaz.</li>
+              <li>• Encontrar el balance correcto entre juego y utilidad.</li>
+              <li>• Mantener el interés del usuario en el tiempo.</li>
+            </ul>
+          </div>
+
+          <div class="border-t border-white/10 pt-6">
+            <h4 class="font-semibold text-mustard mb-2">Mejoras futuras</h4>
+            <ul class="space-y-2 text-white/75">
+              <li>• Testear con usuarios reales la efectividad de recompensas y métricas.</li>
+              <li>• Incorporar metas personalizadas.</li>
+              <li>• Integrar componentes sociales o comunitarios.</li>
+              <li>• Medir mejor el impacto acumulado de las acciones.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="fade-in">
+      <div class="rounded-[2rem] bg-white border border-black/5 shadow-card p-8 md:p-12 text-center">
+
+        <h2 class="text-3xl md:text-4xl font-semibold tracking-tight text-ink mb-4">
+          Ver prototipo de EcoTrack
+        </h2>
+
+        <a href="https://www.figma.com/proto/OKnOmmPmhTqXJEiZKPsbpo/Portafolio?node-id=282-256&p=f&t=Aa8mmrlLgQEIUaKe-1&scaling=scale-down&content-scaling=fixed&page-id=0%3A1&starting-point-node-id=282%3A256&show-proto-sidebar=1" class="inline-flex items-center gap-3 rounded-full bg-ink text-white px-8 py-4 font-medium hover:opacity-90 transition">
+          Ir a Figma
+          <i class="fa-solid fa-arrow-up-right-from-square"></i>
+        </a>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="py-10 border-t border-black/5 text-center text-ink/50 text-sm">
+    <p>EcoTrack · UX/UI Case Study</p>
+  </footer>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("visible");
+          }
+        });
+      }, { threshold: 0.12 });
+
+      document.querySelectorAll(".fade-in").forEach(el => observer.observe(el));
+    });
+  </script>
 </body>
 </html>

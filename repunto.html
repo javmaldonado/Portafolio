@@ -1,71 +1,464 @@
 <!DOCTYPE html>
-<html>
+<html lang="es" class="scroll-smooth">
 <head>
-		<meta charset="UTF-8" />
-		<meta http-equiv="X-UA-Compatible" content="IE=edge"> 
-		<meta name="viewport" content="width=device-width, initial-scale=1"> 
-		<title>Portafolio de trabajo</title>
-		<meta name="description" content="Hover Effect Ideas: Inspiration for subtle hover effects" />
-		<meta name="keywords" content="hover effect, inspiration, grid, thumbnail, transition, subtle, web design" />
-		<meta name="author" content="Codrops" />
-		<link rel="shortcut icon" href="../favicon.ico">
-		<link href='http://fonts.googleapis.com/css?family=Raleway:400,800,300' rel='stylesheet' type='text/css'>
-		<link rel="stylesheet" type="text/css" href="css/normalize.css" />
-		<link rel="stylesheet" type="text/css" href="css/demo.css" />
-		<link rel="stylesheet" type="text/css" href="css/set1.css" />
-		    <script src="https://cdn.tailwindcss.com"></script>
-            <script type="module" src="firebase-config.js"></script>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>RePunto | Caso de estudio UX</title>
 
-		<!--[if IE]>
-  		<script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
-		<![endif]-->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script type="module" src="firebase-config.js"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            ink: "#151515",
+            cream: "#f6f1ea",
+            sand: "#e8ddd0",
+            olive: "#7a8b6f",
+            coral: "#d97962",
+            mustard: "#d2a437",
+            plum: "#6f3d46",
+            softwhite: "#fcfaf7",
+            repunto: "#6c8f5f",
+            repuntoSoft: "#e5efdf"
+          },
+          boxShadow: {
+            soft: "0 10px 35px rgba(0,0,0,0.08)",
+            card: "0 14px 40px rgba(0,0,0,0.08)"
+          },
+          fontFamily: {
+            sans: ["Inter", "sans-serif"]
+          }
+        }
+      }
+    }
+  </script>
+
+  <style>
+    body {
+      font-family: 'Inter', sans-serif;
+      background: #f6f1ea;
+      color: #151515;
+    }
+
+    .nav-link {
+      position: relative;
+      transition: color .3s ease;
+    }
+
+    .nav-link::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      bottom: -6px;
+      width: 0;
+      height: 2px;
+      background: #6f3d46;
+      transition: width .3s ease;
+    }
+
+    .nav-link:hover::after {
+      width: 100%;
+    }
+
+    .fade-in {
+      opacity: 0;
+      transform: translateY(24px);
+      transition: all .7s ease;
+    }
+
+    .fade-in.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  </style>
 </head>
-<body>
-	<style>
-     .btn-volver {
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            padding: 0.75rem 1.5rem;
-            margin: 1.25rem;
-            background-color: #024a70;
-            color: #fff;
-            text-decoration: none;
-            font-weight: 700;
-            border-radius: 9999px;
-            transition: background 0.3s, transform 0.2s;
-        }
 
-        .btn-volver:hover {
-            background-color: #146a97;
-            transform: translateY(-2px);
-        }
-img {
-  max-width: 100%;
-  height: auto;
-  display: block;
-  margin: 0 auto;
-}
-.container{
-	 background: linear-gradient(135deg, #efefef 13%, #ffffff
-             100%);
-}
+<body class="antialiased">
 
-	</style>
-	<div class="container">			
-			    <a href="diseno-ux.html" class="btn-volver">
-        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2" viewBox="0 0 20 20" fill="currentColor">
-            <path fill-rule="evenodd" d="M9.707 16.707a1 1 0 01-1.414 0l-6-6a1 1 0 010-1.414l6-6a1 1 0 011.414 1.414L5.414 9H17a1 1 0 110 2H5.414l4.293 4.293a1 1 0 010 1.414z" clip-rule="evenodd" />
-        </svg>
-        Volver
-    </a>
-			<!-- Top Navigation -->
-			<header class="codrops-header">
-				<h1>RePunto <span>Encuentra tu punto de reciclaje más cercano </span></h1>
-			</header>
-			<div class="content">
-	
-<img id="proyecto-3" data-storage="repunto.png" src="" alt="Cargando...">
- 
+  <!-- NAV -->
+  <nav class="fixed top-0 w-full z-50 bg-cream/85 backdrop-blur-md border-b border-black/5">
+    <div class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
+      <a href="index.html" class="text-xl md:text-2xl font-semibold tracking-tight text-ink">
+        Javiera Maldonado
+      </a>
+
+      <div class="hidden md:flex items-center gap-8">
+        <a href="index.html#proyectos" class="nav-link text-sm font-medium text-ink/80 hover:text-ink">Proyectos</a>
+        <a href="#resumen" class="nav-link text-sm font-medium text-ink/80 hover:text-ink">Resumen</a>
+        <a href="#proceso" class="nav-link text-sm font-medium text-ink/80 hover:text-ink">Proceso</a>
+        <a href="#resultado" class="nav-link text-sm font-medium text-ink/80 hover:text-ink">Resultado</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <section class="pt-28 md:pt-32 pb-16 md:pb-20">
+    <div class="max-w-5xl mx-auto px-8 grid md:grid-cols-2 gap-12 items-center">
+      <div class="fade-in">
+        <p class="text-sm uppercase tracking-[0.2em] text-olive mb-4">
+          UX/UI Case Study
+        </p>
+
+        <h1 class="text-4xl md:text-6xl font-semibold leading-tight tracking-tight text-ink mb-6">
+          RePunto
+        </h1>
+
+        <p class="text-lg md:text-xl text-ink/65 mb-8 leading-relaxed max-w-xl">
+          Plataforma para encontrar puntos de reciclaje cercanos y facilitar una experiencia más simple, clara y útil para reciclar.
+        </p>
+
+        <div class="flex flex-wrap gap-3 mb-8">
+          <span class="px-4 py-2 bg-white border border-black/5 rounded-full text-sm">UX Research</span>
+          <span class="px-4 py-2 bg-white border border-black/5 rounded-full text-sm">UX/UI Design</span>
+          <span class="px-4 py-2 bg-white border border-black/5 rounded-full text-sm">Prototipo</span>
+        </div>
+
+        <div class="flex flex-wrap gap-4">
+          <a href="#resumen" class="px-7 py-3.5 rounded-full bg-ink text-white text-sm font-medium hover:opacity-90 transition">
+            Ver caso
+          </a>
+
+        </div>
+      </div>
+
+      <div class="fade-in" style="transition-delay: 150ms;">
+        <div class="relative">
+          <div class="absolute -inset-6 rounded-[2rem] bg-gradient-to-br from-repuntoSoft via-white to-cream blur-2xl opacity-80"></div>
+          <div class="relative bg-white border border-black/5 rounded-[2rem] shadow-card p-5">
+            <div class="aspect-[4/3] rounded-[1.5rem] bg-gradient-to-br from-[#dce8db] via-white to-[#c7dccb] overflow-hidden flex items-center justify-center">
+              <img
+                id="repunto-cover"
+                data-storage="boobles.jpg"
+                src=""
+                alt="RePunto portada"
+                class="w-full h-full object-cover"
+                onerror="this.src='https://via.placeholder.com/1200x800?text=RePunto'"
+              >
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <main class="max-w-5xl mx-auto px-8 pb-24 space-y-20">
+
+    <!-- RESUMEN -->
+    <section id="resumen" class="fade-in">
+      <div class="mb-10">
+        <p class="text-sm uppercase tracking-[0.2em] text-olive mb-3">Resumen</p>
+        <h2 class="text-3xl md:text-4xl font-semibold tracking-tight text-ink">
+          Una visión general del proyecto
+        </h2>
+      </div>
+
+      <div class="grid md:grid-cols-2 xl:grid-cols-4 gap-5">
+        <div class="bg-white rounded-[1.75rem] p-6 border border-black/5 shadow-soft">
+          <p class="text-xs uppercase tracking-[0.18em] text-ink/45 mb-3">Problema</p>
+          <p class="text-ink/75 leading-relaxed">Las personas no saben dónde reciclar ni qué materiales acepta cada punto.</p>
+        </div>
+
+        <div class="bg-white rounded-[1.75rem] p-6 border border-black/5 shadow-soft">
+          <p class="text-xs uppercase tracking-[0.18em] text-ink/45 mb-3">Objetivo</p>
+          <p class="text-ink/75 leading-relaxed">Facilitar la búsqueda de puntos de reciclaje cercanos y hacer más clara la decisión del usuario.</p>
+        </div>
+
+        <div class="bg-white rounded-[1.75rem] p-6 border border-black/5 shadow-soft">
+          <p class="text-xs uppercase tracking-[0.18em] text-ink/45 mb-3">Métodos</p>
+          <p class="text-ink/75 leading-relaxed">Investigación, definición del problema, flujos, wireframes y propuesta visual.</p>
+        </div>
+
+        <div class="bg-white rounded-[1.75rem] p-6 border border-black/5 shadow-soft">
+          <p class="text-xs uppercase tracking-[0.18em] text-ink/45 mb-3">Rol</p>
+          <p class="text-ink/75 leading-relaxed">UX Research, UX/UI Design, estructura de contenido y diseño de experiencia.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- CONTEXTO + PROBLEMA -->
+    <section class="grid lg:grid-cols-2 gap-6 fade-in">
+      <div class="bg-green-800 text-white rounded-[2rem] p-8 md:p-10 border border-black/5 shadow-soft">
+        <p class="text-sm uppercase tracking-[0.2em] text-mustard mb-3">Contexto</p>
+        <h2 class="text-3xl font-semibold tracking-tight mb-5">
+          Reciclar debería ser simple, pero muchas veces no lo es.
+        </h2>
+        <p class="text-white leading-relaxed">
+          Aunque muchas personas tienen la intención de reciclar, en la práctica enfrentan barreras como falta de información, puntos poco visibles, dudas sobre materiales aceptados y dificultad para encontrar lugares cercanos.
+        </p>
+      </div>
+
+      <div class="bg-blue-800 text-white rounded-[2rem] p-8 md:p-10 shadow-card">
+        <p class="text-sm uppercase tracking-[0.2em] text-mustard mb-3">Problema</p>
+        <h2 class="text-3xl font-semibold tracking-tight mb-6">
+          Los usuarios quieren reciclar, pero no saben dónde ni cómo hacerlo de forma clara.
+        </h2>
+        <div class="space-y-4 text-white/75">
+          <p>• Falta de visibilidad de puntos de reciclaje cercanos.</p>
+          <p>• Dudas sobre qué materiales acepta cada lugar.</p>
+          <p>• Frustración por información dispersa o poco confiable.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- INVESTIGACIÓN -->
+    <section class="fade-in">
+      <div class="mb-10">
+        <p class="text-sm uppercase tracking-[0.2em] text-olive mb-3">Investigación</p>
+        <h2 class="text-3xl md:text-4xl font-semibold tracking-tight text-ink mb-4">
+          Hallazgos clave
+        </h2>
+        <p class="max-w-3xl text-lg text-ink/65 leading-relaxed">
+          La investigación permitió entender por qué muchas personas, aun teniendo intención de reciclar, terminan abandonando la acción.
+        </p>
+      </div>
+
+      <div class="grid md:grid-cols-2 xl:grid-cols-3 gap-6">
+        <div class="bg-white rounded-[1.75rem] p-6 border border-black/5 shadow-soft">
+          <div class="w-12 h-12 rounded-2xl bg-repuntoSoft text-repunto flex items-center justify-center mb-4">
+            <i class="fa-solid fa-location-dot"></i>
+          </div>
+          <p class="text-ink/75">Los usuarios no identifican fácilmente puntos de reciclaje cercanos.</p>
+        </div>
+
+        <div class="bg-white rounded-[1.75rem] p-6 border border-black/5 shadow-soft">
+          <div class="w-12 h-12 rounded-2xl bg-repuntoSoft text-repunto flex items-center justify-center mb-4">
+            <i class="fa-solid fa-circle-question"></i>
+          </div>
+          <p class="text-ink/75">Existen dudas sobre qué materiales se aceptan en cada punto.</p>
+        </div>
+
+        <div class="bg-white rounded-[1.75rem] p-6 border border-black/5 shadow-soft">
+          <div class="w-12 h-12 rounded-2xl bg-repuntoSoft text-repunto flex items-center justify-center mb-4">
+            <i class="fa-solid fa-route"></i>
+          </div>
+          <p class="text-ink/75">La distancia y el tiempo influyen directamente en la decisión de reciclar.</p>
+        </div>
+
+        <div class="bg-white rounded-[1.75rem] p-6 border border-black/5 shadow-soft">
+          <div class="w-12 h-12 rounded-2xl bg-repuntoSoft text-repunto flex items-center justify-center mb-4">
+            <i class="fa-solid fa-mobile-screen-button"></i>
+          </div>
+          <p class="text-ink/75">Los usuarios esperan una experiencia rápida, visual y simple desde el móvil.</p>
+        </div>
+
+        <div class="bg-white rounded-[1.75rem] p-6 border border-black/5 shadow-soft">
+          <div class="w-12 h-12 rounded-2xl bg-repuntoSoft text-repunto flex items-center justify-center mb-4">
+            <i class="fa-solid fa-filter"></i>
+          </div>
+          <p class="text-ink/75">Filtrar por tipo de residuo ayuda a reducir confusión y tiempo de búsqueda.</p>
+        </div>
+
+        <div class="bg-white rounded-[1.75rem] p-6 border border-black/5 shadow-soft">
+          <div class="w-12 h-12 rounded-2xl bg-repuntoSoft text-repunto flex items-center justify-center mb-4">
+            <i class="fa-solid fa-check-double"></i>
+          </div>
+          <p class="text-ink/75">La claridad de la información aumenta la confianza para actuar.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- OPORTUNIDAD / SOLUCIÓN -->
+    <section class="grid lg:grid-cols-2 gap-6 fade-in">
+      <div class="bg-blue-800 text-white rounded-[2rem] p-8 md:p-10 border border-black/5 shadow-soft">
+        <p class="text-sm uppercase tracking-[0.2em] text-yellow-400  mb-3">Oportunidad</p>
+        <h2 class="text-3xl font-semibold tracking-tight mb-4">
+          Diseñar una herramienta que convierta la intención de reciclar en una acción concreta.
+        </h2>
+        <p class="text-white leading-relaxed">
+          La oportunidad estaba en centralizar la información, hacerla fácil de entender y reducir la fricción para encontrar rápidamente un punto útil.
+        </p>
+      </div>
+
+      <div class="bg-white rounded-[2rem] p-8 md:p-10 border border-black/5 shadow-soft">
+        <p class="text-sm uppercase tracking-[0.2em] text-olive mb-3">Solución</p>
+        <h2 class="text-3xl font-semibold tracking-tight mb-4">
+          RePunto ayuda a encontrar puntos de reciclaje según ubicación y tipo de residuo.
+        </h2>
+
+        <div class="grid grid-cols-2 gap-3 mt-6">
+          <div class="bg-yellow-400 rounded-xl px-4 py-3 text-sm">Ubicación cercana</div>
+          <div class="bg-yellow-400  rounded-xl px-4 py-3 text-sm">Tipo de material</div>
+          <div class="bg-yellow-400  rounded-xl px-4 py-3 text-sm">Información clara</div>
+          <div class="bg-yellow-400  rounded-xl px-4 py-3 text-sm">Acceso rápido</div>
+        </div>
+
+        <p class="text-ink/65 mt-6">
+          La propuesta busca reducir incertidumbre y facilitar una experiencia práctica para usuarios que quieren reciclar sin complicaciones.
+        </p>
+      </div>
+    </section>
+
+    <!-- PROCESO -->
+    <section id="proceso" class="fade-in">
+      <div class="mb-10">
+        <p class="text-sm uppercase tracking-[0.2em] text-olive mb-3">Proceso UX</p>
+        <h2 class="text-3xl md:text-4xl font-semibold tracking-tight text-ink">
+          De la necesidad a la solución
+        </h2>
+      </div>
+
+      <div class="space-y-6">
+        <div class="bg-white rounded-[2rem] p-8 md:p-10 border border-black/5 shadow-soft">
+          <h3 class="text-2xl font-semibold mb-3">Definición del usuario</h3>
+          <p class="text-ink/65 mb-6">
+            Se identificaron necesidades, comportamientos y frustraciones relacionadas con el reciclaje cotidiano.
+          </p>
+          <div class="">
+            <img id="user" data-storage="userrepunto.png" src="" alt="user" class="w-100 h-100 object-cover" onerror="this.src='https://via.placeholder.com/1200x600?text=MVP'">
+          </div>
+        </div>
+        <div class="bg-white rounded-[2rem] p-8 md:p-10 border border-black/5 shadow-soft">
+          <h3 class="text-2xl font-semibold mb-3">MVP</h3>
+          <p class="text-ink/65 mb-6">
+
+            <img id="mvp" data-storage="mvprepunto.png" src="" alt="mvp" class="w-100 h-100 object-cover" onerror="this.src='https://via.placeholder.com/1200x600?text=MVP'">
+          </p>
+        </div>
+
+
+        <div class="bg-white rounded-[2rem] p-8 md:p-10 border border-black/5 shadow-soft">
+          <h3 class="text-2xl font-semibold mb-3">User Flow</h3>
+          <p class="text-ink/65 mb-6">
+            El flujo principal se definió como:
+            <strong>Inicio → búsqueda / filtros → punto de reciclaje → detalle</strong>
+            <img id="userflowrepunto" data-storage="userflowrepunto.png" src="" alt="flow" class="w-100 h-100 object-cover" onerror="this.src='https://via.placeholder.com/1200x600?text=MVP'">
+          </p>
+        </div>
+
+        <div class="grid md:grid-cols-2 gap-6">
+          <div class="bg-white rounded-[2rem] p-8 md:p-10 border border-black/5 shadow-soft">
+            <h3 class="text-2xl font-semibold mb-3">Wireframes</h3>
+            <p class="text-ink/65 mb-6">
+              Se exploraron alternativas para organizar filtros, mapa e información relevante.
+            </p>
+            <div class="">
+            <img id="wireframesrepunto" data-storage="wireframerepunto.png" src="" alt="wireframes" class="w-100 h-100 object-cover" onerror="this.src='https://via.placeholder.com/1200x600?text=MVP'">
+            </div>
+          </div>
+
+          <div class="bg-white rounded-[2rem] p-8 md:p-10 border border-black/5 shadow-soft">
+            <h3 class="text-2xl font-semibold mb-3">Prototipo</h3>
+            <p class="text-ink/65 mb-6">
+              El prototipo final se enfocó en claridad, rapidez y facilidad de navegación.
+            </p>
+            <div class="">
+            <img id="mockuprepunto" data-storage="mockuprepunto.png" src="" alt="mockuprepunto" class="w-100 h-100 object-cover" onerror="this.src='https://via.placeholder.com/1200x600?text=MVP'">
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- DECISIONES -->
+    <section class="fade-in">
+      <div class="mb-10">
+        <p class="text-sm uppercase tracking-[0.2em] text-olive mb-3">Decisiones de diseño</p>
+        <h2 class="text-3xl md:text-4xl font-semibold tracking-tight text-ink">
+          Principios que guiaron la experiencia
+        </h2>
+      </div>
+
+      <div class="grid md:grid-cols-3 gap-6">
+        <div class="bg-white rounded-[1.75rem] p-6 border border-black/5 shadow-soft">
+          <div class="h-1.5 w-12 bg-yellow-400  rounded-full mb-4"></div>
+          <h4 class="text-xl font-semibold mb-2">Búsqueda simple</h4>
+          <p class="text-ink/65">Reducir pasos para encontrar un punto útil rápidamente.</p>
+        </div>
+
+        <div class="bg-white rounded-[1.75rem] p-6 border border-black/5 shadow-soft">
+          <div class="h-1.5 w-12 bg-yellow-400 rounded-full mb-4"></div>
+          <h4 class="text-xl font-semibold mb-2">Información clara</h4>
+          <p class="text-ink/65">Mostrar materiales aceptados y datos relevantes sin ambigüedad.</p>
+        </div>
+
+        <div class="bg-white rounded-[1.75rem] p-6 border border-black/5 shadow-soft">
+          <div class="h-1.5 w-12 bg-yellow-400  rounded-full mb-4"></div>
+          <h4 class="text-xl font-semibold mb-2">Fricción mínima</h4>
+          <p class="text-ink/65">Facilitar decisiones rápidas desde el móvil y en contexto cotidiano.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- RESULTADO -->
+    <section id="resultado" class="grid lg:grid-cols-2 gap-6 fade-in">
+      <div class="bg-white rounded-[2rem] p-8 md:p-10 border border-black/5 shadow-soft">
+        <p class="text-sm uppercase tracking-[0.2em] text-olive mb-3">Aprendizajes</p>
+        <h2 class="text-3xl font-semibold tracking-tight mb-6">Qué me dejó este proyecto</h2>
+        <ul class="space-y-3 text-ink/70">
+          <li>• La intención de reciclar no basta si la experiencia es confusa.</li>
+          <li>• La información clara y localizada mejora la probabilidad de acción.</li>
+          <li>• Diseñar para contexto cotidiano exige rapidez y simplicidad.</li>
+          <li>• Filtrar y priorizar contenido reduce fricción.</li>
+        </ul>
+      </div>
+
+      <div class="bg-green-800 text-white rounded-[2rem] p-8 md:p-10 shadow-card">
+        <p class="text-sm uppercase tracking-[0.2em] text-mustard mb-3">Desafíos y mejoras</p>
+        <h2 class="text-3xl font-semibold tracking-tight mb-6">Qué seguiría iterando</h2>
+
+        <div class="space-y-6">
+          <div>
+            <h4 class="font-semibold text-mustard mb-2">Principales desafíos</h4>
+            <ul class="space-y-2 text-white/75">
+              <li>• Mantener simple una experiencia basada en ubicación y filtros.</li>
+              <li>• Asegurar información confiable y actualizada.</li>
+              <li>• Diseñar una experiencia útil para distintos perfiles de usuarios.</li>
+            </ul>
+          </div>
+
+          <div class="border-t border-white/10 pt-6">
+            <h4 class="font-semibold text-mustard mb-2">Mejoras futuras</h4>
+            <ul class="space-y-2 text-white/75">
+              <li>• Integrar mapa interactivo con navegación.</li>
+              <li>• Incluir estados de disponibilidad o actualización del punto.</li>
+              <li>• Añadir favoritos o historial de puntos visitados.</li>
+              <li>• Validar la experiencia con más usuarios reales.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="fade-in">
+      <div class="rounded-[2rem] bg-white border border-black/5 shadow-card p-8 md:p-12 text-center">
+        <p class="text-sm uppercase tracking-[0.2em] text-olive mb-3">Siguiente paso</p>
+        <h2 class="text-3xl md:text-4xl font-semibold tracking-tight text-ink mb-4">
+          Ver prototipo de RePunto
+        </h2>
+        <p class="max-w-2xl mx-auto text-ink/60 mb-8">
+          Aquí puedes enlazar el prototipo en Figma o una vista navegable del flujo principal.
+        </p>
+        <a href="https://www.figma.com/proto/hMRGE0YoRORtw3CYyr3rnA/PROTOTIPO-FUNCIONAL-FINAL?node-id=1079-6886&p=f&t=eBYFX8SO7L25Etff-1&scaling=scale-down&content-scaling=fixed&page-id=271%3A5583&starting-point-node-id=1058%3A6464">
+          Ver prototipo
+          <i class="fa-solid fa-arrow-up-right-from-square"></i>
+        </a>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="py-10 border-t border-black/5 text-center text-ink/50 text-sm">
+    <p>RePunto · UX/UI Case Study</p>
+  </footer>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("visible");
+          }
+        });
+      }, { threshold: 0.12 });
+
+      document.querySelectorAll(".fade-in").forEach(el => observer.observe(el));
+    });
+  </script>
 </body>
 </html>
